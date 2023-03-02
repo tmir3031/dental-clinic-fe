@@ -14,9 +14,29 @@ const routes: Routes = [
           import('./home/home.module').then((m) => m.HomeModule),
       },
       {
-        path: 'holidays',
+        path: 'about-us',
         loadChildren: () =>
-          import('./individual-holidays/individual-holidays.module').then((m) => m.IndividualHolidaysModule),
+          import('./about-us/about-us.module').then((m) => m.AboutUsModule),
+      },
+      {
+        path: 'services',
+        loadChildren: () =>
+          import('./dental-services/dental-services.module').then((m) => m.DentalServicesModule),
+      },
+      {
+        path: 'prices',
+        loadChildren: () =>
+          import('./prices/prices.module').then((m) => m.PricesModule),
+      },
+      {
+        path: 'contact',
+        loadChildren: () =>
+          import('./contact/contact.module').then((m) => m.ContactModule),
+      },
+      {
+        path: 'appointment',
+        loadChildren: () =>
+          import('./appointment/appointment.module').then((m) => m.AppointmentModule),
       }
     ]
   },

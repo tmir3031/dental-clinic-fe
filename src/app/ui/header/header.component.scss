@@ -11,7 +11,8 @@
 }
 
 .nav-link:hover {
-    color: var(--primary-color);
+  font-size: 18px;
+    //color: var(--primary-color);
     font-weight: bold;
     font-size: large;
   }
@@ -45,3 +46,11 @@
     margin-top: 0;
     margin-bottom: 0;
   }
+
+  a:hover {
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: underline;
+    color: red;
+  }
+  

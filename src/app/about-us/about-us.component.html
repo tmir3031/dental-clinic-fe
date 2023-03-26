@@ -1,18 +1,52 @@
-<p>
-  about-us works!
-</p>
-<div class="card">
-  <div class="card-header bg-secondary text-white fw-bold">
-    Angajati
+<div class="container">
+  <div class="jumbotron bg-gray text-white text-center title p-3">ECHIPA DENTAL CLINIC!</div>
+
+  <div class="card m-3">
+    <div class="jumbotron text-center text-dark m-3 p-3">Experiența noastră vastă ne permite să oferim servicii
+      stomatologice de
+      cea mai înaltă calitate, utilizând tehnologii avansate și cele mai noi metode de tratament.</div>
   </div>
-  <ul class="list-group list-group-flush">
-    <div *ngFor="let employee of employees">
-      <li class="list-group-item">
-        <div class="row">
-          <div class="col-9">{{employee.firstName + ' ' + employee.lastName}}
-          </div>
+
+  <div class="cards">
+    <div *ngFor="let doctor of doctors"
+         class="cards-style">
+      <div class="card"
+           style="width: 18rem;">
+        <img class="card-img-top"
+             src="assets/images/teeth9.jpg"
+             alt="Card image cap">
+        <div class="card-body text-center">
+          <h5 class="card-title ">{{doctor.lastName}} {{doctor.firstName}} </h5>
+          <div class="card-text">{{doctor.description}}</div>
+          <div class="card-text">Specializari:</div>
+          <div *ngFor="let specialization of doctor.specializationDetailsListItem
+          " class="card-text">{{specialization.name}}</div>
+          <div class="card-text">Email: {{doctor.email}}</div>
         </div>
-      </li>
+      </div>
     </div>
-  </ul>
+  </div>
+
+  <button *ngIf="isMenuScrolled"
+          (click)="scrollToTop()"
+          class="scroll-to-top-button">
+    <svg xmlns="http://www.w3.org/2000/svg"
+         fill="none"
+         viewBox="0 0 24 24"
+         stroke-width="2.5"
+         stroke="currentColor"
+         class="scroll-to-top-icon">
+      <path stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+    </svg>
+  </button>
+
+  <div class="d-flex justify-content-center">
+    <img src="assets/images/doctorss.png"
+    class="w-75 rounded-3 center"
+    alt="...">
+  </div>
+ 
+
 </div>

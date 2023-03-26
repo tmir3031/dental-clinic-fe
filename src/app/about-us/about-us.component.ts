@@ -1,31 +1,36 @@
-import { Component, OnInit } from '@angular/core';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { EmployeeService } from '../shared/services/employee.service';
-import { EmployeeDto } from './models/about-us.model';
+import { DoctorService } from '../shared/services/doctor.service';
+import { DoctorDto } from './models/about-us.model';
 
 @Component({
   selector: 'ado-about-us',
   templateUrl: './about-us.component.html',
   styleUrls: ['./about-us.component.scss']
 })
-export class AboutUsComponent implements OnInit {
-
-  employees?: EmployeeDto[];
-  selectedEmployee: EmployeeDto;
-  showEmployeeDetails = false;
+export class AboutUsComponent implements OnInit, OnDestroy {
+  public doctors: DoctorDto[];
   private subscription: Subscription;
-
-  constructor(private service: EmployeeService) {}
+  constructor(private service: DoctorService) { }
 
   ngOnInit(): void {
-    this.subscription = this.service.getEmployees().subscribe((data) => {
-      this.employees = data;
-    });
+    this.subscription = this.service.getDoctors().subscribe((data) => {
+      console.log(data);
+          this.doctors = data;
+        });
   }
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
+  }
+
+  isMenuScrolled = false;
+  @HostListener('window:scroll', ['$event'])
+  scrollCheck() {
+    this.isMenuScrolled = window.pageYOffset > 100;
+  }
+  scrollToTop() {
+    document.body.scrollIntoView({ behavior: 'smooth' });
   }
 
 }

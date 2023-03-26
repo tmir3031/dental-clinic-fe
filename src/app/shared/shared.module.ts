@@ -6,6 +6,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
@@ -18,12 +19,16 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     imports: [
         CommonModule,
         NgbModule,
-        FullCalendarModule
+        FullCalendarModule,
+        ReactiveFormsModule,
+        FormsModule
     ],
     exports: [
         CommonModule,
         NgbModule,
-        FullCalendarModule
+        FullCalendarModule,
+        ReactiveFormsModule,
+        FormsModule
     ],
     providers: []
 })

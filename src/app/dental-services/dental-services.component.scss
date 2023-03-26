@@ -1,0 +1,66 @@
+.book-online:hover {
+    background-color: #6f738a;
+    color: white;
+  }
+  
+  .description-text {
+    font-size: 22px;
+    font-weight: 800;
+    color: #000B6C !important;
+    text-align: center;
+  }
+  
+  :host {
+    display: flex;
+    flex-direction: row;
+
+    .container {
+        display: flex;
+        flex-direction: column;
+
+        .title {
+            font-size: 20px;
+        }
+
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+
+            .cards-style {
+                padding: 15px;
+
+                .cards-buttons {
+                    display: flex;
+                    justify-content: space-between;
+                }
+
+            }
+        }
+      .scroll-to-top-button{
+        display: flex;
+        position: fixed;
+        bottom:60px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        background-color: #4D57AB;
+        border-radius: 9999px;
+        border: unset;
+        color:white;
+        transition-property: all;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 300ms;
+        &:hover{
+          background-color: #6c73b8;
+        }
+      }
+      .scroll-to-top-icon{
+        width: 24px;
+        height: 24px;
+        margin: auto;
+      }
+    }
+
+}

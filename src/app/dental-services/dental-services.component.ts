@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 
 @Component({
   selector: 'ado-dental-services',
@@ -10,6 +10,17 @@ export class DentalServicesComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log()
+  }
+
+  
+  isMenuScrolled = false;
+  @HostListener('window:scroll', ['$event'])
+  scrollCheck() {
+    this.isMenuScrolled = window.pageYOffset > 100;
+  }
+  scrollToTop() {
+    document.body.scrollIntoView({ behavior: 'smooth' });
   }
 
 }

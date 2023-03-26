@@ -1,3 +1,147 @@
-<p>
-  dental-services works!
-</p>
+<div class="container">
+  <div class="description-text bg-tertiary rounded-3 my-3">
+    La clinica noastră stomatologică, oferim o gamă completă de servicii stomatologice pentru a vă ajuta să vă mențineți
+    sănătatea dentară și să vă îmbunătățiți zâmbetul.
+    <br> Serviciile noastre includ:
+  </div>
+
+  <ngb-accordion [closeOthers]="true" #acc="ngbAccordion">
+    <ngb-panel id="toggle-1"
+               title="IMPLANTOLOGIE">
+      <ng-template ngbPanelContent>
+        Implantologia este o ramură chirurgicală a stomatologiei care vă ajută să vă înlocuiți dinții pierduți, cu cel
+        mai modern dispozitiv în domeniu – implantul dentar. <br>
+        Implantul dentar este o rădăcină artificială care se inseră în os și care creează suportul pentru viitoarea
+        lucrare dentară, cum ar fi o coroană dentară, punte, proteze dentare. Baza pentru implanturi dentare moderne
+        este un proces biologic numit osteointegrare, unde materiale cum ar fi titaniul formează o legatură cu osul.
+        <br>
+        Tehnica de inserare este nedureroasă și este realizată de medici chirurgi specializați în implantologie.
+      </ng-template>
+    </ngb-panel>
+    <ngb-panel id="toggle-2"
+               title="ORTODONȚIE">
+      <ng-template ngbPanelContent>
+        Ortodonția se ocupă cu corectarea poziției dinților și a ocluziei (mușcăturii).<br>
+        O poziție greșită a dinților nu permite curățarea corectă și duce la apariția cariilor, îmbolnăvirii gingiilor
+        și osului.<br>
+        O mușcătură greșită duce la dureri articulare (ale articulației dintre mandibulă și craniu), dureri de cap,
+        probleme digestive cauzate de masticația necorespunzătoare și, evident, probleme de ordin estetic.
+        Ortodonția se adresează nu doar copiilor (la care un control ortodontic timpuriu este foarte indicat – cu cât
+        tratamentul este inițiat mai repede, cu atât mai bine), ci și adulților.<br>
+        În cazul adulților, tratamentul ortodontic poate fi o etapă necesară reabilitării complete – stomatologul indică
+        tratamentul ortodontic, pentru a putea realiza lucrările protetice/pe implanturi în poziție corectă.
+        Tratamentul ortodontic se efectuează cu aparate fixe sau mobile, în funcție de vârsta și de particularitățile
+        fiecărui pacient.
+      </ng-template>
+    </ngb-panel>
+    <ngb-panel id="toggle-3"
+               title="PEDODONȚIE">
+      <ng-template ngbPanelContent>
+        Pedodonția este o specialitate stomatologică ce se adresează copiilor, ocupându-se cu profilaxia și tratamentul
+        dinților de lapte și a dinților permanenți tineri.<br>
+        Vizita copilului la dentist trebuie să se producă cât de timpuriu; e de dorit ca aceasta să se desfășoare într-o
+        atmosferă veselă, relaxată, astfel încât copilul s-o perceapă ca pe o joacă.<br>
+      </ng-template>
+    </ngb-panel>
+    <ngb-panel id="toggle-4"
+               title="PROTETICĂ">
+      <ng-template ngbPanelContent>
+        Protetica dentară (reconstrucția danturii) este o ramură importantă în stomatologie și se ocupă cu reconstrucția
+        danturii prin lucrări protetice diverse.<br>
+        Dintre acestea enumerăm: coroane de porțelan/ceramică pe diferite suporturi, cum ar fi: coroane din porțelan pe
+        suport de aur platinat, coroane din porțelan pe suport de aur paladiu, coroane ceramică/porțelan pe suport de
+        zirconiu, coroane de porțelan pe suport de remanium Crom-Nickel, coroane dentare provizorii acrilat.
+      </ng-template>
+    </ngb-panel>
+    <ngb-panel id="toggle-5"
+               title="PROFILAXIE">
+      <ng-template ngbPanelContent>
+        Profilaxia oferă servicii de prevenție a apariției bolilor dentare prin igienizări periodice, fluorizări,
+        detartraje și educația privind menținerea sănătății orale.
+      </ng-template>
+    </ngb-panel>
+    <ngb-panel id="toggle-6"
+               title="ENDODONȚIE">
+      <ng-template ngbPanelContent>
+        Endodonția este specialitatea care se ocupă cu tratamentul sau retratamentul canalelor dentare (în greacă, endo
+        = în interiorul, odons = dinte). Canalele dentare se află în interiorul dintelui, terapia de canal fiind una
+        dintre cele mai comune proceduri ale endodonției. Ele conțin nervi și vase de sânge, iar îmbolnăvirea acestora
+        necesită tratament endodontic pentru a salva dintele.
+      </ng-template>
+    </ngb-panel>
+    <ngb-panel id="toggle-7"
+               title="ODONTOTERAPIE">
+      <ng-template ngbPanelContent>
+        Odontoterapia este specialitatea care se ocupă cu tratamentul cariilor dentare, precum și a altor leziuni
+        necarioase, care pot fi fracturi dentare sau leziuni de uzură dentară.<br>
+        Se restabilește astfel integritatea dinților naturali, prevenind agravarea leziunilor care pot duce la pierderea
+        dinților.
+      </ng-template>
+    </ngb-panel>
+    <ngb-panel id="toggle-8"
+               title="PARODONTOLOGIE">
+      <ng-template ngbPanelContent>
+        Parodontologia este specialitatea care tratează afecțiuni ale gingiei și ale ligamentelor care susțin dintele în
+        os.<br>
+        Gingivita este faza incipientă a acestor boli și este reversibilă prin tratament corespunzător.<br>
+        Netratată, evoluează spre boală parodontală (parodontoză).
+      </ng-template>
+    </ngb-panel>
+    <ngb-panel id="toggle-9"
+               title="ESTETICĂ DENTARĂ">
+      <ng-template ngbPanelContent>
+        Estetica dentară sau cosmetica dentară reprezintă orice procedură stomatologică care va îmbunătăți aspectul
+        dinților, gingiilor sau mușcătura unei persoane.<br>
+        Aceasta se concentrează în principal pe înfrumusețarea zâmbetului. Iată câteva exemple: albire dentară, fațete,
+        remodelare gingivală, coroane dentare fizionomice, plasmodent.
+      </ng-template>
+    </ngb-panel>
+    <ngb-panel id="toggle-10"
+               title="ESTETICĂ FACIALĂ">
+      <ng-template ngbPanelContent>
+        Estetica facială este strâns legată de stomatologie, deoarece medicii stomatologi au cunoștințe aprofundate
+        despre anatomia capului și gâtului. Inovațiile în medicina estetică potențează rezultatele din estetica dentară
+        și implantologie.<br>
+        Realizăm tratamente estetice de înaltă calitate, cum ar fi: tratamente cu acid hialuronic si botox,
+        plasmolifting sau terapia vampir – metodă de injectare a plasmei trombocitare în ţesuturile umane (PRP
+        technology).<br>
+        Tratamentele cu Botox sunt utile în multe terapii stomatologice, fiind recomandate pentru bruxism, iar fillerele
+        completează întotdeauna estetica dentară.
+      </ng-template>
+    </ngb-panel>
+    <ngb-panel id="toggle-11"
+               title="OCLUZOLOGIE">
+      <ng-template ngbPanelContent>
+        Ocluzologia este specialitatea stomatologică ce studiază morfologia, fiziologia și patologia aparatului
+        dento-maxilar, în scopul cunoașterii și menținerii echilibrului acestui sistem.<br>
+        Ocluzologia are în vedere contactul dintre dinții celor două arcade – acestea trebuie să aibă o anumită
+        distribuție, astfel încât dinții să fie încărcați cu aceeași forță.
+      </ng-template>
+    </ngb-panel>
+  </ngb-accordion>
+
+  <button *ngIf="isMenuScrolled"
+          (click)="scrollToTop()"
+          class="scroll-to-top-button">
+    <svg xmlns="http://www.w3.org/2000/svg"
+         fill="none"
+         viewBox="0 0 24 24"
+         stroke-width="2.5"
+         stroke="currentColor"
+         class="scroll-to-top-icon">
+      <path stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+    </svg>
+  </button>
+
+  <div class="row book-online bg-primary text-white text-center my-3 rounded-3">
+    <div class="book-online p-3 rounded-3"> ALTCEVA? <br>
+      Nu ești sigur de ce tratament ai nevoie pentru zâmbetul tău? De ce nu rezervați o consultație cu una dintre
+      echipele noastre prietenoase pentru a discuta opțiunile și serviciile relevante. <br> <a class="text-light"
+         routerLinkActive="active"
+         routerLink="/appointment"> Programeaza-te online </a>
+    </div>
+  </div>
+
+</div>

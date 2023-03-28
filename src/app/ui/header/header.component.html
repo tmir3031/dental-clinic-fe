@@ -1,47 +1,107 @@
 <div class="contact-info bg-light">
-  <ul>
-    <li class="telephone-font" ><i class="fa-solid fa-phone"></i> 0753 871 595</li>
-    <li class="email-font" ><i class="fa-sharp fa-solid fa-envelope"></i> dental.clinic@yahoo.com</li>
-  </ul>
+   <ul>
+      <li class="telephone-font"><i class="fa-solid fa-phone"></i> 0753 871 595</li>
+      <li class="email-font"><i class="fa-sharp fa-solid fa-envelope"></i> dental.clinic@yahoo.com</li>
+   </ul>
 </div>
 <hr class="line-style">
 
 <nav class="navbar navbar-expand-md navbar-light bg-light">
-  <div class="container">
+   <div class="container">
 
-    <div class="navbar-nav d-flex flex-grow-1 justify-content-between align-items-center">
-      <!-- This main navigation links are defined here -->
-      <a class="navbar-brand" routerLinkActive="active" routerLink="/">
-        <img src="assets/logo.png" height="60" class="d-inline-block align-top" alt="Dental Clinic Logo" loading="lazy" />
-      </a>
+      <div class="navbar-nav d-flex flex-grow-1 justify-content-between align-items-center">
+         <!-- This main navigation links are defined here -->
+         <a class="navbar-brand"
+            routerLinkActive="active"
+            routerLink="/">
+            <img src="assets/logo.png"
+                 height="60"
+                 class="d-inline-block align-top"
+                 alt="Dental Clinic Logo"
+                 loading="lazy" />
+         </a>
 
-      <!-- Each link has the routerLink property set to a different route -->
-      <div class="d-flex rounded-pill py-2 px-3 nav-pills nav-item">
-        <a class="nav-link" routerLinkActive="active" routerLink="/home">Acasa</a>
-        <a class="nav-link" routerLinkActive="active" routerLink="/about-us">Echipa noastra</a>
-        <a class="nav-link" routerLinkActive="active" routerLink="/services">Servicii stomatologice</a>
-        <a class="nav-link" routerLinkActive="active" routerLink="/prices">Tarife</a>
-        <a class="nav-link" routerLinkActive="active" routerLink="/contact">Contact</a>
-        <a class="nav-link bg-dark text-light" routerLinkActive="active" routerLink="/appointment" *ngIf="!authorizationRole">Programare online</a>
+         <!-- Each link has the routerLink property set to a different route -->
+         <div class="d-flex rounded-pill py-2 px-3 nav-pills nav-item">
+            <a class="nav-link"
+               routerLinkActive="active"
+               routerLink="/home">Acasa</a>
+            <a class="nav-link"
+               routerLinkActive="active"
+               routerLink="/about-us">Echipa noastra</a>
+            <a class="nav-link"
+               routerLinkActive="active"
+               routerLink="/services">Servicii stomatologice</a>
+            <a class="nav-link"
+               routerLinkActive="active"
+               routerLink="/prices">Tarife</a>
+            <a class="nav-link"
+               routerLinkActive="active"
+               routerLink="/contact">Contact</a>
+            <a class="nav-link bg-dark text-light"
+               routerLinkActive="active"
+               routerLink="/appointment"
+               *ngIf="!authorizationRole">Programare online</a>
+         </div>
+
+         <div class="nav-item dropdown">
+            <a class="nav-link"
+               routerLinkActive="active"
+               *ngIf="!authorizationRole"
+               routerLink="/login"><i class="fas fa-right-to-bracket text-dark"></i></a>
+            <a class="nav-link dropdown-toggle"
+               *ngIf="authorizationRole"
+               href="#"
+               id="navbarDropdownMenuLink"
+               role="button"
+               data-bs-toggle="dropdown"
+               aria-expanded="false">
+               {{username}}
+            </a>
+            <ul class="dropdown-menu"
+                aria-labelledby="navbarDropdownMenuLink">
+               <li><a class="dropdown-item"
+                     (click)="onLogout()">Deconectare</a></li>
+               <li><a class="dropdown-item"
+                     routerLinkActive="active"
+                     routerLink="/profile">Profilul meu</a></li>
+               <!-- <li><a class="dropdown-item"
+               routerLinkActive="active"
+               routerLink="/home"
+               *ngIf="authorizationRole === 'ROLE_DOCTOR'">Vizualizeaza programari</a></li>
+          <li><a class="dropdown-item"
+               routerLinkActive="active"
+               routerLink="/home"
+               *ngIf="authorizationRole === 'ROLE_DOCTOR'">Zile libere</a></li>
+          <li><a class="dropdown-item"
+               routerLinkActive="active"
+               routerLink="/home"
+               *ngIf="authorizationRole === 'ROLE_DOCTOR'">Feedback</a></li>
+          <li><a class="dropdown-item"
+               routerLinkActive="active"
+               routerLink="/home"
+               *ngIf="authorizationRole === 'ROLE_ADMIN'">Gestionare utilizatori</a></li> -->
+            </ul>
+         </div>
       </div>
-
-      <div class="nav-item dropdown">
-        <a class="nav-link" routerLinkActive="active" *ngIf="!authorizationRole" routerLink="/login">Conecteaza-te</a>
-        <a class="nav-link dropdown-toggle" *ngIf="authorizationRole" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown"
-          aria-expanded="false">
-          {{username}}
-        </a>
-        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <li><a class="dropdown-item" (click)="onLogout()" >Deconectare</a></li>
-          <li><a class="dropdown-item" routerLinkActive="active" routerLink="/home">Profilul meu</a></li>
-          <li><a class="dropdown-item" routerLinkActive="active"routerLink="/home">Programeaza-te</a></li>
-          <li><a class="dropdown-item" routerLinkActive="active" routerLink="/home">Istoric</a></li>
-          <li><a class="dropdown-item" routerLinkActive="active" routerLink="/home" *ngIf="authorizationRole === 'ROLE_DOCTOR'">Vizualizeaza programari</a></li>
-          <li><a class="dropdown-item" routerLinkActive="active" routerLink="/home" *ngIf="authorizationRole === 'ROLE_DOCTOR'">Zile libere</a></li>
-          <li><a class="dropdown-item" routerLinkActive="active" routerLink="/home" *ngIf="authorizationRole === 'ROLE_DOCTOR'">Feedback</a></li>
-          <li><a class="dropdown-item" routerLinkActive="active" routerLink="/home" *ngIf="authorizationRole === 'ROLE_ADMIN'">Gestionare utilizatori</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
+   </div>
 </nav>
+
+<!-- Meniu pentru userul logat  -->
+<!-- <nav class="navbar navbar-expand-md navbar-light bg-info" *ngIf="authorizationRole">
+  <div class="d-flex rounded-pill py-2 px-3 nav-pills nav-item">
+    <a class="nav-link"
+       routerLinkActive="active"
+       routerLink="/home">Istoric</a>
+    <a class="nav-link"
+       routerLinkActive="active"
+       routerLink="/home">Programeaza-te</a>
+    <a class="nav-link"
+       routerLinkActive="active"
+       routerLink="/home">Vizualizare programari</a>
+    <a class="nav-link"
+       routerLinkActive="active"
+       routerLink="/home"
+       *ngIf="!authorizationRole">Programare online</a>
+  </div> 
+ </nav> -->

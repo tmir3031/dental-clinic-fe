@@ -50,7 +50,9 @@ export class LoginService {
       })
       .pipe(
         map((responseData) => {
-          const expirationDate = new Date(new Date().getTime() + +responseData.expiresIn * 1000);
+          const expirationDate = new Date(
+            new Date().getTime() + +responseData.expiresIn * 1000
+          );
           return { ...responseData, expirationDate };
         }),
         tap((user) => {
@@ -62,7 +64,6 @@ export class LoginService {
 
   autoLogin(): void {
     const userData: User = JSON.parse(localStorage.getItem('userData'));
-
     if (userData && userData.accessToken) {
       this.userLogged.next(userData);
     }
@@ -77,6 +78,12 @@ export class LoginService {
         };
       })
     );
+  }
+
+  isAuthenticated(): Boolean {
+    console.log(this.userLogged);
+    if (this.userLogged.value !== null) return true;
+    else return false;
   }
 
   private redirectUserByRole(role: Role): void {

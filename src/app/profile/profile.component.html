@@ -1,3 +1,26 @@
-<p>
-  profile works!
-</p>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-4 card bg-dark text-white">
+      <ado-initials-image [username]="username"></ado-initials-image>
+      <h1 class="p-3, m-3">{{ username }}</h1>
+      <p class="title">{{ authorizationRole }}</p>
+      <hr />
+      <nav class="nav flex-column nav-pills text-white">
+        <a [routerLink]="['details']"
+           routerLinkActive="active"
+           class="nav-link m-3F"><i class="fa fa-user"></i> Profil</a>
+        <a [routerLink]="['appointments']"
+           routerLinkActive="active"
+           class="nav-link mb-3"><i class="fa fa-info-circle"></i> Programari</a>
+        <a [routerLink]="['appointments']"
+           routerLinkActive="active"
+           class="nav-link mb-3"
+           *ngIf="authorizationRole === 'ROLE_DOCTOR'"><i class="fa fa-info-circle"></i> Istoric</a>
+        <hr />
+      </nav>
+    </div>
+    <div class="col-md-7">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

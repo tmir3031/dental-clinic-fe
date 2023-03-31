@@ -3,49 +3,69 @@
 
     <div class="w-25 register register-form rounded px-4">
 
-      <div class="text-center p-2">
+      <div class="text-center">
         <h1>Bine ai venit!</h1>
       </div>
 
       <form [formGroup]="accountForm"
-            (ngSubmit)="submitStepOne()" *ngIf="!stepOneSubmitted">
-            <div class="form-floating m-2">
-              <input type="text"
-                     class="form-control"
-                     formControlName="lastName"
-                     adoNgError="lastName"
-                     id="lastName">
-              <label for="lastName"
-                     class="form-label">Nume</label>
-            </div>        
-            <div class="form-floating m-2">
-              <input type="text"
-                     class="form-control"
-                     formControlName="firstName"
-                     adoNgError="firstName"
-                     id="firstName">
-              <label for="firstName"
-                     class="form-label">Prenume</label>
-            </div>
-            <div class="form-floating m-2">
-              <input type="text"
-                     class="form-control"
-                     formControlName="username"
-                     adoNgError="username"
-                     id="username">
-              <label for="username"
-                     class="form-label">Nume de utilizator</label>
-            </div>
+            (ngSubmit)="submitStepOne()"
+            *ngIf="!stepOneSubmitted && !stepTwoSubmitted">
+        <div class="form-floating m-2">
+          <input type="text"
+                 class="form-control"
+                 formControlName="lastName"
+                 adoNgError="lastName"
+                 id="lastName">
+          <label for="lastName"
+                 class="form-label">Nume*</label>
+        </div>
+        <div class="form-floating m-2">
+          <input type="text"
+                 class="form-control"
+                 formControlName="firstName"
+                 adoNgError="firstName"
+                 id="firstName">
+          <label for="firstName"
+                 class="form-label">Prenume*</label>
+        </div>
 
-            <div class="form-floating m-2">
-              <input type="text"
-                     class="form-control"
-                     formControlName="email"
-                     adoNgError="email"
-                     id="email">
-              <label for="email"
-                     class="form-label">Email</label>
-            </div>
+        <div class="form-floating m-2">
+          <input type="text"
+                 class="form-control"
+                 formControlName="email"
+                 adoNgError="email"
+                 id="email">
+          <label for="email"
+                 class="form-label">Email*</label>
+        </div>
+
+        <div class="form-floating text-center">
+          <button type="submit"
+                  class="btn btn-primary text-white p-2 m-3 w-50"
+                  [disabled]="!(accountForm.controls.lastName.valid && accountForm.controls.firstName.valid && accountForm.controls.email.valid)">
+            Continua
+          </button>
+        </div>
+        <div class="rounded px-4 d-flex justify-content-center">
+          <a class="text-dark"
+             routerLinkActive="active"
+             routerLink="/login"> Intoarce-te la login! </a>
+        </div>
+      </form>
+
+      <form [formGroup]="accountForm"
+            (ngSubmit)="submitStepTwo()"
+            *ngIf="stepOneSubmitted && !stepTwoSubmitted">
+
+        <div class="form-floating m-2">
+          <input type="text"
+                 class="form-control"
+                 formControlName="username"
+                 adoNgError="username"
+                 id="username">
+          <label for="username"
+                 class="form-label">Nume de utilizator*</label>
+        </div>
 
         <div class="form-floating m-2">
           <input type="password"
@@ -54,7 +74,7 @@
                  adoNgError="password"
                  id="password" />
           <label for="password"
-                 class="form-label">Parola</label>
+                 class="form-label">Parola*</label>
         </div>
 
         <div class="form-floating m-2">
@@ -64,20 +84,39 @@
                  adoNgError="confirmPassword"
                  id="confirmPassword" />
           <label for="confirmPassword"
-                 class="form-label">Confirma Parola</label>
+                 class="form-label">Confirma Parola*</label>
         </div>
 
+        <ado-password-strength-meter [password]="accountForm.controls.password.value">
+        </ado-password-strength-meter>
+
+
+        <div class="mb-3 d-flex justify-content-center">
+          <span
+              *ngIf="passwordMissMatch && accountForm?.controls?.confirmPassword?.value"
+              class="text-danger text-center"
+              >Parolele nu coincid!</span
+          >
+      </div>
+
+      
         <div class="form-floating text-center">
           <button type="submit"
-                  class="btn btn-primary text-white p-2 m-3 w-50"
-          >
+                  class="btn btn-primary text-white p-2 mt-3 w-50"
+                  [disabled]="!(accountForm.controls.username.valid && accountForm.controls.password.valid && accountForm.controls.confirmPassword.valid)">
             Continua
           </button>
+          <div class="form-floating text-center">
+            <button (click)="backToStepOne()"
+                    class="btn btn-secondary text-white p-2 m-3 w-50"><i class="fa-sharp fas fa-circle-left"></i>
+            </button>
+          </div>
         </div>
       </form>
 
-      <form [formGroup]="accountForm" 
-            (ngSubmit)="submitStepOne()" *ngIf="stepOneSubmitted">
+      <form [formGroup]="accountForm"
+            (ngSubmit)="submitStepThree()"
+            *ngIf="stepTwoSubmitted && stepOneSubmitted">
         <div class="form-floating m-2">
           <input type="text"
                  class="form-control"
@@ -122,16 +161,11 @@
           </button>
         </div>
         <div class="form-floating text-center">
-          <button (click)="backToStepOne()"
-                  class="btn btn-secondary text-white p-2 m-3 w-50"
-                ><i class="fa-sharp fas fa-circle-left"></i>
+          <button (click)="backToStepTwo()"
+                  class="btn btn-secondary text-white p-2 m-3 w-50"><i class="fa-sharp fas fa-circle-left"></i>
           </button>
         </div>
       </form>
-
-
     </div>
-
   </div>
-
 </div>

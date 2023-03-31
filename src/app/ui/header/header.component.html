@@ -44,12 +44,12 @@
                *ngIf="!authorizationRole">Programare online</a>
          </div>
 
-         <div class="nav-item dropdown">
-            <a class="nav-link"
+         <div class="nav-item dropdown rounded">
+            <a class="nav-link rounded"
                routerLinkActive="active"
                *ngIf="!authorizationRole"
-               routerLink="/login"><i class="fas fa-right-to-bracket text-dark"></i></a>
-            <a class="nav-link dropdown-toggle"
+               routerLink="/login"><i class="fas fa-right-to-bracket text-dark rounded"></i></a>
+            <a class="nav-link dropdown-toggle bg-dark text-white rounded"
                *ngIf="authorizationRole"
                href="#"
                id="navbarDropdownMenuLink"
@@ -62,46 +62,54 @@
                 aria-labelledby="navbarDropdownMenuLink">
                <li><a class="dropdown-item"
                      (click)="onLogout()">Deconectare</a></li>
+               <hr class="dropdown-divider">
                <li><a class="dropdown-item"
-                     routerLinkActive="active"
-                     routerLink="/profile">Profilul meu</a></li>
-               <!-- <li><a class="dropdown-item"
-               routerLinkActive="active"
-               routerLink="/home"
-               *ngIf="authorizationRole === 'ROLE_DOCTOR'">Vizualizeaza programari</a></li>
-          <li><a class="dropdown-item"
-               routerLinkActive="active"
-               routerLink="/home"
-               *ngIf="authorizationRole === 'ROLE_DOCTOR'">Zile libere</a></li>
-          <li><a class="dropdown-item"
-               routerLinkActive="active"
-               routerLink="/home"
-               *ngIf="authorizationRole === 'ROLE_DOCTOR'">Feedback</a></li>
-          <li><a class="dropdown-item"
-               routerLinkActive="active"
-               routerLink="/home"
-               *ngIf="authorizationRole === 'ROLE_ADMIN'">Gestionare utilizatori</a></li> -->
+                     href="#"
+                     data-bs-toggle="offcanvas"
+                     data-bs-target="#sidebar"
+                     aria-controls="sidebar">Deschide meniul</a></li>
             </ul>
          </div>
       </div>
    </div>
 </nav>
 
-<!-- Meniu pentru userul logat  -->
-<!-- <nav class="navbar navbar-expand-md navbar-light bg-info" *ngIf="authorizationRole">
-  <div class="d-flex rounded-pill py-2 px-3 nav-pills nav-item">
-    <a class="nav-link"
-       routerLinkActive="active"
-       routerLink="/home">Istoric</a>
-    <a class="nav-link"
-       routerLinkActive="active"
-       routerLink="/home">Programeaza-te</a>
-    <a class="nav-link"
-       routerLinkActive="active"
-       routerLink="/home">Vizualizare programari</a>
-    <a class="nav-link"
-       routerLinkActive="active"
-       routerLink="/home"
-       *ngIf="!authorizationRole">Programare online</a>
-  </div> 
- </nav> -->
+
+<div class="offcanvas offcanvas-start"
+     tabindex="-1"
+     id="sidebar"
+     aria-labelledby="sidebarLabel">
+   <div class="offcanvas-header">
+      <h5 class="offcanvas-title"
+          id="sidebarLabel">Meniu</h5>
+      <button type="button"
+              class="btn-close text-reset"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"></button>
+   </div>
+   <div class="offcanvas-body">
+      <ul class="navbar-nav flex-column">
+         <li class="nav-item">
+            <a class="nav-link active"
+               aria-current="page"
+               routerLinkActive="active"
+               routerLink="/appointment">Programeaza-te</a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link"
+               href="#"
+               *ngIf="authorizationRole==='ROLE_USER'">Istoric programari</a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link"
+               href="#"
+               *ngIf="authorizationRole==='ROLE_DOCTOR'">Vizualizeaza programari</a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link"
+            routerLinkActive="active"
+            routerLink="/profile">Profilul meu</a>
+         </li>
+      </ul>
+   </div>
+</div>

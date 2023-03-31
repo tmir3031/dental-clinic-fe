@@ -1,11 +1,11 @@
 .book-online:hover {
-    background-color: #6f738a;
+    background-color: #000b6c;
     color: white;
   }
   
   .description-text {
-    font-size: 22px;
-    font-weight: 800;
+    font-size: 20px;
+    font-weight: 600;
     color: #000B6C !important;
     text-align: center;
   }
@@ -64,3 +64,16 @@
     }
 
 }
+
+.start-title {
+  background-color: #D58525;
+  color: white;
+  font-size: 20px;
+}
+
+.start-title:hover {
+  background-color: #000b6c;
+  color: white;
+  font-size: 20px;
+}
+

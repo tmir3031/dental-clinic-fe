@@ -1,6 +1,7 @@
 :host {
   display: flex;
   flex-direction: row;
+  width: 100%;
 
   .container {
     display: flex;
@@ -18,7 +19,11 @@
 
       .cards-style {
         padding: 15px;
+        height: 50%;
 
+        .card {
+          height: 100%;
+        }
         .cards-buttons {
           display: flex;
           justify-content: space-between;
@@ -74,4 +79,16 @@
 a:hover {
   font-weight: bold;
   text-decoration: underline;
+}
+
+.start-title {
+  background-color: #D58525;
+  color: white;
+  font-size: 20px;
+}
+
+.start-title:hover {
+  background-color: #000b6c;
+  color: white;
+  font-size: 20px;
 }

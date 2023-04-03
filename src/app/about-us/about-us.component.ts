@@ -1,7 +1,7 @@
 import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { DoctorService } from '../shared/services/doctor.service';
-import { DoctorDto } from './models/about-us.model';
+import { DoctorDto } from '../shared/models/doctor.model';
 
 @Component({
   selector: 'ado-about-us',

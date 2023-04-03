@@ -1,0 +1,32 @@
+@import 'css/bootstrap-variables';
+@import 'bootstrap/scss/mixins';
+
+.list-group.list-group-flush {
+    height: 400px;
+    overflow-y: scroll;
+}
+
+.types {
+    height: 100px;
+    overflow-y: scroll;
+    margin-bottom: 10px;
+}
+
+.textarea {
+    width: 250px;
+    height: 130px;
+}
+
+.list-group-item {
+    cursor: pointer;
+    height: 50px;
+}
+
+@include media-breakpoint-between(xs, sm) {
+    .list-group-item {
+        font-size: 0.8rem;
+    }
+    .card-header {
+        font-size: 1rem;
+    }
+}

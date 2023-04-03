@@ -13,9 +13,7 @@ export class RegisterService {
     
   constructor(private http: HttpClient, private router: Router, private toasts: ToastService, private login: LoginService) {}
   public registerPatient(patient): Observable<PatientDTO> {
-    this.toasts.showError("AICII");
     return this.http.post<PatientDTO>(
-    //   `${environment.apiUrl}core/api/v1/patients`,
     'http://localhost:8081/core/api/v1/patients',
       patient
     ).pipe(
@@ -26,11 +24,9 @@ export class RegisterService {
         return EMPTY;
       }),
       tap(() => {
-        console.log("aciciii");
         this.login.login(patient.username, patient.password).subscribe();
       })
       )
   
-    //TODO prinde erori si trimite-l la login sau logheaza-l automat
   }
 }

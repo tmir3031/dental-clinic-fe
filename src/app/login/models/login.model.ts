@@ -11,7 +11,7 @@ export enum Role {
     userDetails: {
       role: Role;
       username: string;
-      employeeId: string;
+      userId: string;
     };
   }
   

@@ -1,3 +1,61 @@
-<p>
-Se poate renunta la asta?
-</p>
+<!-- <div class="card">
+    <div class="card-header bg-secondary text-white fw-bold">
+        Preturi
+    </div>
+    <ul class="list-group list-group-flush">
+        <div class="list-group-item"
+             *ngFor="let type of types"
+             (click)="selectType(type)">
+            {{ type}}
+
+        </div>
+        <div *ngIf="isSelected">
+            <div class="list-group-item bg-primary"
+                 *ngFor="let price of prices"> {{price.name}} </div>
+        </div>
+    </ul>
+</div> -->
+
+
+<div class="container">
+    <div class="row d-flex justify-content-center bg-tertiary description-text rounded-3 my-3 p-2">
+        Preturi:
+    </div>
+    <ngb-accordion [closeOthers]="false"
+                   #acc="ngbAccordion"
+                   class="d-flex flex-column justify-content-center"
+                   (click)="selectType(type)"
+                   *ngFor="let type of types, let i = index">
+        <ngb-panel [id]="'panel-' + i" [title]="type"
+                 >
+            <ng-template ngbPanelContent *ngIf="selectedType === type">
+                <table class="table table-sm table-hover" *ngIf="selectedType === type">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nume</th>
+                            <th scope="col">Pret</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let price of prices"
+                            class="align-middle">
+                            <th scope="row">{{price.name}}</th>
+                            <td>{{price.price}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </ng-template>
+        </ngb-panel>
+    </ngb-accordion>
+
+
+    <div class="row book-online bg-primary text-white text-center my-3 rounded-3">
+        <div class="book-online p-3 rounded-3"> ALTCEVA? <br>
+            Nu ești sigur de ce tratament ai nevoie pentru zâmbetul tău? De ce nu rezervați o consultație cu una dintre
+            echipele noastre prietenoase pentru a discuta opțiunile și serviciile relevante. <br> <a class="text-light"
+               routerLinkActive="active"
+               routerLink="/appointment"> Programeaza-te online </a>
+        </div>
+    </div>
+
+</div>

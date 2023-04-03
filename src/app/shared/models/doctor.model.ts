@@ -1,4 +1,4 @@
-import { SpecializationDto } from "../../shared/models/specialization.model";
+import { SpecializationDto } from "./specialization.model";
 
 export interface DoctorDto {
     id?: string;
@@ -13,4 +13,3 @@ export interface DoctorDto {
     specializationDetailsListItem: SpecializationDto[];
 
   }
-  

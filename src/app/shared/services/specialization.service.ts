@@ -3,21 +3,21 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { DoctorDto } from '../models/doctor.model';
+import { SpecializationDto } from '../models/specialization.model';
 
 @Injectable({ providedIn: 'root' })
-export class DoctorService {
+export class SpecializationService {
   constructor(private http: HttpClient) {}
 
-  public getDoctors(specializationId?: number): Observable<DoctorDto[]> {
+  public getSpecialization(doctorId?: string): Observable<SpecializationDto[]> {
     let params = new HttpParams();
-    if (specializationId) {
-      params = params.append('specializationId', specializationId);
+    if (doctorId) {
+      params = params.append('doctorId', doctorId);
     }
-    return this.http.get<{ items: DoctorDto[] }>(`${environment.apiUrl}/core/api/v1/doctors`, { params }).pipe(
+    return this.http.get<{ items: SpecializationDto[] }>(`${environment.apiUrl}/core/api/v1/specializations`, { params }).pipe(
       map((responseData) => {
         return responseData.items;
       })
-    );
+    );    
   }
 }

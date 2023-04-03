@@ -3,3 +3,8 @@ export interface UserDetails {
     username: string;
   }
   
+  export interface UserDetailsDto {
+    userId: string;
+    firstName: string;
+    lastName: string;
+  }

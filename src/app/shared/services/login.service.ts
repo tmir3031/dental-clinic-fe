@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
+import { catchError, map, tap } from 'rxjs/operators';
 import { Role, User } from 'src/app/login/models/login.model';
 import { environment } from 'src/environments/environment';
 import { UserDetails } from '../models/user.mode';
@@ -58,6 +58,12 @@ export class LoginService {
         tap((user) => {
           this.userLogged.next(user);
           localStorage.setItem('userData', JSON.stringify(user));
+        }),
+        catchError(error => {
+          this.userLogged.next(null);
+          localStorage.removeItem('userData');
+          this.router.navigate(['/login']);
+          throw error;
         })
       );
   }
@@ -72,8 +78,9 @@ export class LoginService {
   getUserDetails(): Observable<UserDetails> {
     return this.userLogged.asObservable().pipe(
       map((user) => {
+        console.log("Primul user", user);
         return {
-          idUser: user.userDetails.employeeId,
+          idUser: user.userDetails.userId,
           username: user.userDetails.username,
         };
       })

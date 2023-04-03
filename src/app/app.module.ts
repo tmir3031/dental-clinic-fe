@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginInterceptorService } from './login/services/login-interceptor.service';
 import { UiModule } from './ui/ui.module';
+import { SharedModule } from './shared/shared.module';
 
 
 
@@ -17,7 +18,8 @@ import { UiModule } from './ui/ui.module';
     BrowserModule,
     AppRoutingModule,
     UiModule,
-    HttpClientModule
+    HttpClientModule,
+    SharedModule
   ],
   providers: [
     {

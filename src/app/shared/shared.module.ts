@@ -5,9 +5,10 @@ import { FullCalendarModule } from '@fullcalendar/angular';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { InitialsImageComponent } from './components/initials-image/initials-image.component';
+import { ToastsContainerComponent } from './components/toasts-container/toasts-container.component';
 
 @NgModule({
-  declarations: [InitialsImageComponent],
+  declarations: [InitialsImageComponent, ToastsContainerComponent],
   imports: [
     CommonModule,
     NgbModule,
@@ -21,7 +22,8 @@ import { InitialsImageComponent } from './components/initials-image/initials-ima
     FullCalendarModule,
     ReactiveFormsModule,
     FormsModule,
-    InitialsImageComponent
+    InitialsImageComponent,
+    ToastsContainerComponent
   ],
   providers: [],
 })

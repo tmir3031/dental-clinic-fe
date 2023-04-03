@@ -20,7 +20,7 @@ export class ProfileComponent implements OnInit {
       this.loginSubscription = this.loginService.userLogged.subscribe(
           user => {
               if (user) {
-                  this.userId = user.userDetails.employeeId;
+                  this.userId = user.userDetails.userId;
                   this.username = user.userDetails.username;
                   const role = user.userDetails.role;
                   if (role.includes(Role.ADMIN)) {

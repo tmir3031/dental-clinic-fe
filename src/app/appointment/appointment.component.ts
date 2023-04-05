@@ -8,7 +8,7 @@ import { OralIntervalsService } from './services/oral-intervals.service';
 import { Subject, Observable, Subscription } from 'rxjs';
 import { catchError, debounceTime, distinctUntilChanged, tap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { SpecializationDto } from '../shared/models/specialization.model';
 import { DoctorDto } from '../shared/models/doctor.model';
 import { DoctorService } from '../shared/services/doctor.service';
@@ -143,7 +143,6 @@ export class AppointmentComponent implements OnInit, OnDestroy {
         this.form.reset();
         this.intervals = [];
       });
-    console.log('cerere efectuata');
   }
 
   private extractAppointmentRequestFromForm(): AppointmentRequest {
@@ -159,9 +158,9 @@ export class AppointmentComponent implements OnInit, OnDestroy {
   private initFormGroup(): void {
     this.form = new FormGroup({
       specializationId: new FormControl(100),
-      doctorId: new FormControl(null),
-      date: new FormControl(null),
-      hour: new FormControl(null),
+      doctorId: new FormControl(null, Validators.required),
+      date: new FormControl(null, Validators.required),
+      hour: new FormControl(null, Validators.required),
     });
   }
 

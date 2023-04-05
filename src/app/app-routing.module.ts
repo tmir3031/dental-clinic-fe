@@ -39,6 +39,11 @@ const routes: Routes = [
           import('./appointment/appointment.module').then((m) => m.AppointmentModule),
       },
       {
+        path: 'history',
+        loadChildren: () =>
+          import('./appointment-patient/appointment-patient.module').then((m) => m.AppointmentPatientModule),
+      },
+      {
         path: 'login',
         loadChildren: () =>
           import('./login/login.module').then((m) => m.LoginModule),

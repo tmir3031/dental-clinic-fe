@@ -58,7 +58,7 @@
       </div>
     </div>
 
-    <div class="w-100 form-floating form-group m-2 " *ngIf="form.controls.date.value">
+    <div class="w-100 form-floating form-group m-2 ">
       <select class="form-select"
               formControlName="hour"
               id="hour"
@@ -78,6 +78,7 @@
     </div>
     <div class="form-floating text-center">
       <button (click)="createAppointment() "
+      [disabled]="!form.valid"
               class="btn btn-secondary text-white p-2 m-3 w-50">Programeaza-te
       </button>
     </div>

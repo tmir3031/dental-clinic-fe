@@ -1,0 +1,85 @@
+<div class="container">
+  <div class="row">
+    <div class="row">
+      <form [formGroup]="form"
+            class="row-cols-sm-auto d-flex flex-wrap justify-content-center">
+        <div class="form-floating m-3 w-25">
+          <input class="form-control py-1"
+                 name="search"
+                 formControlName="search"
+                 id="search"
+                 placeholder="Caută" />
+          <label for="search"
+                 class="form-label">Cautare</label>
+        </div>
+        <div class="input-group m-3 w-25">
+          <input class="form-control py-3"
+                 placeholder="Selectează o dată"
+                 ngbDatepicker
+                 #d1="ngbDatepicker"
+                 formControlName="date">
+          <button class="btn btn-outline border-gray calendar"
+                  (click)="d1.toggle()"
+                  type="button">
+          </button>
+        </div>
+
+      </form>
+    </div>
+    <div class="row w-50 justify-content-center">
+      <ado-appointment-table [appointmentsListDetailed]="appointmentsListDetailed"></ado-appointment-table>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <h2>Lista programărilor</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="card">
+        <div class="card-body">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Data</th>
+                <th>Ora</th>
+                <th>Nume</th>
+                <th>Detalii</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let appointment of appointmentsListDetailed">
+                <td>{{ appointment.date | date }}</td>
+                <td>{{ appointment.hour }}</td>
+                <td>{{ appointment.hour }}</td>
+                <td>
+                  <button class="btn btn-primary" >
+                    Detalii
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="card">
+        <div class="card-body">
+          <h4>Detalii programare</h4>
+          <div *ngIf="selectedAppointment">
+            <p><strong>Data:</strong> {{ selectedAppointment.date | date }}</p>
+            <p><strong>Ora:</strong> {{ selectedAppointment.status }}</p>
+            <p><strong>Nume:</strong> {{ selectedAppointment.hour }}</p>
+            <p><strong>Detalii:</strong> {{ selectedAppointment.hour }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+

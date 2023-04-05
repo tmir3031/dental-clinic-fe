@@ -16,12 +16,12 @@ export class PricesService {
     let params = new HttpParams();
     if (type) {
       params = params.append('type', type);
+      return this.http.get<{ items: PriceDto[] }>(`${environment.apiUrl}/core/api/v1/prices`, { params }).pipe(
+        map((responseData) => {
+          return responseData.items;
+        })
+      );
     }
-    return this.http.get<{ items: PriceDto[] }>(`${environment.apiUrl}/core/api/v1/prices`, { params }).pipe(
-      map((responseData) => {
-        return responseData.items;
-      })
-    );
   }
 
 }

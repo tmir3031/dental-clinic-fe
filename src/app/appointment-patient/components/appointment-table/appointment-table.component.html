@@ -1,0 +1,45 @@
+<div class="row ps-4 ps-lg-0">
+    <table class="table table-striped">
+      <thead class="bg-primary">
+        <tr>
+          <th scope="col"
+              class="col-1 text-white p-2">Doctor</th>
+          <th scope="col"
+              class="col-1 text-white p-2">Data</th>
+          <th scope="col"
+              class="col-1 text-white p-2">Ora</th>
+        </tr>
+      </thead>
+
+      <tbody *ngIf="listIsEmpty">
+        <td class="bg-light fw-bold text-center"
+            colspan="3">
+          <div class="row">
+            <i class="fa-solid fa-file-circle-xmark fa-3x"></i>
+          </div>
+          <div class="row">
+            <p>Nu exista cereri de concediu.</p>
+          </div>
+        </td>
+      </tbody>
+
+      <tbody>
+        <tr *ngFor="let appointment of appointmentsList"
+            class="align-middle cursor-pointer"
+            (click)="viewRequest(appointment)">
+          <th scope="row">{{appointment.doctorDetails.lastName}} {{appointment.doctorDetails.firstName}}</th>
+          <td>{{appointment.date | date: dateFormat}}</td>
+          <td>{{appointment.hour}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="row">
+      <div class="d-flex justify-content-between p-2">
+        <ngb-pagination [collectionSize]="collectionSize"
+                        *ngIf="collectionSize"
+                        [(page)]="page"
+                        [pageSize]="pageSize"
+                        (pageChange)="refreshAppointments()">
+        </ngb-pagination>
+      </div>
+  </div>

@@ -1,0 +1,51 @@
+<div class="card ms-xs-4 ms-sm-0">
+  <div class="card-header text-center p-4 fw-bold bg-primary">
+      <div class="row">
+          <div
+              class="col-10 text-white"
+              *ngIf="appointmentDetailedSelected"
+              >
+              Cerere concediu
+          </div>
+          <div class="col-2">
+              <button
+                  type="button"
+                  class="btn-close btn-close-white"
+                  (click)="onClose()"></button>
+          </div>
+      </div>
+  </div>
+
+  <div class="card-body p-4" *ngIf="appointmentDetailedSelected">
+      <div class="d-flex">
+          <span class="p-2 fw-bold" >Nume pacient:</span>
+          <span class="p-2 ms-auto fw-bold"
+              >{{ appointmentDetailedSelected.patientDetails.lastName }}
+              {{
+                appointmentDetailedSelected.patientDetails.firstName
+              }}</span
+          >
+      </div>
+      <div class="d-flex">
+          <span class="p-2 fw-bold" 
+          >Tip cerere:</span>
+          <span class="p-2 ms-auto">{{
+            appointmentDetailedSelected.treatment
+          }}</span>
+      </div>
+      <div class="d-flex">
+          <span class="p-2 fw-bold" >Data perioada:</span>
+          <span class="p-2 ms-auto"
+              >{{
+                appointmentDetailedSelected.date 
+              }}
+          </span>
+      </div>
+      <div class="d-flex">
+          <span class="p-2 fw-bold" >Status:</span>
+          <span class="p-2 ms-auto">{{
+            appointmentDetailedSelected.hour
+          }}</span>
+      </div>
+  </div>
+</div>

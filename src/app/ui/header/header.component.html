@@ -42,6 +42,12 @@
                routerLinkActive="active"
                routerLink="/appointment"
                *ngIf="!authorizationRole">Programare online</a>
+            <a class="nav-link"
+               href="#"
+               data-bs-toggle="offcanvas"
+               data-bs-target="#sidebar"
+               aria-controls="sidebar"
+               *ngIf="authorizationRole">Meniu</a>
          </div>
 
          <div class="nav-item dropdown rounded">
@@ -63,6 +69,10 @@
                <li><a class="dropdown-item"
                      (click)="onLogout()">Deconectare</a></li>
                <hr class="dropdown-divider">
+               <li> <a class="dropdown-item"
+                     aria-current="page"
+                     routerLinkActive="active"
+                     routerLink="/appointment">Programeaza-te</a></li>
                <li><a class="dropdown-item"
                      href="#"
                      data-bs-toggle="offcanvas"
@@ -75,40 +85,45 @@
 </nav>
 
 
-<div class="offcanvas offcanvas-start"
+<div class="offcanvas offcanvas-start off bg-primary text-white"
      tabindex="-1"
      id="sidebar"
      aria-labelledby="sidebarLabel">
    <div class="offcanvas-header">
-      <h5 class="offcanvas-title"
-          id="sidebarLabel">Meniu</h5>
-      <button type="button"
+      <h5 class="offcanvas-title m-3 p-1"
+          data-bs-dismiss="offcanvas"
+          id="sidebarLabel"><i class="fa-3x text-white fa-solid fa-bars sub-menu cursor-pointer"></i></h5>
+      <!-- <button type="button"
               class="btn-close text-reset"
               data-bs-dismiss="offcanvas"
-              aria-label="Close"></button>
+              aria-label="Close"></button> -->
    </div>
    <div class="offcanvas-body">
       <ul class="navbar-nav flex-column">
-         <li class="nav-item">
+         <li class="nav-item m-3 p-1">
             <a class="nav-link active"
                aria-current="page"
                routerLinkActive="active"
-               routerLink="/appointment">Programeaza-te</a>
+               routerLink="/appointment"><i class="fa-3x fa-solid fa-calendar-check sub-menu"></i></a>
          </li>
-         <li class="nav-item">
-            <a class="nav-link"
-               href="history"
-               *ngIf="authorizationRole==='ROLE_USER'">Istoric programari</a>
+         <li class="nav-item m-3 p-1">
+            <a class="nav-link active"
+               routerLink="/history"
+               routerLinkActive="active"
+               *ngIf="authorizationRole==='ROLE_USER'"><i
+                  class="fa-3x fa-sharp fa-solid fa-clock-rotate-left sub-menu"></i></a>
          </li>
-         <li class="nav-item">
-            <a class="nav-link"
+         <li class="nav-item m-3 p-1"
+             *ngIf="authorizationRole==='ROLE_DOCTOR'">
+            <a class="nav-link active"
                href="#"
-               *ngIf="authorizationRole==='ROLE_DOCTOR'">Vizualizeaza programari</a>
+               routerLinkActive="active"
+               *ngIf="authorizationRole==='ROLE_DOCTOR'"><i class="fa-3x fa-solid fa-user sub-menu"></i></a>
          </li>
-         <li class="nav-item">
-            <a class="nav-link"
-            routerLinkActive="active"
-            routerLink="/profile">Profilul meu</a>
+         <li class="nav-item m-3 p-1">
+            <a class="nav-link active"
+               routerLinkActive="active"
+               routerLink="/profile"><i class="fa-3x sub-menu fa-solid fa-user"></i></a>
          </li>
       </ul>
    </div>

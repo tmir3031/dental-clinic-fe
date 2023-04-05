@@ -1,4 +1,5 @@
 <div class="row ps-4 ps-lg-0">
+  <div class="col-8">
     <table class="table table-striped">
       <thead class="bg-primary">
         <tr>
@@ -42,4 +43,20 @@
                         (pageChange)="refreshAppointments()">
         </ngb-pagination>
       </div>
+    </div>
   </div>
+  <div class="col-4 d-flex">
+    <ado-appointment-details *ngIf="appointmentDetailedSelected; else imageNotSelected"
+                               [appointmentDetailedSelected]="appointmentDetailedSelected"
+                               (closeAppointmentDetailedSelected)="
+                onCloseAppointmentDetailedSelected($event)
+            ">
+  </ado-appointment-details>
+    <ng-template #imageNotSelected>
+      <img src="assets/images/doctor4.png"
+           class="d-inline-block w-75 my-10 d-none d-md-block"
+           alt="Dental Clinic Logo"
+           loading="lazy" />
+    </ng-template>
+  </div>
+</div>

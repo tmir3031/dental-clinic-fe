@@ -1,26 +1,38 @@
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-md-4 card bg-dark text-white">
-      <ado-initials-image [username]="username"></ado-initials-image>
-      <h1 class="p-3, m-3">{{ username }}</h1>
-      <p class="title">{{ authorizationRole }}</p>
-      <hr />
-      <nav class="nav flex-column nav-pills text-white">
-        <a [routerLink]="['details']"
-           routerLinkActive="active"
-           class="nav-link m-3F"><i class="fa fa-user"></i> Profil</a>
-        <a [routerLink]="['appointments']"
-           routerLinkActive="active"
-           class="nav-link mb-3"><i class="fa fa-info-circle"></i> Programari</a>
-        <a [routerLink]="['appointments']"
-           routerLinkActive="active"
-           class="nav-link mb-3"
-           *ngIf="authorizationRole === 'ROLE_DOCTOR'"><i class="fa fa-info-circle"></i> Istoric</a>
-        <hr />
-      </nav>
-    </div>
-    <div class="col-md-7">
-      <router-outlet></router-outlet>
-    </div>
-  </div>
+<div class="row card bg-white">
+  <form [formGroup]="form" *ngIf="form">
+      <div class="my-2">
+          <div class="row">
+              <div class="col-10" i18n>
+                  <h1>Informatiile mele</h1>
+              </div>
+
+              <div class="col-1 d-sm-block d-md-none">
+                  <a
+                      class="nav-link"
+                      routerLinkActive="active"
+                      routerLink="/profile"
+                      ><i class="fa-solid fa-x mb-2"></i
+                  ></a>
+              </div>
+          </div>
+      </div>
+      <div class="my-2 form-floating form-group">
+          <input
+              type="text"
+              class="form-control"
+              formControlName="username"
+              id="username" />
+          <label i18n for="username" class="form-label">Username</label>
+      </div>
+
+      <div class="my-2 form-floating form-group">
+          <input
+              type="text"
+              class="form-control"
+              formControlName="role"
+              id="role" />
+          <label i18n for="role" class="form-label">Rol</label>
+      </div>
+
+  </form>
 </div>

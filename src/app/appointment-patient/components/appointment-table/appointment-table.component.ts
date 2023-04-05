@@ -50,4 +50,11 @@ export class AppointmentTableComponent implements OnChanges {
       (this.page - 1) * this.pageSize + this.pageSize
     );
   }
+
+  onCloseAppointmentDetailedSelected(refreshData: boolean): void {
+    if (refreshData) {
+        this.appointmentDetailedSelected = null;
+    }
+}
+
 }

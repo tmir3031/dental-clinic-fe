@@ -103,26 +103,32 @@
          <li class="nav-item m-3 p-1">
             <a class="nav-link active"
                aria-current="page"
+               data-toggle="tooltip"
+               title="Programeaza-te"
                routerLinkActive="active"
                routerLink="/appointment"><i class="fa-3x fa-solid fa-calendar-check sub-menu"></i></a>
          </li>
-         <li class="nav-item m-3 p-1">
+         <li class="nav-item m-3 p-1"
+             *ngIf="authorizationRole === 'ROLE_USER'">
             <a class="nav-link active"
                routerLink="/history"
-               routerLinkActive="active"
-               *ngIf="authorizationRole==='ROLE_USER'"><i
-                  class="fa-3x fa-sharp fa-solid fa-clock-rotate-left sub-menu"></i></a>
+               data-toggle="tooltip"
+               title="Vizualizeaza programări"
+               routerLinkActive="active"><i class="fa-3x fa-sharp fa-solid fa-clock-rotate-left sub-menu"></i></a>
          </li>
          <li class="nav-item m-3 p-1"
-             *ngIf="authorizationRole==='ROLE_DOCTOR'">
+             *ngIf="authorizationRole === 'ROLE_DOCTOR'">
             <a class="nav-link active"
-               href="#"
-               routerLinkActive="active"
-               *ngIf="authorizationRole==='ROLE_DOCTOR'"><i class="fa-3x fa-solid fa-user sub-menu"></i></a>
+               routerLink="/view"
+               data-toggle="tooltip"
+               title="Vizualizeaza programări"
+               routerLinkActive="active"><i class="fa-3x fa-sharp fa-solid fa-clock-rotate-left sub-menu"></i></a>
          </li>
          <li class="nav-item m-3 p-1">
             <a class="nav-link active"
                routerLinkActive="active"
+               data-toggle="tooltip"
+               title="Profilul meu"
                routerLink="/profile"><i class="fa-3x sub-menu fa-solid fa-user"></i></a>
          </li>
       </ul>

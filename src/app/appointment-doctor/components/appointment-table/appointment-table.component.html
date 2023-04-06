@@ -4,7 +4,7 @@
       <thead class="bg-primary">
         <tr>
           <th scope="col"
-              class="col-1 text-white p-2">Doctor</th>
+              class="col-1 text-white p-2">Pacient</th>
           <th scope="col"
               class="col-1 text-white p-2">Data</th>
           <th scope="col"
@@ -28,7 +28,7 @@
         <tr *ngFor="let appointment of appointmentsList"
             class="align-middle cursor-pointer"
             (click)="viewRequest(appointment)">
-          <th scope="row">{{appointment.doctorDetails.lastName}} {{appointment.doctorDetails.firstName}}</th>
+          <th scope="row">{{appointment.patientDetails.lastName}} {{appointment.patientDetails.firstName}}</th>
           <td>{{appointment.date | date: dateFormat}}</td>
           <td>{{appointment.hour}}</td>
         </tr>
@@ -44,19 +44,5 @@
         </ngb-pagination>
       </div>
     </div>
-  </div>
-  <div class="col-4 d-flex">
-    <ado-appointment-details *ngIf="appointmentDetailedSelected; else imageNotSelected"
-                               [appointmentDetailedSelected]="appointmentDetailedSelected"
-                               (closeAppointmentDetailedSelected)="
-                onCloseAppointmentDetailedSelected($event)
-            ">
-  </ado-appointment-details>
-    <ng-template #imageNotSelected>
-      <img src="assets/images/doctor4.png"
-           class="d-inline-block w-75 my-10 d-none d-md-block"
-           alt="Dental Clinic Logo"
-           loading="lazy" />
-    </ng-template>
   </div>
 </div>

@@ -7,9 +7,7 @@ import { environment } from 'src/environments/environment';
 import { AppointmentRequest } from '../models/appointment.model';
 import { AppointmentPatientDTO } from 'src/app/appointment-patient/models/appointement-patient.model';
 import { AppointmentFilter } from 'src/app/appointment-patient/models/appointment-filter.model';
-import { FormatDate } from '../utils/format-date';
-import { NgbDate } from '@ng-bootstrap/ng-bootstrap';
-import { DatePipe } from '@angular/common';
+
 
 @Injectable({
   providedIn: 'root',
@@ -63,12 +61,5 @@ export class AppointmentService {
       .subscribe();
   }
 
-  // getAppointments(): Observable<AppointmentPatientDTO[]> {
-  //   return this.http.get<{ items: AppointmentPatientDTO[] }>(`${environment.apiUrl}/core/api/v1/appointments`).pipe(
-  //     map((responseData) => {
-  //       return responseData.items;
-  //     })
-  //   );
-  // }
 
 }

@@ -1,7 +1,7 @@
 .telephone-font {
-    font-size: 20px;
-    font-weight: 800;
-    color: #D58525 !important;
+  font-size: 20px;
+  font-weight: 800;
+  color: #d58525 !important;
 }
 
 .email-font {
@@ -12,61 +12,61 @@
 
 .nav-link:hover {
   font-size: 18px;
-    font-weight: bold;
-    font-size: large;
-  }
-  
-  .contact-info {
-    margin-bottom: 0;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    padding: 5px;;
-  }
-  
-  .contact-info ul {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .contact-info li {
-    margin-right: 20px;
-  }
-  
-  .contact-info i {
-    margin-right: 5px;
-  }
+  font-weight: bold;
+  font-size: large;
+}
 
-  hr {
-    background-color: #000B6C;
-    border-top: 2px solid #000B6C;
-    margin-top: 0;
-    margin-bottom: 0;
-  }
+.contact-info {
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 5px;
+}
 
-  a:hover {
-    font-weight: bold;
-    text-decoration: underline;
-  }
-  
-  .nav-pills .nav-link.active{
-    text-decoration: none;
-    border-bottom: 2px solid #000B6C;
-    background-color: #EFF0F6;
-    opacity: 1;
+.contact-info ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
 
-  }
+.contact-info li {
+  margin-right: 20px;
+}
 
-  .off{
-    width: 120px;
-  }
+.contact-info i {
+  margin-right: 5px;
+}
 
-  .sub-menu:hover{
-    color: #000B6C;
-  }
+hr {
+  background-color: #000b6c;
+  border-top: 2px solid #000b6c;
+  margin-top: 0;
+  margin-bottom: 0;
+}
 
-  .sub-menu{
-    color: white;
-  }
+a:hover {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.nav-pills .nav-link.active {
+  text-decoration: none;
+  border-bottom: 2px solid #000b6c;
+  background-color: #eff0f6;
+  opacity: 1;
+  border-radius: 0;
+}
+
+.off {
+  width: 120px;
+}
+
+.sub-menu:hover {
+  color: #000b6c;
+}
+
+.sub-menu {
+  color: white;
+}

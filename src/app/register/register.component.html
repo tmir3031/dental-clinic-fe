@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row justify-content-center">
+  <div class="row justify-content-center my-3">
 
     <div class="w-25 register register-form rounded px-4">
 
@@ -8,9 +8,10 @@
       </div>
 
       <form [formGroup]="accountForm"
+            class="d-flex flex-column justify-content-center"
             (ngSubmit)="submitStepOne()"
             *ngIf="!stepOneSubmitted && !stepTwoSubmitted">
-        <div class="form-floating m-2">
+        <div class="form-floating my-2 w-100">
           <input type="text"
                  class="form-control"
                  formControlName="lastName"
@@ -19,7 +20,7 @@
           <label for="lastName"
                  class="form-label">Nume*</label>
         </div>
-        <div class="form-floating m-2">
+        <div class="form-floating my-2 w-100">
           <input type="text"
                  class="form-control"
                  formControlName="firstName"
@@ -29,7 +30,7 @@
                  class="form-label">Prenume*</label>
         </div>
 
-        <div class="form-floating m-2">
+        <div class="form-floating my-2 w-100">
           <input type="text"
                  class="form-control"
                  formControlName="email"
@@ -39,17 +40,27 @@
                  class="form-label">Email*</label>
         </div>
 
-        <div class="form-floating text-center">
+        <div class="form-floating my-2 w-100">
+          <select class="form-select"
+                  formControlName="gender">
+            <option value="">-- Selectează genul --</option>
+            <option value="masculin">Masculin</option>
+            <option value="feminin">Feminin</option>
+          </select>
+          <label for="gender">Gen</label>
+        </div>
+
+        <div class="form-floating text-center mt-8">
           <button type="submit"
                   class="btn btn-primary text-white p-2 m-3 w-50"
                   [disabled]="!(accountForm.controls.lastName.valid && accountForm.controls.firstName.valid && accountForm.controls.email.valid)">
             Continua
           </button>
         </div>
-        <div class="rounded px-4 d-flex justify-content-center">
-          <a class="text-dark"
+        <div class="rounded px-4 d-flex align-content-end justify-content-center mt-10">
+          <a class="text-dark align-content-end justify-content-start"
              routerLinkActive="active"
-             routerLink="/login"> Intoarce-te la login! </a>
+             routerLink="/login"><i class="fa-sharp fa-solid fa-arrow-left"></i> Intoarce-te la login! </a>
         </div>
       </form>
 
@@ -57,7 +68,7 @@
             (ngSubmit)="submitStepTwo()"
             *ngIf="stepOneSubmitted && !stepTwoSubmitted">
 
-        <div class="form-floating m-2">
+        <div class="form-floating my-2 w-100">
           <input type="text"
                  class="form-control"
                  formControlName="username"
@@ -67,7 +78,7 @@
                  class="form-label">Nume de utilizator*</label>
         </div>
 
-        <div class="form-floating m-2">
+        <div class="form-floating my-2 w-100">
           <input type="password"
                  class="form-control"
                  formControlName="password"
@@ -77,7 +88,7 @@
                  class="form-label">Parola*</label>
         </div>
 
-        <div class="form-floating m-2">
+        <div class="form-floating my-2 w-100">
           <input type="password"
                  class="form-control"
                  formControlName="confirmPassword"
@@ -92,14 +103,11 @@
 
 
         <div class="mb-3 d-flex justify-content-center">
-          <span
-              *ngIf="passwordMissMatch && accountForm?.controls?.confirmPassword?.value"
-              class="text-danger text-center"
-              >Parolele nu coincid!</span
-          >
-      </div>
+          <span *ngIf="passwordMissMatch && accountForm?.controls?.confirmPassword?.value"
+                class="text-danger text-center">Parolele nu coincid!</span>
+        </div>
 
-      
+
         <div class="form-floating text-center">
           <button type="submit"
                   class="btn btn-primary text-white p-2 mt-3 w-50"
@@ -117,7 +125,7 @@
       <form [formGroup]="accountForm"
             (ngSubmit)="submitStepThree()"
             *ngIf="stepTwoSubmitted && stepOneSubmitted">
-        <div class="form-floating m-2">
+        <div class="form-floating my-2 w-100">
           <input type="text"
                  class="form-control"
                  formControlName="phone"
@@ -126,16 +134,18 @@
           <label for="phone"
                  class="form-label">Telefon</label>
         </div>
-        <div class="form-floating m-2">
-          <input type="text"
-                 class="form-control"
+        <div class="input-group my-2 w-100">
+          <input class="form-control py-3"
+                 placeholder="Data nasterii"
+                 ngbDatepicker
                  formControlName="dateOfBirth"
-                 adoNgError="dateOfBirth"
-                 id="dateOfBirth">
-          <label for="dateOfBirth"
-                 class="form-label">Data nasterii</label>
+                 #d1="ngbDatepicker">
+          <button class="btn btn-outline border-gray calendar"
+                  (click)="d1.toggle()"
+                  type="button">
+          </button>
         </div>
-        <div class="form-floating m-2">
+        <div class="form-floating my-2 w-100">
           <input type="text"
                  class="form-control"
                  formControlName="allergies"
@@ -144,7 +154,7 @@
           <label for="allergies"
                  class="form-label">Alergii</label>
         </div>
-        <div class="form-floating m-2">
+        <div class="form-floating my-2 w-100">
           <input type="text"
                  class="form-control"
                  formControlName="diseases"

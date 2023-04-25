@@ -1,53 +1,45 @@
-<!-- <div class="card">
-    <div class="card-header bg-secondary text-white fw-bold">
-        Preturi
-    </div>
-    <ul class="list-group list-group-flush">
-        <div class="list-group-item"
-             *ngFor="let type of types"
-             (click)="selectType(type)">
-            {{ type}}
-
-        </div>
-        <div *ngIf="isSelected">
-            <div class="list-group-item bg-primary"
-                 *ngFor="let price of prices"> {{price.name}} </div>
-        </div>
-    </ul>
-</div> -->
-
-
 <div class="container">
     <div class="row d-flex justify-content-center bg-tertiary description-text rounded-3 my-3 p-2">
-        Preturi:
+        Listă de prețuri:
     </div>
-    <ngb-accordion [closeOthers]="false"
-                   #acc="ngbAccordion"
-                   class="d-flex flex-column justify-content-center"
-                   (click)="selectType(type)"
-                   *ngFor="let type of types, let i = index">
-        <ngb-panel [id]="'panel-' + i" [title]="type"
-                 >
-            <ng-template ngbPanelContent *ngIf="selectedType === type">
-                <table class="table table-sm table-hover" *ngIf="selectedType === type">
-                    <thead>
-                        <tr>
-                            <th scope="col">Nume</th>
-                            <th scope="col">Pret</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let price of prices"
-                            class="align-middle">
-                            <th scope="row">{{price.name}}</th>
-                            <td>{{price.price}}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </ng-template>
-        </ngb-panel>
-    </ngb-accordion>
+    <div class="row card my-3 rounded-3">
+        <div class="text-center text-dark p-3 rounded-3">Lista noastră de prețuri este strict informativă. Prețul unui
+            tratament diferă în funcție de complexitatea cazului medical sau materialele dentare alese. Îți recomandăm
+            să vizitezi clinica noastră pentru a primi un plan de tratament și un preț exact aferent nevoilor tale
+            stomatologice. <br>
+            <b>Preturile sunt informative si se pot modifica in functie de complexitatea fiecarui caz in parte.</b>
+        </div>
+    </div>
 
+    <div class="row d-flex justify-content-center">
+        <ngb-accordion [closeOthers]="true"
+                       #acc="ngbAccordion"
+                       class="col-8"
+                       (click)="selectType(type)"
+                       *ngFor="let type of types, let i = index">
+            <ngb-panel [id]="'panel-' + type"
+                       [title]="type">
+                <ng-template ngbPanelContent
+                             *ngIf="selectedType === type">
+                    <table class="table table-sm table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Nume</th>
+                                <th scope="col">Pret (RON)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let price of prices"
+                                class="align-middle">
+                                <td scope="row">{{price.name}}</td>
+                                <td>{{price.price}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </ng-template>
+            </ngb-panel>
+        </ngb-accordion>
+    </div>
 
     <div class="row book-online bg-primary text-white text-center my-3 rounded-3">
         <div class="book-online p-3 rounded-3"> ALTCEVA? <br>

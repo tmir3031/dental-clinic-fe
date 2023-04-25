@@ -1,32 +1,49 @@
-@import 'css/bootstrap-variables';
-@import 'bootstrap/scss/mixins';
+@import "css/bootstrap-variables";
+@import "bootstrap/scss/mixins";
 
 .list-group.list-group-flush {
-    height: 400px;
-    overflow-y: scroll;
+  height: 400px;
+  overflow-y: scroll;
 }
 
 .types {
-    height: 100px;
-    overflow-y: scroll;
-    margin-bottom: 10px;
+  height: 100px;
+  overflow-y: scroll;
+  margin-bottom: 10px;
 }
 
 .textarea {
-    width: 250px;
-    height: 130px;
+  width: 250px;
+  height: 130px;
 }
 
 .list-group-item {
-    cursor: pointer;
-    height: 50px;
+  cursor: pointer;
+  height: 50px;
 }
 
 @include media-breakpoint-between(xs, sm) {
-    .list-group-item {
-        font-size: 0.8rem;
-    }
-    .card-header {
-        font-size: 1rem;
-    }
+  .list-group-item {
+    font-size: 0.8rem;
+  }
+  .card-header {
+    font-size: 1rem;
+  }
+}
+
+a:hover {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.book-online:hover {
+  background-color: #000b6c;
+  color: white;
+}
+
+.description-text {
+  font-size: 20px;
+  font-weight: 600;
+  color: #000b6c !important;
+  text-align: center;
 }

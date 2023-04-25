@@ -63,6 +63,12 @@ const routes: Routes = [
         loadChildren: () =>
           import('./appointment-doctor/appointment-doctor.module').then((m) => m.AppointmentDoctorModule),
       },
+      {
+        path: 'menu',
+        loadChildren: () =>
+          import('./menu/menu.module').then((m) => m.MenuModule),
+      }
+
     ]
   },
 

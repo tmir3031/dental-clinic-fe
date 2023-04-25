@@ -8,22 +8,25 @@ import { Subscription } from 'rxjs';
   templateUrl: './prices.component.html',
   styleUrls: ['./prices.component.scss']
 })
-export class PricesComponent implements OnDestroy {
+export class PricesComponent implements OnDestroy, OnInit {
   selectedType: string;
-  isSelected = false;
   types = ["ORTODONȚIE", "TRATAMENTE PROTETICE", "TRATAMENTE ENDODONTICE", "CONSULTAȚII", "RADIOLOGIE", "TRATAMENTE ODONTALE", "COSMETICĂ DENTARĂ"]
+  public allPrices: PriceDto[];
   public prices: PriceDto[];
   private subscription: Subscription;
   constructor(private service: PricesService) { }
 
 
-  selectType(type: string): void {
-    this.isSelected = true;
-    console.log("aci");
-    this.selectedType = type;
-    this.subscription = this.service.getPricesForAType(type).subscribe((data) => {
-      this.prices = data;
+  ngOnInit(): void {
+    this.subscription = this.service.getPricesForAType().subscribe((data) => {
+      this.allPrices = data;
     });
+  }
+
+  selectType(type: string): void {
+    
+    this.selectedType = type;
+    this.prices = this.allPrices.filter((vl) => vl.type === type);
   }
 
   ngOnDestroy(): void {

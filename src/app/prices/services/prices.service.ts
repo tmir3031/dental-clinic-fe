@@ -12,16 +12,16 @@ export class PricesService {
 
   constructor(private http: HttpClient) {}
 
-  public getPricesForAType(type: string): Observable<PriceDto[]> {
+  public getPricesForAType(type?: string): Observable<PriceDto[]> {
     let params = new HttpParams();
     if (type) {
-      params = params.append('type', type);
-      return this.http.get<{ items: PriceDto[] }>(`${environment.apiUrl}/core/api/v1/prices`, { params }).pipe(
-        map((responseData) => {
-          return responseData.items;
-        })
-      );
+      params = params.append('type', type); 
     }
+    return this.http.get<{ items: PriceDto[] }>(`${environment.apiUrl}/core/api/v1/prices`).pipe(
+      map((responseData) => {
+        return responseData.items;
+      })
+    );
   }
 
 }

@@ -1,73 +1,70 @@
 .book-online:hover {
-    background-color: #000b6c;
-    color: white;
-  }
-  
-  .description-text {
-    font-size: 20px;
-    font-weight: 600;
-    color: #000B6C !important;
-    text-align: center;
-  }
-  
-  :host {
+  background-color: #000b6c;
+  color: white;
+}
+
+.description-text {
+  font-size: 20px;
+  font-weight: 600;
+  color: #000b6c !important;
+  text-align: center;
+}
+
+:host {
+  display: flex;
+  flex-direction: row;
+
+  .container {
     display: flex;
-    flex-direction: row;
-    
+    flex-direction: column;
 
-    .container {
-        display: flex;
-        flex-direction: column;
-
-        .title {
-            font-size: 20px;
-        }
-
-        .cards {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-
-            .cards-style {
-                padding: 15px;
-
-                .cards-buttons {
-                    display: flex;
-                    justify-content: space-between;
-                }
-
-            }
-        }
-      .scroll-to-top-button{
-        display: flex;
-        position: fixed;
-        bottom:60px;
-        right: 20px;
-        width: 40px;
-        height: 40px;
-        background-color: #4D57AB;
-        border-radius: 9999px;
-        border: unset;
-        color:white;
-        transition-property: all;
-        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-        transition-duration: 300ms;
-        &:hover{
-          background-color: #6c73b8;
-        }
-      }
-      .scroll-to-top-icon{
-        width: 24px;
-        height: 24px;
-        margin: auto;
-      }
+    .title {
+      font-size: 20px;
     }
 
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+
+      .cards-style {
+        padding: 15px;
+
+        .cards-buttons {
+          display: flex;
+          justify-content: space-between;
+        }
+      }
+    }
+    .scroll-to-top-button {
+      display: flex;
+      position: fixed;
+      bottom: 60px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+      background-color: #4d57ab;
+      border-radius: 9999px;
+      border: unset;
+      color: white;
+      transition-property: all;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      transition-duration: 300ms;
+      &:hover {
+        background-color: #6c73b8;
+      }
+    }
+    .scroll-to-top-icon {
+      width: 24px;
+      height: 24px;
+      margin: auto;
+    }
+  }
 }
 
 .start-title {
-  background-color: #D58525;
+  background-color: #d58525;
   color: white;
   font-size: 20px;
 }
@@ -77,7 +74,6 @@
   color: white;
   font-size: 20px;
 }
-
 
 .flip-card {
   background-color: transparent;
@@ -107,8 +103,9 @@
   transform: rotateY(180deg);
 }
 
-.flip-card-front, .flip-card-back {
-  box-shadow: 0 8px 14px 0 rgba(0,0,0,0.2);
+.flip-card-front,
+.flip-card-back {
+  box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.2);
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -117,7 +114,7 @@
   height: 100%;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  border: 1px solid #F6F8FC;
+  border: 1px solid #f6f8fc;
   border-radius: 1rem;
 }
 
@@ -125,7 +122,6 @@
   background-color: #e9ecef;
   // background: linear-gradient(299deg, rgba(2,0,36,1) 0%, rgba(0,20,71,1) 4%, #00d4ff 100%);
   color: #001447;
-
 }
 
 .flip-card-back {
@@ -136,4 +132,9 @@
   // background: linear-gradient(159deg, rgba(2,0,36,1) 0%, rgba(0,20,71,1) 1%, rgba(0,212,255,1) 100%);
   color: #001447;
   transform: rotateY(180deg);
+}
+
+a:hover {
+  font-weight: bold;
+  text-decoration: underline;
 }

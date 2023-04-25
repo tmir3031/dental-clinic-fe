@@ -14,10 +14,11 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      align-items: center;
+      justify-items: end;
 
       .card {
         height: 100%;
+        min-height: 100%;
       }
 
       .cards-style {

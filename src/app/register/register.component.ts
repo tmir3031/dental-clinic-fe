@@ -1,10 +1,4 @@
-import {
-  Component,
-  OnChanges,
-  OnDestroy,
-  OnInit,
-  SimpleChanges,
-} from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CustomValidators } from './utils/validators';
 import { Subscription } from 'rxjs';
@@ -58,6 +52,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
         ],
         firstName: ['', Validators.required],
         lastName: ['', Validators.required],
+        gender: ['', Validators.required],
         phone: [''],
         allergies: [''],
         diseases: [''],
@@ -76,12 +71,10 @@ export class RegisterComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    if(this.registerSubscription)
-    this.registerSubscription.unsubscribe();
+    if (this.registerSubscription) this.registerSubscription.unsubscribe();
   }
 
   submitStepOne(): void {
-    this.toasts.showError("deva");
     this.stepOneSubmitted = true;
     this.stepTwoSubmitted = false;
   }
@@ -111,18 +104,18 @@ export class RegisterComponent implements OnInit, OnDestroy {
         lastName: this.accountForm.get('lastName').value,
         username: this.accountForm.get('username').value,
         email: this.accountForm.get('email').value,
+        gender: this.accountForm.get('gender').value,
         role: 'USER',
         password: this.accountForm.get('password').value,
         allergies: this.accountForm.get('allergies').value,
         phone: this.accountForm.get('phone').value,
         diseases: this.accountForm.get('diseases').value,
-        // dateOfBirth: FormatDate.convertNgbDateToStringDate(
-        //   this.accountForm.get('dateOfBirth').value
-        // ),
+        dateOfBirth: FormatDate.convertNgbDateToStringDate(
+          this.accountForm.get('dateOfBirth').value
+        ),
       })
       .subscribe(() => {
         this.accountForm.reset();
       });
-    //console.log(this.accountForm.value);
   }
 }

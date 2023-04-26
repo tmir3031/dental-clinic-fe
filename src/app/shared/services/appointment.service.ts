@@ -5,8 +5,8 @@ import { map, switchMap, take, tap } from 'rxjs/operators';
 import { LoginService } from 'src/app/shared/services/login.service';
 import { environment } from 'src/environments/environment';
 import { AppointmentRequest } from '../models/appointment.model';
-import { AppointmentPatientDTO } from 'src/app/appointment-patient/models/appointement-patient.model';
-import { AppointmentFilter } from 'src/app/appointment-patient/models/appointment-filter.model';
+import { AppointmentPatientDTO } from 'src/app/menu/components/appointment-patient/models/appointement-patient.model';
+import { AppointmentFilter } from 'src/app/menu/components/appointment-patient/models/appointment-filter.model';
 
 
 @Injectable({

@@ -1,21 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Subscription, combineLatest, Observable } from 'rxjs';
 import { map, switchMap, debounceTime } from 'rxjs/operators';
 import { AppointmentPatientDTO } from '../appointment-patient/models/appointement-patient.model';
 import { AppointmentFilter } from '../appointment-patient/models/appointment-filter.model';
-import { AppointmentService } from '../shared/services/appointment.service';
-import { FormatDate } from '../shared/utils/format-date';
+import { AppointmentService } from 'src/app/shared/services/appointment.service';
+import { FormatDate } from 'src/app/shared/utils/format-date';
 
 const TIME = 500;
 
 @Component({
   selector: 'ado-appointment-doctor',
   templateUrl: './appointment-doctor.component.html',
-  styleUrls: ['./appointment-doctor.component.scss']
+  styleUrls: ['./appointment-doctor.component.scss'],
 })
-export class AppointmentDoctorComponent implements OnInit {
-
+export class AppointmentDoctorComponent implements OnInit, OnDestroy {
   form: FormGroup;
   appointmentsListDetailed: AppointmentPatientDTO[];
   selectedAppointment: AppointmentPatientDTO;
@@ -27,9 +26,8 @@ export class AppointmentDoctorComponent implements OnInit {
 
   constructor(
     private appointmentService: AppointmentService,
-    private formBuilder: FormBuilder,
+    private formBuilder: FormBuilder
   ) {}
-
 
   ngOnInit(): void {
     this.initForm();
@@ -86,7 +84,9 @@ export class AppointmentDoctorComponent implements OnInit {
   private setInitialFilters(): void {
     this.form.patchValue({
       search: null,
-      date: FormatDate.convertStringDateToNgbDate(FormatDate.getFirstDayOfMonth(new Date())),
+      date: FormatDate.convertStringDateToNgbDate(
+        FormatDate.getFirstDayOfMonth(new Date())
+      ),
     });
   }
 

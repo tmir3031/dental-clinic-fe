@@ -2,18 +2,17 @@ import {
   Component,
   Input,
   OnChanges,
-  OnInit,
   SimpleChanges,
 } from '@angular/core';
 import { AppointmentPatientDTO } from '../../models/appointement-patient.model';
 import { Constants } from 'src/app/shared/utils/constants';
 
 @Component({
-  selector: 'ado-appointment-table',
+  selector: 'ado-appointment-patient-table',
   templateUrl: './appointment-table.component.html',
   styleUrls: ['./appointment-table.component.scss'],
 })
-export class AppointmentTableComponent implements OnChanges {
+export class AppointmentPatientTableComponent implements OnChanges {
   @Input() appointmentsListDetailed: AppointmentPatientDTO[];
   appointmentDetailedSelected: AppointmentPatientDTO;
   appointmentsList: AppointmentPatientDTO[];

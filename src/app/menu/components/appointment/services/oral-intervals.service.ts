@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { catchError, map, switchMap, take } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 import { FormatDate } from 'src/app/shared/utils/format-date';
 import { NgbDate } from '@ng-bootstrap/ng-bootstrap';
 import { LoginService } from 'src/app/shared/services/login.service';

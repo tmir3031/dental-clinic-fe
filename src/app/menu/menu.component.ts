@@ -1,7 +1,6 @@
 import { Component, OnDestroy, OnInit, TemplateRef } from '@angular/core';
 import { Role } from '../login/models/login.model';
 import { Subscription } from 'rxjs/internal/Subscription';
-import { NgbOffcanvas } from '@ng-bootstrap/ng-bootstrap';
 import { LoginService } from '../shared/services/login.service';
 
 @Component({
@@ -16,7 +15,7 @@ export class MenuComponent implements OnInit, OnDestroy {
 
   private loginSubscription: Subscription;
 
-  constructor(private loginService: LoginService, private offcanvasService: NgbOffcanvas) {}
+  constructor(private loginService: LoginService) {}
 
   ngOnInit(): void {
     this.loginSubscription = this.loginService.userLogged.subscribe((user) => {
@@ -33,9 +32,5 @@ export class MenuComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.loginSubscription.unsubscribe();
   }
-
-  openScroll(content: TemplateRef<any>) {
-		this.offcanvasService.open(content, { scroll: true });
-	}
 
 }

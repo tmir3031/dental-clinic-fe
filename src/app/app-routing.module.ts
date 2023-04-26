@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LayoutComponent } from './ui/layout/layout.component';
+import { LoginComponent } from './login/login.component';
+import { LoginGuard } from './login/services/login-guard';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
@@ -21,7 +23,9 @@ const routes: Routes = [
       {
         path: 'services',
         loadChildren: () =>
-          import('./dental-services/dental-services.module').then((m) => m.DentalServicesModule),
+          import('./dental-services/dental-services.module').then(
+            (m) => m.DentalServicesModule
+          ),
       },
       {
         path: 'prices',
@@ -34,14 +38,9 @@ const routes: Routes = [
           import('./contact/contact.module').then((m) => m.ContactModule),
       },
       {
-        path: 'appointment',
+        path: 'register',
         loadChildren: () =>
-          import('./appointment/appointment.module').then((m) => m.AppointmentModule),
-      },
-      {
-        path: 'history',
-        loadChildren: () =>
-          import('./appointment-patient/appointment-patient.module').then((m) => m.AppointmentPatientModule),
+          import('./register/register.module').then((m) => m.RegisterModule),
       },
       {
         path: 'login',
@@ -49,30 +48,13 @@ const routes: Routes = [
           import('./login/login.module').then((m) => m.LoginModule),
       },
       {
-        path: 'register',
-        loadChildren: () =>
-          import('./register/register.module').then((m) => m.RegisterModule),
-      },
-      {
-        path: 'profile',
-        loadChildren: () =>
-          import('./profile/profile.module').then((m) => m.ProfileModule),
-      },
-      {
-        path: 'view',
-        loadChildren: () =>
-          import('./appointment-doctor/appointment-doctor.module').then((m) => m.AppointmentDoctorModule),
-      },
-      {
         path: 'menu',
+        canActivateChild: [LoginGuard],
         loadChildren: () =>
           import('./menu/menu.module').then((m) => m.MenuModule),
-      }
-
-    ]
+      },
+    ],
   },
-
-  
 ];
 
 @NgModule({

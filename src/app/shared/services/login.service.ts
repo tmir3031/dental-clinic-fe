@@ -98,10 +98,10 @@ export class LoginService {
         this.router.navigate(['/menu']);
         break;
       case Role.DOCTOR:
-        this.router.navigate(['/view']);
+        this.router.navigate(['/menu/view']);
         break;
       default:
-        this.router.navigate(['/appointment']);
+        this.router.navigate(['/menu/appointment']);
     }
   }
 }

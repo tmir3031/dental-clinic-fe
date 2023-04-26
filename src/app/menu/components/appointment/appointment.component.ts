@@ -6,17 +6,22 @@ import {
 } from '@ng-bootstrap/ng-bootstrap';
 import { OralIntervalsService } from './services/oral-intervals.service';
 import { Subject, Observable, Subscription } from 'rxjs';
-import { catchError, debounceTime, distinctUntilChanged, tap } from 'rxjs/operators';
+import {
+  catchError,
+  debounceTime,
+  distinctUntilChanged,
+  tap,
+} from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { SpecializationDto } from '../shared/models/specialization.model';
-import { DoctorDto } from '../shared/models/doctor.model';
-import { DoctorService } from '../shared/services/doctor.service';
-import { SpecializationService } from '../shared/services/specialization.service';
-import { AppointmentService } from '../shared/services/appointment.service';
-import { AppointmentRequest } from '../shared/models/appointment.model';
-import { FormatDate } from '../shared/utils/format-date';
-import { ToastService } from '../shared/components/toasts-container/toasts.service';
+import { ToastService } from 'src/app/shared/components/toasts-container/toasts.service';
+import { AppointmentRequest } from 'src/app/shared/models/appointment.model';
+import { DoctorDto } from 'src/app/shared/models/doctor.model';
+import { SpecializationDto } from 'src/app/shared/models/specialization.model';
+import { AppointmentService } from 'src/app/shared/services/appointment.service';
+import { DoctorService } from 'src/app/shared/services/doctor.service';
+import { SpecializationService } from 'src/app/shared/services/specialization.service';
+import { FormatDate } from 'src/app/shared/utils/format-date';
 
 @Component({
   selector: 'ado-appointment',
@@ -132,11 +137,15 @@ export class AppointmentComponent implements OnInit, OnDestroy {
       .createAppointment(this.extractAppointmentRequestFromForm())
       .pipe(
         catchError((error) => {
-          this.toastService.showError("Ne pare rau! Nu s-a putut efectua aceasta cerere. Va rugam reveniti!");
+          this.toastService.showError(
+            'Ne pare rau! Nu s-a putut efectua aceasta cerere. Va rugam reveniti!'
+          );
           throw error;
         }),
-        tap( () =>
-          this.toastService.showSuccess("Cererea s-a efectuat cu succes! Va multumim!")
+        tap(() =>
+          this.toastService.showSuccess(
+            'Cererea s-a efectuat cu succes! Va multumim!'
+          )
         )
       )
       .subscribe(() => {

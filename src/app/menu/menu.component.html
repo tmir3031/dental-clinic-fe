@@ -9,19 +9,19 @@
             <a class="nav-link active"
                title="Programeaza-te"
                routerLinkActive="active"
-               routerLink="/appointment"><i class="fa-3x fa-solid fa-calendar-check sub-menu"></i></a>
+               routerLink="/menu/appointment"><i class="fa-3x fa-solid fa-calendar-check sub-menu"></i></a>
           </li>
           <li class="nav-item my-3"
               *ngIf="authorizationRole === 'ROLE_USER'">
             <a class="nav-link active"
-               routerLink="/history"
+               routerLink="/menu/history"
                title="Vizualizeaza programări"
                routerLinkActive="active"><i class="fa-3x fa-sharp fa-solid fa-clock-rotate-left sub-menu"></i></a>
           </li>
           <li class="nav-item my-3"
               *ngIf="authorizationRole === 'ROLE_DOCTOR'">
             <a class="nav-link active"
-               routerLink="/view"
+               routerLink="/menu/view"
                title="Vizualizeaza programări"
                routerLinkActive="active"><i class="fa-3x fa-sharp fa-solid fa-clock-rotate-left sub-menu"></i></a>
           </li>
@@ -29,7 +29,7 @@
             <a class="nav-link active"
                routerLinkActive="active"
                title="Profilul meu"
-               routerLink="/profile"><i class="fa-3x sub-menu fa-solid fa-user"></i></a>
+               routerLink="/menu/profile"><i class="fa-3x sub-menu fa-solid fa-user"></i></a>
           </li>
         </ul>
       </div>

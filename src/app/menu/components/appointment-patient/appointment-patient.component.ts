@@ -1,11 +1,11 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AppointmentPatientDTO } from './models/appointement-patient.model';
 import { Observable, Subscription, combineLatest } from 'rxjs';
-import { AppointmentService } from '../shared/services/appointment.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { map, switchMap, debounceTime } from 'rxjs/operators';
-import { FormatDate } from '../shared/utils/format-date';
 import { AppointmentFilter } from './models/appointment-filter.model';
+import { AppointmentService } from 'src/app/shared/services/appointment.service';
+import { FormatDate } from 'src/app/shared/utils/format-date';
 
 const TIME = 500;
 

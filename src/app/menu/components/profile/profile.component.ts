@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { Role } from '../login/models/login.model';
-import { LoginService } from '../shared/services/login.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Role } from 'src/app/login/models/login.model';
+import { LoginService } from 'src/app/shared/services/login.service';
 
 @Component({
   selector: 'ado-profile',

@@ -1,0 +1,69 @@
+<div class="container">
+    <div class="row d-flex justify-content-center p-3 rounded-3 start-title my-3">
+        Listă de prețuri:
+    </div>
+    <div class="row card my-3 rounded-3">
+        <div class="text-center text-dark p-3 rounded-3">Lista noastră de prețuri este strict informativă. Prețul unui
+            tratament diferă în funcție de complexitatea cazului medical sau materialele dentare alese. Îți recomandăm
+            să vizitezi clinica noastră pentru a primi un plan de tratament și un preț exact aferent nevoilor tale
+            stomatologice. <br>
+            <b>Preturile sunt informative si se pot modifica in functie de complexitatea fiecarui caz in parte.</b>
+        </div>
+    </div>
+
+    <div class="row d-flex justify-content-center">
+        <ngb-accordion [closeOthers]="true"
+                       #acc="ngbAccordion"
+                       class="col-8"
+                       (click)="selectType(type)"
+                       *ngFor="let type of types, let i = index">
+            <ngb-panel [id]="'panel-' + type"
+                       [title]="type">
+                <ng-template ngbPanelContent
+                             *ngIf="selectedType === type">
+                    <table class="table table-sm table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Nume</th>
+                                <th scope="col">Pret (RON)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let price of prices"
+                                class="align-middle">
+                                <td scope="row">{{price.name}}</td>
+                                <td>{{price.price}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </ng-template>
+            </ngb-panel>
+        </ngb-accordion>
+    </div>
+    <button *ngIf="isMenuScrolled"
+            (click)="scrollToTop()"
+            class="scroll-to-top-button">
+        <svg xmlns="http://www.w3.org/2000/svg"
+             fill="none"
+             viewBox="0 0 24 24"
+             stroke-width="2.5"
+             stroke="currentColor"
+             class="scroll-to-top-icon">
+            <path stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+        </svg>
+    </button>
+
+    <div class="row book-online bg-primary text-white text-center my-3 rounded-3">
+        <div class="book-online p-3 rounded-3"> ALTCEVA? <br>
+            Nu ești sigur de ce tratament ai nevoie pentru zâmbetul tău? De ce nu rezervați o consultație cu una dintre
+            echipele noastre prietenoase pentru a discuta opțiunile și serviciile relevante. <br> <a class="text-light"
+               routerLinkActive="active"
+               routerLink="/appointment"> Programeaza-te online </a>
+        </div>
+    </div>
+
+
+
+</div>

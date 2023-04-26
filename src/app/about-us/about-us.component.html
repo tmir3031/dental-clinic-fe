@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="row d-flex justify-content-center p-3 rounded-3 start-title my-3">ECHIPA DENTAL CLINIC!</div>
+
+  <div class="row card my-3 rounded-3">
+    <div class="text-center text-dark p-3 rounded-3">Suntem o echipă dedicată sănătății dvs. dentare și am făcut din
+      îmbunătățirea sănătății orale a pacienților noștri o prioritate.</div>
+  </div>
+
+  <div class="cards">
+    <div *ngFor="let doctor of doctors"
+         class="cards-style">
+      <div class="card"
+           style="width: 18rem;">
+        <img class="card-img-top"
+             src="assets/images/teeth9.jpg"
+             alt="Card image cap">
+        <div class="card-body text-center">
+          <h5 class="card-title ">Dr. {{doctor.lastName}} {{doctor.firstName}} </h5>
+          <div class="card-text">{{doctor.description}}</div>
+          <div class="card-text">Specializari:</div>
+          <div *ngFor="let specialization of doctor.specializationDetailsListItem
+          "
+               class="card-text">{{specialization.name}}</div>
+          <div class="card-text">Email: {{doctor.email}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button *ngIf="isMenuScrolled"
+          (click)="scrollToTop()"
+          class="scroll-to-top-button">
+    <svg xmlns="http://www.w3.org/2000/svg"
+         fill="none"
+         viewBox="0 0 24 24"
+         stroke-width="2.5"
+         stroke="currentColor"
+         class="scroll-to-top-icon">
+      <path stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+    </svg>
+  </button>
+
+  <div class="row book-online bg-primary text-white text-center my-3 rounded-3">
+    <div class="book-online p-3 rounded-3"> Programeaza-te acum gratuit <a class="text-light"
+         routerLinkActive="active"
+         routerLink="/menu/appointment"> aici. </a>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-center">
+    <img src="assets/images/doctorss.png"
+         class="w-75 rounded-3 center my-3"
+         alt="...">
+  </div>
+
+
+</div>

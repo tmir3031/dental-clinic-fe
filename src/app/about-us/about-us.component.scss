@@ -1,0 +1,94 @@
+:host {
+  display: flex;
+  flex-direction: row;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+
+    .title {
+      font-size: 20px;
+    }
+
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      justify-items: end;
+
+      .card {
+        height: 100%;
+        min-height: 100%;
+      }
+
+      .cards-style {
+        padding: 15px;
+
+        .cards-buttons {
+          display: flex;
+          justify-content: space-between;
+
+          .info-button {
+            border-radius: 10px;
+            width: 30px;
+          }
+        }
+      }
+    }
+    .scroll-to-top-button {
+      display: flex;
+      position: fixed;
+      bottom: 60px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+      background-color: #4d57ab;
+      border-radius: 9999px;
+      border: unset;
+      color: white;
+      transition-property: all;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      transition-duration: 300ms;
+      &:hover {
+        background-color: #6c73b8;
+      }
+    }
+    .scroll-to-top-icon {
+      width: 24px;
+      height: 24px;
+      margin: auto;
+    }
+  }
+}
+
+.doctors {
+  width: 30px;
+  height: 40px;
+}
+
+.images {
+  max-width: 300px;
+  max-height: 300px;
+}
+
+.book-online:hover {
+  background-color: #000b6c;
+  color: white;
+}
+
+a:hover {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.start-title {
+  background-color: #d58525;
+  color: white;
+  font-size: 20px;
+}
+
+.start-title:hover {
+  background-color: #000b6c;
+  color: white;
+  font-size: 20px;
+}

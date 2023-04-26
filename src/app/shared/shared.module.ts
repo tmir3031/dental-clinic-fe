@@ -3,28 +3,28 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import dayGridPlugin from '@fullcalendar/daygrid';
-import timeGridPlugin from '@fullcalendar/timegrid';
-import interactionPlugin from '@fullcalendar/interaction';
-
-FullCalendarModule.registerPlugins([ // register FullCalendar plugins
-  dayGridPlugin,
-  interactionPlugin,
-  timeGridPlugin
-]);
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { InitialsImageComponent } from './components/initials-image/initials-image.component';
+import { ToastsContainerComponent } from './components/toasts-container/toasts-container.component';
 
 @NgModule({
-    declarations: [],
-    imports: [
-        CommonModule,
-        NgbModule,
-        FullCalendarModule
-    ],
-    exports: [
-        CommonModule,
-        NgbModule,
-        FullCalendarModule
-    ],
-    providers: []
+  declarations: [InitialsImageComponent, ToastsContainerComponent],
+  imports: [
+    CommonModule,
+    NgbModule,
+    FullCalendarModule,
+    ReactiveFormsModule,
+    FormsModule,
+  ],
+  exports: [
+    CommonModule,
+    NgbModule,
+    FullCalendarModule,
+    ReactiveFormsModule,
+    FormsModule,
+    InitialsImageComponent,
+    ToastsContainerComponent
+  ],
+  providers: [],
 })
-export class SharedModule { }
+export class SharedModule {}

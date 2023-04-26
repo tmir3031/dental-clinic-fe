@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LayoutComponent } from './ui/layout/layout.component';
+import { LoginComponent } from './login/login.component';
+import { LoginGuard } from './login/services/login-guard';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
@@ -14,14 +16,45 @@ const routes: Routes = [
           import('./home/home.module').then((m) => m.HomeModule),
       },
       {
-        path: 'holidays',
+        path: 'about-us',
         loadChildren: () =>
-          import('./individual-holidays/individual-holidays.module').then((m) => m.IndividualHolidaysModule),
-      }
-    ]
+          import('./about-us/about-us.module').then((m) => m.AboutUsModule),
+      },
+      {
+        path: 'services',
+        loadChildren: () =>
+          import('./dental-services/dental-services.module').then(
+            (m) => m.DentalServicesModule
+          ),
+      },
+      {
+        path: 'prices',
+        loadChildren: () =>
+          import('./prices/prices.module').then((m) => m.PricesModule),
+      },
+      {
+        path: 'contact',
+        loadChildren: () =>
+          import('./contact/contact.module').then((m) => m.ContactModule),
+      },
+      {
+        path: 'register',
+        loadChildren: () =>
+          import('./register/register.module').then((m) => m.RegisterModule),
+      },
+      {
+        path: 'login',
+        loadChildren: () =>
+          import('./login/login.module').then((m) => m.LoginModule),
+      },
+      {
+        path: 'menu',
+        canActivateChild: [LoginGuard],
+        loadChildren: () =>
+          import('./menu/menu.module').then((m) => m.MenuModule),
+      },
+    ],
   },
-
-  
 ];
 
 @NgModule({

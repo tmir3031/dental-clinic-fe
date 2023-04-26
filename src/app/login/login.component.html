@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="row justify-content-center">
+
+    <div class="text-danger">ATENTIE! Programarile online nu se pot efectua fara cont!</div>
+
+    <div class="w-25 login login-form rounded px-4">
+
+      <div class="text-center p-2">
+        <h1>Bine ai venit!</h1>
+      </div>
+
+      <form [formGroup]="loginForm"
+            (ngSubmit)="onLogin()">
+        <div class="form-floating m-2">
+          <input type="text"
+                 class="form-control"
+                 formControlName="username"
+                 adoNgError="username"
+                 id="username">
+          <label for="username"
+                 class="form-label">Nume de utilizator</label>
+        </div>
+
+        <div class="form-floating m-2">
+          <input type="password"
+                 class="form-control"
+                 formControlName="password"
+                 adoNgError="password"
+                 id="password" />
+          <label for="password"
+                 class="form-label">Parola</label>
+        </div>
+        <div>
+          <span *ngIf="credentialsInvalid"
+                class="text-danger">Numele de utilizator sau parola incorecte!</span>
+        </div>
+        <div class="form-floating text-center">
+          <button type="submit"
+                  class="btn btn-primary text-white p-2 m-3 w-50"
+                  [disabled]="!loginForm.valid">
+            Autentificare
+          </button>
+        </div>
+      </form>
+
+    </div>
+
+  </div>
+
+  <div class="row justify-content-center my-3">
+    <div class="w-25 rounded px-4 register justify-content-center"> Nu aveti cont? &nbsp; <br>
+      <a class="text-primary"
+         routerLinkActive="active"
+         routerLink="/register"> Inregistrati-va! </a>
+    </div> 
+  </div>
+
+</div>

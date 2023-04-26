@@ -6,34 +6,44 @@
       <div class="body">
         <ul class="navbar-nav flex-column">
           <li class="nav-item my-3 d-flex align-self-center">
-            <a class="nav-link active"
+            <a class="nav-link"
                title="Programeaza-te"
                routerLinkActive="active"
                routerLink="/menu/appointment"><i class="fa-3x fa-solid fa-calendar-check sub-menu"></i></a>
           </li>
           <li class="nav-item my-3 align-self-center"
               *ngIf="authorizationRole === 'ROLE_USER'">
-            <a class="nav-link active"
+            <a class="nav-link"
+               routerLinkActive="active"
                routerLink="/menu/history"
                title="Vizualizeaza programări"
                routerLinkActive="active"><i class="fa-3x fa-sharp fa-solid fa-clock-rotate-left sub-menu"></i></a>
           </li>
           <li class="nav-item my-3 align-self-center"
               *ngIf="authorizationRole === 'ROLE_DOCTOR'">
-            <a class="nav-link active"
+            <a class="nav-link"
+               routerLinkActive="active"
                routerLink="/menu/view"
                title="Vizualizeaza programări"
                routerLinkActive="active"><i class="fa-3x fa-sharp fa-solid fa-clock-rotate-left sub-menu"></i></a>
           </li>
-          <li class="nav-item my-3 align-self-center">
-            <a class="nav-link active"
+          <li class="nav-item my-3 align-self-center"
+              *ngIf="authorizationRole === 'ROLE_USER'">
+            <a class="nav-link"
                routerLinkActive="active"
                title="Profilul meu"
                routerLink="/menu/profile"><i class="fa-3x sub-menu fa-solid fa-user"></i></a>
           </li>
           <li class="nav-item my-3 align-self-center"
               *ngIf="authorizationRole === 'ROLE_DOCTOR'">
-            <a class="nav-link active"
+            <a class="nav-link"
+               routerLinkActive="active"
+               title="Lista pacienti"
+               routerLink="/menu/patients-list"><i class="fa-3x sub-menu fa-solid fa-hospital-user"></i></a>
+          </li>
+          <li class="nav-item my-3 align-self-center"
+              *ngIf="authorizationRole === 'ROLE_DOCTOR'">
+            <a class="nav-link"
                routerLinkActive="active"
                title="Profilul meu"
                routerLink="/menu/my-profile"><i class="fa-3x sub-menu fa-solid fa-user"></i></a>

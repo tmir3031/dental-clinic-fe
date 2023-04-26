@@ -1,0 +1,30 @@
+<div class="modal-header">
+  <h4>Motiv refuz</h4>
+  <button type="button"
+          class="btn-close"
+          (click)="onClose()"></button>
+</div>
+
+<div class="modal-body">
+  <div class="form-floating">
+    <textarea class="form-control"
+              placeholder="Motiv refuz"
+              id="treatment"
+              [(ngModel)]="treatment"></textarea>
+    <label for="treatment">Tratament</label>
+  </div>
+</div>
+
+<div class="row justify-content-center">
+  <div class="col-auto">
+    <button type="button"
+            class="btn btn-secondary m-3"
+            (click)="onClose()">Renunta</button>
+  </div>
+  <div class="col-auto">
+    <button type="button"
+            class="btn btn-danger m-3"
+            (click)="updateAppointment()"
+            [disabled]="!treatment">Salveaza</button>
+  </div>
+</div>

@@ -16,6 +16,8 @@ import { AppointmentDetailsComponent } from './components/appointment-patient/co
 import { AppointmentPatientTableComponent } from './components/appointment-patient/components/appointment-table/appointment-table.component';
 import { ProfileDoctorComponent } from './components/profile-doctor/profile-doctor.component';
 import { ProfilePatientComponent } from './components/profile-patient/profile-patient.component';
+import { UpdateAppointmentModalComponent } from './components/appointment-doctor/components/modal/update-appointment-modal/update-appointment-modal.component';
+import { PatientsListComponent } from './components/patients-list/patients-list.component';
 
 @NgModule({
   imports: [
@@ -36,6 +38,8 @@ import { ProfilePatientComponent } from './components/profile-patient/profile-pa
     AppointmentDoctorTableComponent,
     AppointmentDetailsComponent,
     AppointmentPatientTableComponent,
+    UpdateAppointmentModalComponent,
+    PatientsListComponent
   ],
 })
 export class MenuModule {}

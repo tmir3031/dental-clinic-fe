@@ -6,6 +6,9 @@ import { AppointmentPatientDTO } from '../appointment-patient/models/appointemen
 import { AppointmentFilter } from '../appointment-patient/models/appointment-filter.model';
 import { AppointmentService } from 'src/app/shared/services/appointment.service';
 import { FormatDate } from 'src/app/shared/utils/format-date';
+import { UpdateAppointmentModalComponent } from './components/modal/update-appointment-modal/update-appointment-modal.component';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { AppointmentDto } from 'src/app/shared/models/appointment.model';
 
 const TIME = 500;
 
@@ -17,7 +20,7 @@ const TIME = 500;
 export class AppointmentDoctorComponent implements OnInit, OnDestroy {
   form: FormGroup;
   appointmentsListDetailed: AppointmentPatientDTO[];
-  selectedAppointment: AppointmentPatientDTO;
+  selectedAppointment: AppointmentDto;
   private filters: AppointmentFilter = {
     date: null,
     search: null,
@@ -84,9 +87,7 @@ export class AppointmentDoctorComponent implements OnInit, OnDestroy {
   private setInitialFilters(): void {
     this.form.patchValue({
       search: null,
-      date: FormatDate.convertStringDateToNgbDate(
-        FormatDate.getFirstDayOfMonth(new Date())
-      ),
+      date: FormatDate.convertDateToNgbDate(new Date()),
     });
   }
 

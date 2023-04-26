@@ -48,6 +48,27 @@
                title="Profilul meu"
                routerLink="/menu/my-profile"><i class="fa-3x sub-menu fa-solid fa-user"></i></a>
           </li>
+          <li class="nav-item my-3 align-self-center"
+              *ngIf="authorizationRole === 'ROLE_ADMIN'">
+            <a class="nav-link"
+               routerLinkActive="active"
+               title="Vizualizare programari"
+               routerLink="/menu"><i class="fa-3x sub-menu fa-solid fa-sharp fa-clock-rotate-left"></i></a>
+          </li>
+          <li class="nav-item my-3 align-self-center"
+              *ngIf="authorizationRole === 'ROLE_ADMIN'">
+            <a class="nav-link"
+               routerLinkActive="active"
+               title="Vizualizare pacienti"
+               routerLink="/menu"><i class="fa-3x sub-menu fa-solid fa-hospital-user"></i></a>
+          </li>
+          <li class="nav-item my-3 align-self-center"
+              *ngIf="authorizationRole === 'ROLE_ADMIN'">
+            <a class="nav-link"
+               routerLinkActive="active"
+               title="Adaugare doctor"
+               routerLink="/menu"><i class="fa-3x sub-menu fa-solid fa-hospital-wide"></i></a>
+          </li>
         </ul>
       </div>
     </div>

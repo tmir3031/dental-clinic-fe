@@ -4,18 +4,20 @@ import { MenuComponent } from './menu.component';
 import { AppointmentComponent } from './components/appointment/appointment.component';
 import { AppointmentDoctorComponent } from './components/appointment-doctor/appointment-doctor.component';
 import { AppointmentPatientComponent } from './components/appointment-patient/appointment-patient.component';
-import { ProfileComponent } from './components/profile/profile.component';
+import { ProfilePatientComponent } from './components/profile-patient/profile-patient.component';
+import { ProfileDoctorComponent } from './components/profile-doctor/profile-doctor.component';
 
 const routes: Routes = [
   {
     path: '',
     component: MenuComponent,
     children: [
-      { path: 'appointment', component: AppointmentComponent},
+      { path: 'appointment', component: AppointmentComponent },
       { path: 'history', component: AppointmentPatientComponent },
-      { path: 'profile', component: ProfileComponent },
+      { path: 'profile', component: ProfilePatientComponent },
+      { path: 'my-profile', component: ProfileDoctorComponent },
       { path: 'view', component: AppointmentDoctorComponent },
-      {path: '', redirectTo: 'menu', pathMatch: 'full'}
+      { path: '', redirectTo: 'menu', pathMatch: 'full' },
     ],
   },
 ];

@@ -22,31 +22,25 @@ export class OralIntervalsService {
       var newDate = FormatDate.convertNgbDateToStringDate(date);
       params = params.append('date', newDate);
     }
-    console.log(doctorId);
     if (doctorId) {
       params = params.append('doctorId', doctorId);
-      console.log(doctorId);
     }
     if (specializationId && specializationId != 100) {
       params = params.append('specializationId', specializationId);
-      console.log(specializationId);
     }
-    console.log(specializationId);
-    console.log(params);
-      return this.http
-        .get<any>(
-          `http://localhost:8081/core/api/v1/appointments/free-time-slot/`,
-          { params }
-        )
-        .pipe(
-          catchError((error) => {
-            console.log(error);
-            throw error;
-          }),
-          map((response) => {
-            if (response) return response;
-            else return null;
-          })
-        );
+    return this.http
+      .get<any>(
+        `http://localhost:8081/core/api/v1/appointments/free-time-slot/`,
+        { params }
+      )
+      .pipe(
+        catchError((error) => {
+          throw error;
+        }),
+        map((response) => {
+          if (response) return response;
+          else return null;
+        })
+      );
   }
 }

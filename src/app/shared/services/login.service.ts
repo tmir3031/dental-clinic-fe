@@ -59,7 +59,7 @@ export class LoginService {
           this.userLogged.next(user);
           localStorage.setItem('userData', JSON.stringify(user));
         }),
-        catchError(error => {
+        catchError((error) => {
           this.userLogged.next(null);
           localStorage.removeItem('userData');
           this.router.navigate(['/login']);
@@ -87,7 +87,6 @@ export class LoginService {
   }
 
   isAuthenticated(): Boolean {
-    console.log(this.userLogged);
     if (this.userLogged.value !== null) return true;
     else return false;
   }

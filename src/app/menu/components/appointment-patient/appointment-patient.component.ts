@@ -85,7 +85,7 @@ export class AppointmentPatientComponent implements OnInit, OnDestroy {
   private setInitialFilters(): void {
     this.form.patchValue({
       search: null,
-      date: FormatDate.convertStringDateToNgbDate(FormatDate.getFirstDayOfMonth(new Date())),
+      date: FormatDate.convertDateToNgbDate(new Date()),
     });
   }
 

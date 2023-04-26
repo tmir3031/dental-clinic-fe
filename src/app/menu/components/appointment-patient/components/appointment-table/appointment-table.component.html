@@ -1,6 +1,6 @@
 <div class="row ps-4 ps-lg-0">
-  <div class="col-8">
-    <table class="table table-striped">
+  <div class="col-7">
+    <table class="table table-striped my-2">
       <thead class="bg-primary">
         <tr>
           <th scope="col"
@@ -28,9 +28,9 @@
         <tr *ngFor="let appointment of appointmentsList"
             class="align-middle cursor-pointer"
             (click)="viewRequest(appointment)">
-          <th scope="row">{{appointment.doctorDetails.lastName}} {{appointment.doctorDetails.firstName}}</th>
+          <th scope="row"> {{appointment.doctorDetails.lastName}} {{appointment.doctorDetails.firstName}}</th>
           <td>{{appointment.date | date: dateFormat}}</td>
-          <td>{{appointment.hour}}</td>
+          <td>{{appointment.hour}} <i *ngIf="today===appointment.date" class="fa fa-bell text-primary"></i> <i *ngIf="today > appointment.date" class="fa fa-mail-reply fa-rotate-180"></i></td>
         </tr>
       </tbody>
     </table>
@@ -45,7 +45,7 @@
       </div>
     </div>
   </div>
-  <div class="col-4 d-flex">
+  <div class="col-5 d-flex justify-content-center align-items-start my-2">
     <ado-appointment-details *ngIf="appointmentDetailedSelected; else imageNotSelected"
                                [appointmentDetailedSelected]="appointmentDetailedSelected"
                                (closeAppointmentDetailedSelected)="
@@ -54,7 +54,7 @@
   </ado-appointment-details>
     <ng-template #imageNotSelected>
       <img src="assets/images/doctor4.png"
-           class="d-inline-block w-75 my-10 d-none d-md-block"
+           class="d-inline-block w-50 mb-10 mt-2 d-none d-md-block"
            alt="Dental Clinic Logo"
            loading="lazy" />
     </ng-template>

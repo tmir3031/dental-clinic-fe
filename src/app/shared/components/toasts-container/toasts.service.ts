@@ -4,60 +4,57 @@ import { NotificationToast, NotificationType } from './models/toasts.model';
 
 @Injectable({ providedIn: 'root' })
 export class ToastService implements OnDestroy {
-    private _toastSubject = new BehaviorSubject<NotificationToast | null>(null);
+  private _toastSubject = new BehaviorSubject<NotificationToast | null>(null);
 
-    public get toastSubject(): Observable<NotificationToast | null> {
-        return this._toastSubject.asObservable();
-    }
+  public get toastSubject(): Observable<NotificationToast | null> {
+    return this._toastSubject.asObservable();
+  }
 
-    showStandard(message: string): void {
-        console.log("AICI in showError")
-        this.show(message);
-    }
+  showStandard(message: string): void {
+    this.show(message);
+  }
 
-    showSuccess(message: string): void {
-        this.show(message, NotificationType.SUCCESS, {
-            className: 'bg-success text-light',
-            delay: 5000,
-        });
-    }
+  showSuccess(message: string): void {
+    this.show(message, NotificationType.SUCCESS, {
+      className: 'bg-success text-light',
+      delay: 5000,
+    });
+  }
 
-    showError(message: string): void {
-        console.log("AICI in showError")
-        this.show(message, NotificationType.ERROR, {
-            className: 'bg-danger text-light',
-            delay: 5000,
-        });
-    }
+  showError(message: string): void {
+    this.show(message, NotificationType.ERROR, {
+      className: 'bg-danger text-light',
+      delay: 5000,
+    });
+  }
 
-    showWarning(message: string): void {
-        this.show(message, NotificationType.WARNING, {
-            className: 'bg-warning text-black',
-            delay: 5000,
-        });
-    }
+  showWarning(message: string): void {
+    this.show(message, NotificationType.WARNING, {
+      className: 'bg-warning text-black',
+      delay: 5000,
+    });
+  }
 
-    showInfo(message: string): void {
-        this.show(message, NotificationType.INFO, {
-            className: 'bg-info text-black',
-            delay: 5000,
-        });
-    }
+  showInfo(message: string): void {
+    this.show(message, NotificationType.INFO, {
+      className: 'bg-info text-black',
+      delay: 5000,
+    });
+  }
 
-    remove(): void {
-        this._toastSubject.next(null);
-    }
+  remove(): void {
+    this._toastSubject.next(null);
+  }
 
-    ngOnDestroy(): void {
-        this.remove();
-    }
+  ngOnDestroy(): void {
+    this.remove();
+  }
 
-    private show(
-        message: string,
-        type: NotificationType = NotificationType.STANDARD,
-        options = {}
-    ): void {
-        console.log("AICI in show");
-        this._toastSubject.next({ message, type, ...options });
-    }
+  private show(
+    message: string,
+    type: NotificationType = NotificationType.STANDARD,
+    options = {}
+  ): void {
+    this._toastSubject.next({ message, type, ...options });
+  }
 }

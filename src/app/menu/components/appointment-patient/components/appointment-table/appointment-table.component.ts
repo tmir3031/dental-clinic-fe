@@ -2,26 +2,33 @@ import {
   Component,
   Input,
   OnChanges,
+  OnInit,
   SimpleChanges,
 } from '@angular/core';
 import { AppointmentPatientDTO } from '../../models/appointement-patient.model';
 import { Constants } from 'src/app/shared/utils/constants';
+import { FormatDate } from 'src/app/shared/utils/format-date';
 
 @Component({
   selector: 'ado-appointment-patient-table',
   templateUrl: './appointment-table.component.html',
   styleUrls: ['./appointment-table.component.scss'],
 })
-export class AppointmentPatientTableComponent implements OnChanges {
+export class AppointmentPatientTableComponent implements OnChanges, OnInit {
   @Input() appointmentsListDetailed: AppointmentPatientDTO[];
   appointmentDetailedSelected: AppointmentPatientDTO;
   appointmentsList: AppointmentPatientDTO[];
   dateFormat = Constants.DATE_FORMAT_DISPLAY;
   collectionSize: number;
   page = 1;
-  pageSize = 7;
+  pageSize = 6;
   listIsEmpty = false;
+  today: string;
+  
 
+  ngOnInit(): void {
+    this.today = FormatDate.convertDateToStringDate(new Date());
+  }
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.appointmentsListDetailed && this.appointmentsListDetailed) {
       this.refreshAppointments();

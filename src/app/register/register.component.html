@@ -40,20 +40,22 @@
                  class="form-label">Email*</label>
         </div>
 
-        <div class="form-floating my-2 w-100">
-          <select class="form-select"
-                  formControlName="gender">
-            <option value="">-- Selectează genul --</option>
-            <option value="masculin">Masculin</option>
-            <option value="feminin">Feminin</option>
-          </select>
-          <label for="gender">Gen</label>
+        <div class="input-group my-2 w-100">
+          <input class="form-control py-3"
+                 placeholder="Data nasterii*"
+                 ngbDatepicker
+                 formControlName="dateOfBirth"
+                 #d1="ngbDatepicker">
+          <button class="btn btn-outline border-gray calendar"
+                  (click)="d1.toggle()"
+                  type="button">
+          </button>
         </div>
 
         <div class="form-floating text-center mt-8">
           <button type="submit"
                   class="btn btn-primary text-white p-2 m-3 w-50"
-                  [disabled]="!(accountForm.controls.lastName.valid && accountForm.controls.firstName.valid && accountForm.controls.email.valid)">
+                  [disabled]="!(accountForm.controls.dateOfBirth.valid && accountForm.controls.lastName.valid && accountForm.controls.firstName.valid && accountForm.controls.email.valid)">
             Continua
           </button>
         </div>
@@ -134,16 +136,14 @@
           <label for="phone"
                  class="form-label">Telefon</label>
         </div>
-        <div class="input-group my-2 w-100">
-          <input class="form-control py-3"
-                 placeholder="Data nasterii"
-                 ngbDatepicker
-                 formControlName="dateOfBirth"
-                 #d1="ngbDatepicker">
-          <button class="btn btn-outline border-gray calendar"
-                  (click)="d1.toggle()"
-                  type="button">
-          </button>
+        <div class="form-floating my-2 w-100">
+          <select class="form-select"
+                  formControlName="gender">
+            <option value="">-- Selectează genul --</option>
+            <option value="masculin">Masculin</option>
+            <option value="feminin">Feminin</option>
+          </select>
+          <label for="gender">Gen</label>
         </div>
         <div class="form-floating my-2 w-100">
           <input type="text"

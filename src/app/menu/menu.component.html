@@ -1,37 +1,37 @@
 <div class="flex m-0">
   <div class="row m-0">
-    <div class="col-1 nav-pills flex-column bg-primary text-white m-0 navbar-expand navbar-class"
+    <div class="col-1 nav-pills flex-column bg-primary text-white m-0"
          id="sidebar"
          orientation="vertical">
       <div class="body">
         <ul class="navbar-nav flex-column">
-          <li class="nav-item my-3">
+          <li class="nav-item my-3 d-flex align-self-center">
             <a class="nav-link active"
                title="Programeaza-te"
                routerLinkActive="active"
                routerLink="/menu/appointment"><i class="fa-3x fa-solid fa-calendar-check sub-menu"></i></a>
           </li>
-          <li class="nav-item my-3"
+          <li class="nav-item my-3 align-self-center"
               *ngIf="authorizationRole === 'ROLE_USER'">
             <a class="nav-link active"
                routerLink="/menu/history"
                title="Vizualizeaza programări"
                routerLinkActive="active"><i class="fa-3x fa-sharp fa-solid fa-clock-rotate-left sub-menu"></i></a>
           </li>
-          <li class="nav-item my-3"
+          <li class="nav-item my-3 align-self-center"
               *ngIf="authorizationRole === 'ROLE_DOCTOR'">
             <a class="nav-link active"
                routerLink="/menu/view"
                title="Vizualizeaza programări"
                routerLinkActive="active"><i class="fa-3x fa-sharp fa-solid fa-clock-rotate-left sub-menu"></i></a>
           </li>
-          <li class="nav-item my-3">
+          <li class="nav-item my-3 align-self-center">
             <a class="nav-link active"
                routerLinkActive="active"
                title="Profilul meu"
                routerLink="/menu/profile"><i class="fa-3x sub-menu fa-solid fa-user"></i></a>
           </li>
-          <li class="nav-item my-3"
+          <li class="nav-item my-3 align-self-center"
               *ngIf="authorizationRole === 'ROLE_DOCTOR'">
             <a class="nav-link active"
                routerLinkActive="active"
@@ -42,7 +42,7 @@
       </div>
     </div>
 
-    <div class="col-md-7">
+    <div class="col-11 d-flex justify-content-center">
       <router-outlet></router-outlet>
     </div>
   </div>

@@ -8,7 +8,6 @@ import { AppointmentRequest } from '../models/appointment.model';
 import { AppointmentPatientDTO } from 'src/app/menu/components/appointment-patient/models/appointement-patient.model';
 import { AppointmentFilter } from 'src/app/menu/components/appointment-patient/models/appointment-filter.model';
 
-
 @Injectable({
   providedIn: 'root',
 })
@@ -19,7 +18,6 @@ export class AppointmentService {
     return this.loginService.getUserDetails().pipe(
       take(1),
       switchMap((user) => {
-        console.log(user);
         return this.http.post<void>(
           `http://localhost:8081/core/api/v1/patients/${user.idUser}/appointments`,
           appointmentRequest
@@ -32,7 +30,9 @@ export class AppointmentService {
   readonly appointmentsObservable = this.appointmentsSubject.asObservable();
   private filters: AppointmentFilter;
 
-  loadAppointments(filters?: AppointmentFilter): Observable<AppointmentPatientDTO[]> {
+  loadAppointments(
+    filters?: AppointmentFilter
+  ): Observable<AppointmentPatientDTO[]> {
     if (filters) {
       this.filters = filters;
     }
@@ -51,7 +51,10 @@ export class AppointmentService {
       }
     }
     this.http
-      .get<{ items: AppointmentPatientDTO[] }>(`${environment.apiUrl}/core/api/v1/appointments`, { params })
+      .get<{ items: AppointmentPatientDTO[] }>(
+        `${environment.apiUrl}/core/api/v1/appointments`,
+        { params }
+      )
       .pipe(
         map((response) => response.items),
         tap((value) => {
@@ -60,6 +63,4 @@ export class AppointmentService {
       )
       .subscribe();
   }
-
-
 }

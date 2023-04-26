@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row">
+  <div class="row d-flex justify-content-center align-content-center align-items-center justify-center">
     <div class="row">
       <form [formGroup]="form"
             class="row-cols-sm-auto d-flex flex-wrap justify-content-center">
@@ -32,54 +32,4 @@
   </div>
 </div>
 
-<!-- <div class="container-fluid">
-  <div class="row">
-    <div class="col-12">
-      <h2>Lista programărilor</h2>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-lg-8">
-      <div class="card">
-        <div class="card-body">
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th>Data</th>
-                <th>Ora</th>
-                <th>Nume</th>
-                <th>Detalii</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let appointment of appointmentsListDetailed">
-                <td>{{ appointment.date | date }}</td>
-                <td>{{ appointment.hour }}</td>
-                <td>{{ appointment.hour }}</td>
-                <td>
-                  <button class="btn btn-primary" >
-                    Detalii
-                  </button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-4">
-      <div class="card">
-        <div class="card-body">
-          <h4>Detalii programare</h4>
-          <div *ngIf="selectedAppointment">
-            <p><strong>Data:</strong> {{ selectedAppointment.date | date }}</p>
-            <p><strong>Ora:</strong> {{ selectedAppointment.status }}</p>
-            <p><strong>Nume:</strong> {{ selectedAppointment.hour }}</p>
-            <p><strong>Detalii:</strong> {{ selectedAppointment.hour }}</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->
 

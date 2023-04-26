@@ -78,7 +78,6 @@ export class LoginService {
   getUserDetails(): Observable<UserDetails> {
     return this.userLogged.asObservable().pipe(
       map((user) => {
-        console.log("Primul user", user);
         return {
           idUser: user.userDetails.userId,
           username: user.userDetails.username,
@@ -96,13 +95,13 @@ export class LoginService {
   private redirectUserByRole(role: Role): void {
     switch (role) {
       case Role.ADMIN:
-        this.router.navigate(['/services']);
+        this.router.navigate(['/menu']);
         break;
       case Role.DOCTOR:
-        this.router.navigate(['/about-us']);
+        this.router.navigate(['/view']);
         break;
       default:
-        this.router.navigate(['/home']);
+        this.router.navigate(['/appointment']);
     }
   }
 }

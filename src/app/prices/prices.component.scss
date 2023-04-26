@@ -47,3 +47,39 @@ a:hover {
   color: #000b6c !important;
   text-align: center;
 }
+
+.start-title {
+  background-color: #d58525;
+  color: white;
+  font-size: 20px;
+}
+
+.start-title:hover {
+  background-color: #000b6c;
+  color: white;
+  font-size: 20px;
+}
+
+.scroll-to-top-button {
+  display: flex;
+  position: fixed;
+  bottom: 60px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  background-color: #4d57ab;
+  border-radius: 9999px;
+  border: unset;
+  color: white;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+  &:hover {
+    background-color: #6c73b8;
+  }
+}
+.scroll-to-top-icon {
+  width: 24px;
+  height: 24px;
+  margin: auto;
+}

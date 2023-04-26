@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="row d-flex justify-content-center bg-tertiary description-text rounded-3 my-3 p-2">
+    <div class="row d-flex justify-content-center p-3 rounded-3 start-title my-3">
         Listă de prețuri:
     </div>
     <div class="row card my-3 rounded-3">
@@ -40,6 +40,20 @@
             </ngb-panel>
         </ngb-accordion>
     </div>
+    <button *ngIf="isMenuScrolled"
+            (click)="scrollToTop()"
+            class="scroll-to-top-button">
+        <svg xmlns="http://www.w3.org/2000/svg"
+             fill="none"
+             viewBox="0 0 24 24"
+             stroke-width="2.5"
+             stroke="currentColor"
+             class="scroll-to-top-icon">
+            <path stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+        </svg>
+    </button>
 
     <div class="row book-online bg-primary text-white text-center my-3 rounded-3">
         <div class="book-online p-3 rounded-3"> ALTCEVA? <br>
@@ -49,5 +63,7 @@
                routerLink="/appointment"> Programeaza-te online </a>
         </div>
     </div>
+
+
 
 </div>

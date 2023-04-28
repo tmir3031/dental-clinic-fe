@@ -7,8 +7,8 @@
       </div>
       <div class="row my-2 form-group">
         <label for="inputUsername"
-               class="col-sm-4 col-form-label">Nume de utilizator:</label>
-        <div class="col-sm-8">
+               class="col-sm-5 col-form-label fw-bold"><i class="fa-solid fa-file-invoice"></i> Nume de utilizator:</label>
+        <div class="col-sm-7">
           <input type="text"
                  class="form-control-plaintext"
                  formControlName="username"
@@ -18,8 +18,8 @@
 
       <div class="row my-2 form-group">
         <label for="inputEmail"
-               class="col-sm-4 col-form-label">Email:</label>
-        <div class="col-sm-8">
+               class="col-sm-5 col-form-label fw-bold"><i class="fa-solid fa-mail-bulk"></i> Email:</label>
+        <div class="col-sm-7">
           <input type="text"
                  class="form-control-plaintext"
                  formControlName="email"
@@ -29,8 +29,8 @@
 
       <div class="row my-2 form-group">
         <label for="inputName"
-               class="col-sm-4 col-form-label">Nume:</label>
-        <div class="col-sm-8">
+               class="col-sm-5 col-form-label fw-bold"> <i class="fa-solid fa-signature"></i> Nume:</label>
+        <div class="col-sm-7">
           <input type="text"
                  class="form-control-plaintext"
                  formControlName="name"
@@ -40,19 +40,19 @@
 
       <div class="row my-2 form-group">
         <label for="inputDescription"
-               class="col-sm-4 col-form-label">Descriere:</label>
-        <div class="col-sm-8">
+               class="col-sm-5 col-form-label fw-bold"> <i class="fa-solid fa-file-medical"></i> Descriere:</label>
+        <div class="col-sm-7">
           <textarea type="text"
-                 class="form-control-plaintext"
-                 formControlName="description"
-                 id="description"></textarea>
+                    class="form-control-plaintext"
+                    formControlName="description"
+                    id="description"></textarea>
         </div>
       </div>
 
       <div class="row my-2 form-group">
         <label for="inputSpecializations"
-               class="col-sm-4 col-form-label">Specializari:</label>
-        <div class="col-sm-8">
+               class="col-sm-5 col-form-label fw-bold"> <i class="fa-solid fa-kit-medical"></i> Specializari:</label>
+        <div class="col-sm-7">
           <input type="text"
                  class="form-control-plaintext"
                  formControlName="specializations"
@@ -62,8 +62,10 @@
 
       <div class="row my-2 form-group">
         <label for="inputGender"
-               class="col-sm-4 col-form-label">Gen:</label>
-        <div class="col-sm-8">
+               class="col-sm-5 col-form-label fw-bold"><i *ngIf="form.controls.gender.value==='masculin'"
+             class="fa-solid fa-male"></i> <i *ngIf="form.controls.gender.value==='feminin'"
+             class="fa-solid fa-female"></i> Gen:</label>
+        <div class="col-sm-7">
           <input type="text"
                  class="form-control-plaintext"
                  formControlName="gender"

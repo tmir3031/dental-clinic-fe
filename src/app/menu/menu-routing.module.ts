@@ -6,7 +6,7 @@ import { AppointmentDoctorComponent } from './components/appointment-doctor/appo
 import { AppointmentPatientComponent } from './components/appointment-patient/appointment-patient.component';
 import { ProfilePatientComponent } from './components/profile-patient/profile-patient.component';
 import { ProfileDoctorComponent } from './components/profile-doctor/profile-doctor.component';
-import { PatientsListComponent } from './components/patients-list/patients-list.component';
+import { PatientsOfDoctorComponent } from './components/patients-of-doctor/patients-of-doctor.component';
 
 const routes: Routes = [
   {
@@ -18,7 +18,7 @@ const routes: Routes = [
       { path: 'profile', component: ProfilePatientComponent },
       { path: 'my-profile', component: ProfileDoctorComponent },
       { path: 'view', component: AppointmentDoctorComponent },
-      { path: 'patients-list', component: PatientsListComponent},
+      { path: 'patients-list', component: PatientsOfDoctorComponent },
       { path: '', redirectTo: 'menu', pathMatch: 'full' },
     ],
   },

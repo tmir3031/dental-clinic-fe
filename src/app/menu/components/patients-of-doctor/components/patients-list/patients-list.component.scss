@@ -1,0 +1,23 @@
+@import 'css/bootstrap-variables';
+@import 'bootstrap/scss/mixins';
+
+.list-group.list-group-flush {
+    height: 400px;
+    overflow-y: scroll;
+}
+
+.highlight-selected-patient {
+    background-color: $gray-500;
+    color: white;
+}
+
+.list-group-item {
+    cursor: pointer;
+    height: 50px;
+}
+
+.card{
+    width: 500px;
+}
+
+

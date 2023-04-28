@@ -1,0 +1,31 @@
+<div class="container my-3">
+  <div class="row">
+    <div class="col-lg-8 col-md-12 "
+         [ngClass]="{ 'd-none d-lg-block': showPatientDetails }">
+      <form [formGroup]="filterPatientsForm"
+            *ngIf="filterPatientsForm">
+        <div class="form-floating mb-3">
+          <input class="form-control py-1"
+                 name="search"
+                 formControlName="search"
+                 id="search" />
+          <label for="search"
+                 class="form-label px-4 left-auto justify-content-center">Cautare</label>
+        </div>
+      </form>
+
+      <ado-patients-list *ngIf="patientObservable"
+                         [patients]="patientObservable | async"
+                         (selectedPatientChanged)="onSelectedPatient($event)"
+                         [selectedPatient]="selectedPatient"></ado-patients-list>
+
+    </div>
+    <div class="col-lg-6 col-md-12 mt-8">
+      <!-- <ado-employee-detail *ngIf="showEmployeeDetails"
+                           (savedChanges)="onEmployeeDetailAction($event)"
+                           [selectedEmployee]="selectedEmployee">
+      </ado-employee-detail> -->
+
+    </div>
+  </div>
+</div>

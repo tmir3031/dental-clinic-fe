@@ -30,3 +30,4 @@ export interface UpdatePatientDTO {
   gender?: string;
   v?: number
 }
+

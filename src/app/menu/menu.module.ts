@@ -17,7 +17,8 @@ import { AppointmentPatientTableComponent } from './components/appointment-patie
 import { ProfileDoctorComponent } from './components/profile-doctor/profile-doctor.component';
 import { ProfilePatientComponent } from './components/profile-patient/profile-patient.component';
 import { UpdateAppointmentModalComponent } from './components/appointment-doctor/components/modal/update-appointment-modal/update-appointment-modal.component';
-import { PatientsListComponent } from './components/patients-list/patients-list.component';
+import { PatientsListComponent } from './components/patients-of-doctor/components/patients-list/patients-list.component';
+import { PatientsOfDoctorComponent } from './components/patients-of-doctor/patients-of-doctor.component';
 
 @NgModule({
   imports: [
@@ -39,6 +40,7 @@ import { PatientsListComponent } from './components/patients-list/patients-list.
     AppointmentDetailsComponent,
     AppointmentPatientTableComponent,
     UpdateAppointmentModalComponent,
+    PatientsOfDoctorComponent,
     PatientsListComponent
   ],
 })

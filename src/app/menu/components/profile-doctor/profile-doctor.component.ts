@@ -1,74 +1,67 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
-import { Role } from 'src/app/login/models/login.model';
-import { LoginService } from 'src/app/shared/services/login.service';
+import { DoctorDto } from 'src/app/shared/models/doctor.model';
+import { DoctorService } from 'src/app/shared/services/doctor.service';
 
 @Component({
   selector: 'ado-profile-doctor',
   templateUrl: './profile-doctor.component.html',
-  styleUrls: ['./profile-doctor.component.scss']
+  styleUrls: ['./profile-doctor.component.scss'],
 })
-export class ProfileDoctorComponent implements OnInit {
-
+export class ProfileDoctorComponent implements OnInit, OnDestroy {
   form?: FormGroup;
-  username?: string;
-  userId?: string;
-  team?: string;
-  authorizationRole?: Role;
-  private loginSubscription = new Subscription();
+  doctor: DoctorDto;
+  private userSubscription = new Subscription();
 
   constructor(
-      private loginService: LoginService,
-      private formBuilder: FormBuilder
+    private doctorService: DoctorService,
+    private formBuilder: FormBuilder
   ) {}
 
   ngOnInit(): void {
-      this.initForm();
-      this.loginSubscription = this.loginService.userLogged.subscribe(
-          user => {
-              if (user) {
-                  this.userId = user.userDetails.userId;
-                  this.username = user.userDetails.username;
-                  const roles = user.userDetails.role;
-                  this.setUserDetailsByRole(roles);
-              } else {
-                  this.username = undefined;
-                  this.authorizationRole = undefined;
-                  this.team = undefined;
-              }
-          }
-      );
-      this.setInitialFilters();
-      this.form?.disable();
+    this.initForm();
+    this.userSubscription = this.doctorService
+      .getDoctorDetails()
+      .subscribe((data) => {
+        this.doctor = data;
+        this.setInitialValue();
+      });
+    this.form?.disable();
   }
 
   ngOnDestroy(): void {
-      this.loginSubscription.unsubscribe();
+    this.userSubscription.unsubscribe();
   }
 
   private initForm(): void {
-      this.form = this.formBuilder.group({
-          username: [''],
-          role: [''],
-      });
+    this.form = this.formBuilder.group({
+      username: [''],
+      email: [''],
+      name: ['', Validators.required],
+      description: [''],
+      specializations: [''],
+      gender: [''],
+    });
   }
 
-  private setInitialFilters(): void {
-      this.form?.patchValue({
-          username: this.username,
-          role: this.authorizationRole,
-      });
-  }
-
-  private setUserDetailsByRole(role: Role) {
-      if (role.includes(Role.ADMIN)) {
-          this.authorizationRole = Role.ADMIN;
-      } else if (role.includes(Role.DOCTOR)) {
-          this.authorizationRole = Role.DOCTOR;
-      } else if (role.includes(Role.USER)) {
-          this.authorizationRole = Role.USER;
+  private setInitialValue(): void {
+    var specializations = this.doctor?.specializationDetailsListItem;
+    var mySpecializations = '';
+    for (var i = 0; i < specializations.length; i++) {
+      if (i > 0) {
+        mySpecializations += ', ';
       }
+      mySpecializations += specializations[i].name;
+    }
+    var name = this.doctor?.lastName + ' ' + this.doctor.firstName;
+    this.form?.patchValue({
+      username: this.doctor?.username,
+      email: this.doctor?.email,
+      name: name,
+      description: this.doctor?.description,
+      specializations: mySpecializations,
+      gender: this.doctor?.gender.toLowerCase(),
+    });
   }
-
 }

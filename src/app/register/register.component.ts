@@ -53,7 +53,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
         firstName: ['', Validators.required],
         lastName: ['', Validators.required],
         gender: ['', Validators.required],
-        phone: [''],
+        phone: ['', Validators.required],
         allergies: [''],
         diseases: [''],
         dateOfBirth: [''],

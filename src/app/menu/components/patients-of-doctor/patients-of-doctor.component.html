@@ -4,7 +4,7 @@
          [ngClass]="{ 'd-none d-lg-block': showPatientDetails }">
       <form [formGroup]="filterPatientsForm"
             *ngIf="filterPatientsForm">
-        <div class="form-floating mb-3">
+        <div class="form-floating mb-3 search">
           <input class="form-control py-1"
                  name="search"
                  formControlName="search"

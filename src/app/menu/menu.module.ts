@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import {
   NgbDatepickerModule,
   NgbAlertModule,
+  NgbNavModule,
 } from '@ng-bootstrap/ng-bootstrap';
 import { AppointmentDoctorTableComponent } from './components/appointment-doctor/components/appointment-table/appointment-table.component';
 import { AppointmentDetailsComponent } from './components/appointment-patient/components/appointment-details/appointment-details.component';
@@ -28,6 +29,7 @@ import { PatientsOfDoctorComponent } from './components/patients-of-doctor/patie
     NgbDatepickerModule,
     NgbAlertModule,
     FormsModule,
+    NgbNavModule
   ],
   declarations: [
     MenuComponent,
@@ -41,7 +43,7 @@ import { PatientsOfDoctorComponent } from './components/patients-of-doctor/patie
     AppointmentPatientTableComponent,
     UpdateAppointmentModalComponent,
     PatientsOfDoctorComponent,
-    PatientsListComponent
+    PatientsListComponent,
   ],
 })
 export class MenuModule {}

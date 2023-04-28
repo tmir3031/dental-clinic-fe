@@ -6,8 +6,6 @@ import { AppointmentPatientDTO } from '../appointment-patient/models/appointemen
 import { AppointmentFilter } from '../appointment-patient/models/appointment-filter.model';
 import { AppointmentService } from 'src/app/shared/services/appointment.service';
 import { FormatDate } from 'src/app/shared/utils/format-date';
-import { UpdateAppointmentModalComponent } from './components/modal/update-appointment-modal/update-appointment-modal.component';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AppointmentDto } from 'src/app/shared/models/appointment.model';
 
 const TIME = 500;

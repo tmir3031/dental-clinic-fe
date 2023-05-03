@@ -12,8 +12,6 @@ import { PatientFilter } from './models/filter';
   styleUrls: ['./patients-of-doctor.component.scss'],
 })
 export class PatientsOfDoctorComponent implements OnInit, OnDestroy {
-  // @ViewChild(EmployeeDetailComponent, { static: false })
-  // employeeDetailComponent?: EmployeeDetailComponent;
   patients?: PatientContactDTO[];
   selectedPatient?: PatientContactDTO | null;
   showPatientDetails = false;
@@ -26,13 +24,6 @@ export class PatientsOfDoctorComponent implements OnInit, OnDestroy {
 
   constructor(private readonly service: PatientService) {}
 
-  // canDeactivate(): boolean | Observable<boolean> {
-  //     if (this.employeeDetailComponent?.canDeactivate) {
-  //         return this.employeeDetailComponent.canDeactivate();
-  //     }
-  //     return true;
-  // }
-
   ngOnInit(): void {
     this.initForm();
     this.loadPatientsObservable();
@@ -41,7 +32,6 @@ export class PatientsOfDoctorComponent implements OnInit, OnDestroy {
   private loadPatientsObservable(): void {
     this.patientObservable = this.service.getPatientsForADactor().pipe(
       tap((data) => {
-        console.log(data);
         this.patients = data;
       }),
       switchMap(() =>

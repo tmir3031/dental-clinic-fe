@@ -6,6 +6,8 @@ import { PatientDTO, UpdatePatientDTO } from 'src/app/register/models/register.m
 import { FormatDate } from 'src/app/shared/utils/format-date';
 import { catchError, tap } from 'rxjs/operators';
 import { ToastService } from 'src/app/shared/components/toasts-container/toasts.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { PatientRadiographyComponent } from './components/patient-radiography/patient-radiography.component';
 
 @Component({
   selector: 'ado-profile-patient',
@@ -22,7 +24,8 @@ export class ProfilePatientComponent implements OnInit, OnDestroy {
   constructor(
     private patientService: PatientService,
     private toastService: ToastService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private modalService: NgbModal
   ) {}
 
   ngOnInit(): void {
@@ -83,6 +86,14 @@ export class ProfilePatientComponent implements OnInit, OnDestroy {
         this.setInitialValue();
       });
     })
+    this.form?.disable();
+  }
+
+  viewRadiography(){
+    const modal = this.modalService.open(PatientRadiographyComponent,  { size: 'lg' });
+    (
+      modal.componentInstance as PatientRadiographyComponent
+    )
   }
 
   private extractPatientFromForm(): UpdatePatientDTO {

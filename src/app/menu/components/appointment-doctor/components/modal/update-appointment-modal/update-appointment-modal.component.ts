@@ -4,7 +4,6 @@ import { Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { AppointmentPatientDTO } from 'src/app/menu/components/appointment-patient/models/appointement-patient.model';
 import { PatientDTO } from 'src/app/register/models/register.model';
-import { AppointmentDto } from 'src/app/shared/models/appointment.model';
 import { AppointmentService } from 'src/app/shared/services/appointment.service';
 import { PatientService } from 'src/app/shared/services/patient.service';
 import { FormatDate } from 'src/app/shared/utils/format-date';

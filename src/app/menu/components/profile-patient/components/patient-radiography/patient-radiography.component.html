@@ -1,0 +1,17 @@
+<div class="modal-dialog-scrollable">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4>Radiografie
+      </h4>
+      <button type="button"
+              class="btn-close"
+              (click)="onClose()"></button>
+    </div>
+    <div class="modal-body d-flex justify-content-center">
+      <img *ngIf="!imageNotExist" [src]="imageView">
+      <div *ngIf="imageNotExist" class="row"> Nu aveti nicio radiografie la clinica nostra. </div>
+
+    </div>
+   
+  </div>
+</div>

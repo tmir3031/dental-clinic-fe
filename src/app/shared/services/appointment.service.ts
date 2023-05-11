@@ -17,23 +17,52 @@ export class AppointmentService {
   readonly appointmentsObservable = this.appointmentsSubject.asObservable();
   private filters: AppointmentFilter;
 
-  constructor(private http: HttpClient, private loginService: LoginService, private serviceToast: ToastService) {}
+  constructor(
+    private http: HttpClient,
+    private loginService: LoginService,
+    private serviceToast: ToastService
+  ) {}
 
-  addTreatment(appointmentId: number, treatment: string): Observable<void>{
+  addTreatment(appointmentId: number, treatment: string): Observable<void> {
     return this.loginService.getUserDetails().pipe(
-      catchError(()=>{
-        this.serviceToast.showError("Aplicatia a intampinat o eroare")
+      catchError(() => {
+        this.serviceToast.showError('Aplicatia a intampinat o eroare');
         return EMPTY;
       }),
       take(1),
       switchMap((user) => {
         return this.http.patch<void>(
           `http://localhost:8081/core/api/v1/doctors/${user.idUser}/appointments/${appointmentId}`,
-          {treatment}
+          { treatment }
         );
       })
     );
+  }
 
+  deleteAppointmentByPatient(appointmentId: number): Observable<void> {
+    return this.http
+      .delete<void>(
+        `http://localhost:8081/core/api/v1/patients/appointments/${appointmentId}`
+      )
+      .pipe(
+        catchError(() => {
+          this.serviceToast.showError('Aplicatia a intampinat o eroare');
+          return EMPTY;
+        })
+      );
+  }
+
+  deleteAppointmentByDoctor(appointmentId: number): Observable<void> {
+    return this.http
+      .delete<void>(
+        `http://localhost:8081/core/api/v1/doctors/appointments/${appointmentId}`
+      )
+      .pipe(
+        catchError(() => {
+          this.serviceToast.showError('Aplicatia a intampinat o eroare');
+          return EMPTY;
+        })
+      );
   }
 
   createAppointment(appointmentRequest: AppointmentRequest): Observable<void> {

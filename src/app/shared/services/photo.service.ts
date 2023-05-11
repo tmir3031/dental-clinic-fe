@@ -59,13 +59,12 @@ export class FotoService {
         `${environment.apiUrl}/core/api/v1/doctors/view-image/${userId}`
       )
       .pipe(
-        map((campaign) => {
-          campaign.image = this.sanitizer.bypassSecurityTrustResourceUrl(
-            'data:image/png;base64, ' + campaign.image
+        map((radiography) => {
+          radiography.image = this.sanitizer.bypassSecurityTrustResourceUrl(
+            'data:image/png;base64, ' + radiography.image
           );
-          campaign.date = campaign.date;
-          console.log(campaign);
-          return campaign;
+          radiography.date = radiography.date;
+          return radiography;
         })
       );
   }
@@ -79,13 +78,11 @@ export class FotoService {
           )
           .pipe(
             map((images) => {
-              console.log(images);
-              return images.map((image) => {
-                image.image = this.sanitizer.bypassSecurityTrustResourceUrl(
-                  'data:image/png;base64, ' + image.image
+              return images.map((radiography) => {
+                radiography.image = this.sanitizer.bypassSecurityTrustResourceUrl(
+                  'data:image/png;base64, ' + radiography.image
                 );
-                console.log(image);
-                return image;
+                return radiography;
               });
             })
           );
@@ -99,14 +96,12 @@ export class FotoService {
         `${environment.apiUrl}/core/api/v1/doctors/view-all-image/${userId}`
       )
       .pipe(
-        map((images) => {
-          console.log(images);
-          return images.map((image) => {
-            image.image = this.sanitizer.bypassSecurityTrustResourceUrl(
-              'data:image/png;base64, ' + image.image
+        map((radiographies) => {
+          return radiographies.map((radiography) => {
+            radiography.image = this.sanitizer.bypassSecurityTrustResourceUrl(
+              'data:image/png;base64, ' + radiography.image
             );
-            console.log(image);
-            return image;
+            return radiography;
           });
         })
       );

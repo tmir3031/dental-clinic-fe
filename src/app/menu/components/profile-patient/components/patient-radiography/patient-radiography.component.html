@@ -8,10 +8,22 @@
               (click)="onClose()"></button>
     </div>
     <div class="modal-body d-flex justify-content-center">
-      <img *ngIf="!imageNotExist" [src]="imageView">
-      <div *ngIf="imageNotExist" class="row"> Nu aveti nicio radiografie la clinica nostra. </div>
+
+      <div *ngIf="!imageNotExist"
+           class="row d-flex justify-content-center">
+        <div *ngFor="let img of images"
+             class="d-flex justify-content-center">
+          <div class="row d-flex justify-content-center">
+            <div>Data: {{img.date | date: dateFormat}}</div>
+            <img [src]="img?.image">
+          </div>
+
+        </div>
+      </div>
+      <div *ngIf="imageNotExist"
+           class="row"> Nu aveti nicio radiografie la clinica nostra. </div>
 
     </div>
-   
+
   </div>
 </div>

@@ -3,7 +3,9 @@ import { SafeResourceUrl } from '@angular/platform-browser';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { EMPTY, Subscription } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { ImageModel } from 'src/app/shared/models/image.model';
 import { FotoService } from 'src/app/shared/services/photo.service';
+import { Constants } from 'src/app/shared/utils/constants';
 
 @Component({
   selector: 'ado-patient-radiography',
@@ -13,8 +15,10 @@ import { FotoService } from 'src/app/shared/services/photo.service';
 export class PatientRadiographyComponent implements OnInit, OnDestroy {
   imageSubscription: Subscription;
   imageView: SafeResourceUrl;
-  images: SafeResourceUrl[];
+  imageView2: ImageModel;
+  images: ImageModel[];
   imageNotExist: Boolean;
+  dateFormat = Constants.DATE_FORMAT_DISPLAY;
 
   constructor(
     private photoService: FotoService,
@@ -24,7 +28,7 @@ export class PatientRadiographyComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.imageNotExist = false;
     this.photoService
-      .getImageForAPatient()
+      .getAllImagesForAPatient()
       .pipe(
         catchError(() => {
           this.imageNotExist = true;
@@ -32,10 +36,10 @@ export class PatientRadiographyComponent implements OnInit, OnDestroy {
         })
       )
       .subscribe((image) => {
-        this.imageNotExist = false;
-        this.imageView = image.image;
+        if (image.length === 0) this.imageNotExist = true;
+        else this.imageNotExist = false;
+        this.images = image;
       });
-      console.log(this.imageNotExist);
   }
 
   onClose(): void {

@@ -63,6 +63,8 @@ export class FotoService {
           campaign.image = this.sanitizer.bypassSecurityTrustResourceUrl(
             'data:image/png;base64, ' + campaign.image
           );
+          campaign.date = campaign.date;
+          console.log(campaign);
           return campaign;
         })
       );
@@ -73,19 +75,40 @@ export class FotoService {
       switchMap((user) => {
         return this.http
           .get<ImageModel[]>(
-            `${environment.apiUrl}/core/api/v1/doctors/view-image/${user.userDetails.userId}`
+            `${environment.apiUrl}/core/api/v1/doctors/view-all-image/${user.userDetails.userId}`
           )
           .pipe(
             map((images) => {
+              console.log(images);
               return images.map((image) => {
                 image.image = this.sanitizer.bypassSecurityTrustResourceUrl(
                   'data:image/png;base64, ' + image.image
                 );
+                console.log(image);
                 return image;
               });
             })
           );
       })
     );
+  }
+
+  getAllImagesForAPatientForADoctor(userId: string): Observable<ImageModel[]> {
+    return this.http
+      .get<ImageModel[]>(
+        `${environment.apiUrl}/core/api/v1/doctors/view-all-image/${userId}`
+      )
+      .pipe(
+        map((images) => {
+          console.log(images);
+          return images.map((image) => {
+            image.image = this.sanitizer.bypassSecurityTrustResourceUrl(
+              'data:image/png;base64, ' + image.image
+            );
+            console.log(image);
+            return image;
+          });
+        })
+      );
   }
 }

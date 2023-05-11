@@ -5,8 +5,10 @@ import { EMPTY, Subscription } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { PatientDTO } from 'src/app/register/models/register.model';
 import { ToastService } from 'src/app/shared/components/toasts-container/toasts.service';
+import { ImageModel } from 'src/app/shared/models/image.model';
 import { PatientService } from 'src/app/shared/services/patient.service';
 import { FotoService } from 'src/app/shared/services/photo.service';
+import { Constants } from 'src/app/shared/utils/constants';
 
 @Component({
   selector: 'ado-radiography-modal',
@@ -21,6 +23,8 @@ export class RadiographyModalComponent implements OnInit, OnDestroy {
   selectedImage: any;
   active = 1;
   patient: PatientDTO;
+  images: ImageModel[];
+  dateFormat = Constants.DATE_FORMAT_DISPLAY;
   private readonly subscriptionRadiographyModal: Subscription =
     new Subscription();
 
@@ -35,7 +39,7 @@ export class RadiographyModalComponent implements OnInit, OnDestroy {
     console.log(this.selectedPatient);
     this.subscriptionRadiographyModal.add(
       this.photoService
-        .getImage(this.selectedPatient.id)
+        .getAllImagesForAPatientForADoctor(this.selectedPatient.id)
         .pipe(
           catchError(() => {
             this.imageNotExist = true;
@@ -43,8 +47,9 @@ export class RadiographyModalComponent implements OnInit, OnDestroy {
           })
         )
         .subscribe((image) => {
-          this.imageNotExist = false;
-          this.imageView = image.image;
+          if (image.length === 0) this.imageNotExist = true;
+          else this.imageNotExist = false;
+          this.images = image;
         })
     );
 
@@ -81,6 +86,7 @@ export class RadiographyModalComponent implements OnInit, OnDestroy {
 
   onSaveImage() {
     this.photoService.saveImage(this.selectedImage, this.selectedPatient.id);
+    this.activeModal.close();
   }
 
   private isPngOrJpg(url: string): boolean {

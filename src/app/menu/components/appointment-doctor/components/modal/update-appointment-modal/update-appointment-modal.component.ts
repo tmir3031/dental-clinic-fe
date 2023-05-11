@@ -11,27 +11,34 @@ import { FormatDate } from 'src/app/shared/utils/format-date';
 @Component({
   selector: 'ado-update-appointment-modal',
   templateUrl: './update-appointment-modal.component.html',
-  styleUrls: ['./update-appointment-modal.component.scss']
+  styleUrls: ['./update-appointment-modal.component.scss'],
 })
 export class UpdateAppointmentModalComponent implements OnDestroy, OnInit {
-
   @Input() appointmentSelected: AppointmentPatientDTO;
   treatment: string;
-  patient : PatientDTO;
+  patient: PatientDTO;
   active = 1;
   mode?: 'VIEW' | 'EDIT';
   today: string;
   private readonly subscriptionUpdateModal: Subscription = new Subscription();
 
-  constructor(private appointmentService: AppointmentService, private activeModal: NgbActiveModal, private patientService: PatientService) {}
+  constructor(
+    private appointmentService: AppointmentService,
+    private activeModal: NgbActiveModal,
+    private patientService: PatientService
+  ) {}
 
   ngOnInit(): void {
-    this.mode = 'VIEW'
+    this.mode = 'VIEW';
     this.treatment = this.appointmentSelected.treatment;
-    this.today = FormatDate.convertDateToStringDate(new Date);
-      this.subscriptionUpdateModal.add(this.patientService.getPatientInfos(this.appointmentSelected.patientDetails.userId).subscribe(
-        (vl) =>{ this.patient = vl}
-      ))
+    this.today = FormatDate.convertDateToStringDate(new Date());
+    this.subscriptionUpdateModal.add(
+      this.patientService
+        .getPatientInfos(this.appointmentSelected.patientDetails.userId)
+        .subscribe((vl) => {
+          this.patient = vl;
+        })
+    );
   }
   ngOnDestroy(): void {
     if (this.subscriptionUpdateModal) {
@@ -39,18 +46,27 @@ export class UpdateAppointmentModalComponent implements OnDestroy, OnInit {
     }
   }
 
-  onEditMode(): void{
+  onEditMode(): void {
     this.mode = 'EDIT';
   }
 
   updateAppointment(): void {
-    this.subscriptionUpdateModal.add(this.appointmentService.addTreatment(this.appointmentSelected.id, this.treatment).pipe(
-      switchMap(() =>
-          this.appointmentService.loadAppointments()
-      )
-  )
-  .subscribe(() => this.activeModal.close()));
-;
+    this.subscriptionUpdateModal.add(
+      this.appointmentService
+        .addTreatment(this.appointmentSelected.id, this.treatment)
+        .pipe(switchMap(() => this.appointmentService.loadAppointments()))
+        .subscribe(() => this.activeModal.close())
+    );
+    this.activeModal.close();
+  }
+
+  deleteAppointment(): void {
+    this.subscriptionUpdateModal.add(
+      this.appointmentService
+        .deleteAppointmentByDoctor(this.appointmentSelected.id)
+        .pipe(switchMap(() => this.appointmentService.loadAppointments()))
+        .subscribe(() => this.activeModal.close())
+    );
     this.activeModal.close();
   }
 

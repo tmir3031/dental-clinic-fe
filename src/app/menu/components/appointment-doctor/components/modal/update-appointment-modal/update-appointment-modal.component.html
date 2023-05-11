@@ -44,18 +44,25 @@
               <div class="col-auto">
                 <button type="button"
                         *ngIf="mode==='VIEW'"
-                        class="btn btn-danger m-3"
+                        class="btn btn-success m-3"
                         (click)="onEditMode()"
                         [disabled]="appointmentSelected.date > today ">Editeaza</button>
               </div>
               <div class="col-auto">
                 <button type="button"
                         *ngIf="mode==='EDIT'"
-                        class="btn btn-danger m-3"
+                        class="btn btn-success m-3"
                         (click)="updateAppointment()"
                         [disabled]="!treatment || appointmentSelected.date > today ">Salveaza</button>
               </div>
+              <div class="col-auto"
+                   *ngIf="today < appointmentSelected.date">
+                <button type="button"
+                        class="btn btn-danger m-3"
+                        (click)="deleteAppointment()"><i class="fa-solid fa-trash"></i></button>
+              </div>
             </div>
+
 
           </ng-template>
         </li>

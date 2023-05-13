@@ -9,6 +9,7 @@ import {
 import { environment } from 'src/environments/environment';
 import { PatientContactDTO } from '../models/patient.model';
 import { switchMap, map, take } from 'rxjs/operators';
+import { TreatmentDetailsDTO } from '../models/treatment.model';
 
 @Injectable({
   providedIn: 'root',
@@ -46,6 +47,36 @@ export class PatientService {
           );
       })
     );
+  }
+
+  getTreatmentsForPatientView(): Observable<TreatmentDetailsDTO[]>  {
+    return this.loginService.userLogged.pipe(
+      switchMap((user) => {
+        return this.http
+          .get<{ items: TreatmentDetailsDTO[] }>(
+            `${environment.apiUrl}/core/api/v1/patients/treatments/${user.userDetails.userId}`
+          )
+          .pipe(
+            map((responseData) => {
+              return responseData.items;
+            })
+          );
+      })
+    );
+  }
+
+  getTreatmentsForDoctorView(
+    patientId: string
+  ): Observable<TreatmentDetailsDTO[]> {
+    return this.http
+      .get<{ items: TreatmentDetailsDTO[] }>(
+        `${environment.apiUrl}/core/api/v1/patients/treatments/${patientId}`
+      )
+      .pipe(
+        map((responseData) => {
+          return responseData.items;
+        })
+      );
   }
 
   updatePatient(updatePatient: UpdatePatientDTO): Observable<void> {

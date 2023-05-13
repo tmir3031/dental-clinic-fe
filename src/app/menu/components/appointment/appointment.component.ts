@@ -140,6 +140,7 @@ export class AppointmentComponent implements OnInit, OnDestroy {
           this.invalidAppointment = false;
           this.intervals = [];
           this.form.reset();
+          this.onSpecializationChange();
         })
     );
   }

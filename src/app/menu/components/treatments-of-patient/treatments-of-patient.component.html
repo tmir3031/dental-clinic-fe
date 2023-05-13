@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row d-flex justify-content-center mt-3">
+
+    <table class="table table-striped">
+      <thead class="bg-primary">
+        <tr>
+          <th scope="col"
+              class="col-1 text-white p-2">Doctor</th>
+          <th scope="col"
+              class="col-1 text-white p-2">Data</th>
+          <th scope="col"
+              class="col-1 text-white p-2">Tratament</th>
+        </tr>
+      </thead>
+
+      <tbody *ngIf="listIsEmpty">
+        <td class="bg-light fw-bold text-center"
+            colspan="3">
+          <div class="row">
+            <i class="fa-solid fa-file-circle-xmark fa-3x"></i>
+          </div>
+          <div class="row">
+            <p>Nu exista programari.</p>
+          </div>
+        </td>
+      </tbody>
+
+      <tbody>
+        <tr *ngFor="let treatment of treatmentsList"
+            class="align-middle">
+          <th scope="row">{{treatment.doctorDetails.lastName}} {{treatment.doctorDetails.firstName}}</th>
+          <td>{{treatment.date | date: dateFormat}}</td>
+          <td>{{treatment.treatment}} </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

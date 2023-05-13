@@ -23,6 +23,7 @@ import { PatientsOfDoctorComponent } from './components/patients-of-doctor/patie
 import { PatientRadiographyComponent } from './components/profile-patient/components/patient-radiography/patient-radiography.component';
 import { RadiographyModalComponent } from './components/patients-of-doctor/components/radiography-modal/radiography-modal.component';
 import { DeleteAppointmentModalComponent } from './components/appointment-patient/components/delete-appointment-modal/delete-appointment-modal.component';
+import { TreatmentsOfPatientComponent } from './components/treatments-of-patient/treatments-of-patient.component';
 
 @NgModule({
   imports: [
@@ -49,7 +50,8 @@ import { DeleteAppointmentModalComponent } from './components/appointment-patien
     PatientsListComponent,
     PatientRadiographyComponent,
     RadiographyModalComponent,
-    DeleteAppointmentModalComponent
+    DeleteAppointmentModalComponent,
+    TreatmentsOfPatientComponent
   ],
 })
 export class MenuModule {}

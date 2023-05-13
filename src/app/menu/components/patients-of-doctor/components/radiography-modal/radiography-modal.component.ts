@@ -6,6 +6,7 @@ import { catchError } from 'rxjs/operators';
 import { PatientDTO } from 'src/app/register/models/register.model';
 import { ToastService } from 'src/app/shared/components/toasts-container/toasts.service';
 import { ImageModel } from 'src/app/shared/models/image.model';
+import { TreatmentDetailsDTO } from 'src/app/shared/models/treatment.model';
 import { PatientService } from 'src/app/shared/services/patient.service';
 import { FotoService } from 'src/app/shared/services/photo.service';
 import { Constants } from 'src/app/shared/utils/constants';
@@ -25,6 +26,8 @@ export class RadiographyModalComponent implements OnInit, OnDestroy {
   patient: PatientDTO;
   images: ImageModel[];
   dateFormat = Constants.DATE_FORMAT_DISPLAY;
+  listIsEmpty = false;
+  treatmentsList: TreatmentDetailsDTO[];
   private readonly subscriptionRadiographyModal: Subscription =
     new Subscription();
 
@@ -36,7 +39,6 @@ export class RadiographyModalComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    console.log(this.selectedPatient);
     this.subscriptionRadiographyModal.add(
       this.photoService
         .getAllImagesForAPatientForADoctor(this.selectedPatient.id)
@@ -60,6 +62,15 @@ export class RadiographyModalComponent implements OnInit, OnDestroy {
           this.patient = vl;
         })
     );
+
+    this.subscriptionRadiographyModal.add(
+      this.patientService
+        .getTreatmentsForDoctorView(this.selectedPatient.id)
+        .subscribe((vl) => {
+          this.treatmentsList = vl;
+        })
+    );
+
   }
 
   onFileSelected(event: any) {

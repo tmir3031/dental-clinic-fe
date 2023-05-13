@@ -120,16 +120,11 @@
 
 .flip-card-front {
   background-color: #e9ecef;
-  // background: linear-gradient(299deg, rgba(2,0,36,1) 0%, rgba(0,20,71,1) 4%, #00d4ff 100%);
   color: #001447;
 }
 
 .flip-card-back {
   background-color: #e9ecef;
-  // background: linear-gradient(159deg, rgba(0,20,71,1) 0%, rgba(108,117,125,1) 17%, rgba(248,249,250,1) 95%);
-  // background: linear-gradient(159deg, rgba(2,0,36,1) 8%, rgba(0,11,108,1) 16%, rgba(0,212,255,1) 100%);
-  // background: linear-gradient(159deg, rgba(2,0,36,1) 0%, rgba(41,60,125,1) 0%, rgba(71,224,255,1) 32%);
-  // background: linear-gradient(159deg, rgba(2,0,36,1) 0%, rgba(0,20,71,1) 1%, rgba(0,212,255,1) 100%);
   color: #001447;
   transform: rotateY(180deg);
 }
@@ -138,3 +133,9 @@ a:hover {
   font-weight: bold;
   text-decoration: underline;
 }
+
+img{
+  max-width: 70px;
+}
+
+

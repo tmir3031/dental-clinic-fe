@@ -6,18 +6,20 @@
     overflow-y: scroll;
 }
 
-.highlight-selected-patient {
-    background-color: $gray-500;
-    color: white;
-}
 
 .list-group-item {
     cursor: pointer;
     height: 50px;
 }
 
+.list-group-item:hover{
+    background-color: $gray-500;
+    color: white;
+}
+
+
 .card{
-    width: 600px;
+    width: 500px;
 }
 
 

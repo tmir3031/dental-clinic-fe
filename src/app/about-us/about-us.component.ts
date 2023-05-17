@@ -16,6 +16,7 @@ export class AboutUsComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.subscription = this.service.getDoctors().subscribe((data) => {
           this.doctors = data;
+          console.log(data);
         });
   }
 

@@ -28,6 +28,7 @@ export class RadiographyModalComponent implements OnInit, OnDestroy {
   dateFormat = Constants.DATE_FORMAT_DISPLAY;
   listIsEmpty = false;
   treatmentsList: TreatmentDetailsDTO[];
+  isInputEmpty = true;
   private readonly subscriptionRadiographyModal: Subscription =
     new Subscription();
 
@@ -74,6 +75,7 @@ export class RadiographyModalComponent implements OnInit, OnDestroy {
   }
 
   onFileSelected(event: any) {
+    this.isInputEmpty = event.target.files.length === 0;
     const files = event.target.files;
     this.uploadImages(files);
   }
@@ -98,6 +100,7 @@ export class RadiographyModalComponent implements OnInit, OnDestroy {
   onSaveImage() {
     this.photoService.saveImage(this.selectedImage, this.selectedPatient.id);
     this.activeModal.close();
+    this.isInputEmpty = true;
   }
 
   private isPngOrJpg(url: string): boolean {

@@ -38,9 +38,16 @@
          class="cards-style">
       <div class="card"
            style="width: 18rem;">
-        <img class="card-img-top"
-             src="assets/images/teeth9.jpg"
-             alt="Card image cap">
+        <div class="text-center m-2 p-2">
+          <img *ngIf="doctor.gender === 'MASCULIN'"
+               class="card-img-top"
+               src="assets/images/masculin.png"
+               alt="Card image cap">
+          <img *ngIf="doctor.gender === 'FEMININ'"
+               class="card-img-top"
+               src="assets/images/feminin.png"
+               alt="Card image cap">
+        </div>
         <div class="card-body text-center">
           <h5 class="card-title ">Dr. {{doctor.lastName}} {{doctor.firstName}} </h5>
           <div class="card-text">{{doctor.description}}</div>

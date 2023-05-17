@@ -1,7 +1,7 @@
 <div class="container my-3">
   <div class="row">
-    <div class="col-lg-8 col-md-12 "
-         [ngClass]="{ 'd-none d-lg-block': showPatientDetails }">
+    <div class="col-lg-8 col-md-12">
+
       <form [formGroup]="filterPatientsForm"
             *ngIf="filterPatientsForm">
         <div class="form-floating mb-3 search">
@@ -10,14 +10,18 @@
                  formControlName="search"
                  id="search" />
           <label for="search"
-                 class="form-label px-4 left-auto justify-content-center">Cautare</label>
+                 class="form-label px-4 left-auto justify-content-center"><i class="fa-solid fa-search"> </i> Cautare</label>
         </div>
       </form>
 
       <ado-patients-list *ngIf="patientObservable"
                          [patients]="patientObservable | async"
-                         (selectedPatientChanged)="onSelectedPatient($event)"
                          [selectedPatient]="selectedPatient"></ado-patients-list>
+
+      <!-- <ado-patients-list *ngIf="patientObservable"
+                         [patients]="patientObservable | async"
+                         (selectedPatientChanged)="onSelectedPatient($event)"
+                         [selectedPatient]="selectedPatient"></ado-patients-list> -->
 
     </div>
   </div>

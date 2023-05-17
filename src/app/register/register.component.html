@@ -45,7 +45,9 @@
                  placeholder="Data nasterii*"
                  ngbDatepicker
                  formControlName="dateOfBirth"
-                 #d1="ngbDatepicker">
+                 #d1="ngbDatepicker"
+                 [minDate]="minDate"
+                 [maxDate]="maxDate">
           <button class="btn btn-outline border-gray calendar"
                   (click)="d1.toggle()"
                   type="button">

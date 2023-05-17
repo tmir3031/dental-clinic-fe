@@ -20,7 +20,15 @@ export class RegisterService {
       .pipe(
         catchError((errorResponse) => {
           const error = errorResponse.error.errors[0];
-          this.toasts.showError(error);
+          if (error.errorCode === 'EMPLOYEE_USERNAME_CONFLICT') {
+            this.toasts.showError(
+              'Ne pare rau, dar numele de utilizator nu mai este disponibil!'
+            );
+          } else {
+            this.toasts.showError(
+              'Aplicatia a intampinat o eraore. Va rugam reveniti'
+            );
+          }
           return EMPTY;
         }),
         tap(() => {

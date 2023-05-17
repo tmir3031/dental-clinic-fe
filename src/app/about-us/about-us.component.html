@@ -39,11 +39,11 @@
       <div class="card"
            style="width: 18rem;">
         <div class="text-center m-2 p-2">
-          <img *ngIf="doctor.gender === 'MASCULIN'"
+          <img *ngIf="doctor.gender === 'MASCULIN' || doctor.gender === 'masculin'" 
                class="card-img-top"
                src="assets/images/masculin.png"
                alt="Card image cap">
-          <img *ngIf="doctor.gender === 'FEMININ'"
+          <img *ngIf="doctor.gender === 'FEMININ' || doctor.gender === 'feminin'"
                class="card-img-top"
                src="assets/images/feminin.png"
                alt="Card image cap">

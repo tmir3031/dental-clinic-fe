@@ -52,7 +52,7 @@
           <a ngbNavLink>Detalii pacient</a>
           <ng-template ngbNavContent>
             <div class="d-flex">
-              <span class="p-2 fw-bold">Alergii:</span>
+              <span class="p-2 fw-bold"><i class="fa-solid fa-person-dots-from-line"></i> &nbsp; Alergii:</span>
               <span class="p-2 ms-auto"
                     *ngIf="patient.allergies">
                 {{ patient.allergies }}
@@ -63,7 +63,7 @@
               </span>
             </div>
             <div class="d-flex">
-              <span class="p-2 fw-bold">Boli cronice:</span>
+              <span class="p-2 fw-bold"><i class="fa-solid fa-square-virus"></i> &nbsp; Boli cronice:</span>
               <span class="p-2 ms-auto"
                     *ngIf="patient.chronicDiseases">
                 {{ patient.chronicDiseases }}
@@ -74,13 +74,13 @@
               </span>
             </div>
             <div class="d-flex">
-              <span class="p-2 fw-bold">Date nasterii:</span>
+              <span class="p-2 fw-bold"><i class="fa-solid fa-calendar-day"></i> &nbsp; Date nasterii:</span>
               <span class="p-2 ms-auto">
                 {{ patient.dateOfBirth }}
               </span>
             </div>
             <div class="d-flex">
-              <span class="p-2 fw-bold">Telefon:</span>
+              <span class="p-2 fw-bold"><i class="fa-solid fa-phone"></i> &nbsp; Telefon:</span>
               <span class="p-2 ms-auto"
                     *ngIf="patient.phone">
                 {{ patient.phone }}
@@ -91,16 +91,20 @@
               </span>
             </div>
             <div class="d-flex">
-              <span class="p-2 fw-bold">Email:</span>
+              <span class="p-2 fw-bold"><i class="fa-solid fa-mail-bulk"></i> &nbsp; Email:</span>
               <span class="p-2 ms-auto">
-                {{ patient.email }}
+                {{ patient?.email }}
               </span>
             </div>
 
             <div class="d-flex">
-              <span class="p-2 fw-bold">Gen:</span>
+              <span class="p-2 fw-bold">
+                <i *ngIf="patient?.gender ==='FEMININ'" class="fa-solid fa-female"></i> 
+                <i *ngIf="patient?.gender ==='MASCULIN'" class="fa-solid fa-male"></i> 
+                &nbsp;
+                Gen:</span>
               <span class="p-2 ms-auto">
-                {{ patient.gender }}
+                {{ patient?.gender }}
               </span>
             </div>
 

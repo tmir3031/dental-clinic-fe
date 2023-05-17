@@ -21,7 +21,7 @@ export class TreatmentsOfPatientComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.subscriptionTreatmentsView.add(
       this.patientService.getTreatmentsForPatientView().subscribe((vl) => {
-        if (this.treatmentsList !== undefined) this.listIsEmpty = false;
+        if (vl.length !== 0) this.listIsEmpty = false;
         console.log(this.listIsEmpty)
         console.log(this.treatmentsList?.length)
         this.treatmentsList = vl;

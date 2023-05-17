@@ -1,0 +1,139 @@
+<div class="row my-3 ">
+
+  <div class="register register-form rounded px-4">
+    <form [formGroup]="accountForm"
+          class="d-flex flex-column justify-content-center"
+          (ngSubmit)="submitStepOne()"
+          *ngIf="!stepOneSubmitted && !stepTwoSubmitted">
+      <div class="form-floating my-2 w-100">
+        <input type="text"
+               class="form-control"
+               formControlName="lastName"
+               adoNgError="lastName"
+               id="lastName">
+        <label for="lastName"
+               class="form-label">Nume*</label>
+      </div>
+      <div class="form-floating my-2 w-100">
+        <input type="text"
+               class="form-control"
+               formControlName="firstName"
+               adoNgError="firstName"
+               id="firstName">
+        <label for="firstName"
+               class="form-label">Prenume*</label>
+      </div>
+
+      <div class="form-floating my-2 w-100">
+        <input type="text"
+               class="form-control"
+               formControlName="email"
+               adoNgError="email"
+               id="email">
+        <label for="email"
+               class="form-label">Email*</label>
+      </div>
+
+      <div class="input-group my-2 w-100">
+        <input class="form-control py-3"
+               placeholder="Data nasterii*"
+               ngbDatepicker
+               formControlName="dateOfBirth"
+               #d1="ngbDatepicker">
+        <button class="btn btn-outline border-gray calendar"
+                (click)="d1.toggle()"
+                type="button">
+        </button>
+      </div>
+
+      <div class="form-floating text-center mt-8">
+        <button type="submit"
+                class="btn btn-primary text-white p-2 m-3 w-50"
+                [disabled]="!(accountForm.controls.dateOfBirth.valid && accountForm.controls.lastName.valid && accountForm.controls.firstName.valid && accountForm.controls.email.valid)">
+          Continua
+        </button>
+      </div>
+    </form>
+
+    <form [formGroup]="accountForm"
+          (ngSubmit)="submitStepTwo()"
+          *ngIf="stepOneSubmitted && !stepTwoSubmitted">
+
+      <div class="form-floating my-2 w-100">
+        <input type="text"
+               class="form-control"
+               formControlName="username"
+               adoNgError="username"
+               id="username">
+        <label for="username"
+               class="form-label">Nume de utilizator*</label>
+      </div>
+
+      <div class="form-floating text-center">
+        <button type="submit"
+                class="btn btn-primary text-white p-2 mt-3 w-50"
+                [disabled]="!(accountForm.controls.username.valid && accountForm.controls.password.valid && accountForm.controls.confirmPassword.valid)">
+          Continua
+        </button>
+        <div class="form-floating text-center">
+          <button (click)="backToStepOne()"
+                  class="btn btn-secondary text-white p-2 m-3 w-50"><i class="fa-sharp fas fa-circle-left"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <form [formGroup]="accountForm"
+          (ngSubmit)="submitStepThree()"
+          *ngIf="stepTwoSubmitted && stepOneSubmitted">
+      <div class="form-floating my-2 w-100">
+        <input type="text"
+               class="form-control"
+               formControlName="phone"
+               adoNgError="phone"
+               id="phone">
+        <label for="phone"
+               class="form-label">Telefon*</label>
+      </div>
+      <div class="form-floating my-2 w-100">
+        <select class="form-select"
+                formControlName="gender">
+          <option value="">-- Selectează genul --</option>
+          <option value="masculin">Masculin</option>
+          <option value="feminin">Feminin</option>
+        </select>
+        <label for="gender">Gen*</label>
+      </div>
+      <div class="form-floating my-2 w-100">
+        <input type="text"
+               class="form-control"
+               formControlName="allergies"
+               adoNgError="allergies"
+               id="allergies">
+        <label for="allergies"
+               class="form-label">Alergii</label>
+      </div>
+      <div class="form-floating my-2 w-100">
+        <input type="text"
+               class="form-control"
+               formControlName="diseases"
+               adoNgError="diseases"
+               id="diseases">
+        <label for="diseases"
+               class="form-label">Boli cronice</label>
+      </div>
+      <div class="form-floating text-center">
+        <button type="submit"
+                class="btn btn-primary text-white p-2 m-3 w-50"
+                [disabled]="!accountForm.valid">
+          Creareza cont
+        </button>
+      </div>
+      <div class="form-floating text-center">
+        <button (click)="backToStepTwo()"
+                class="btn btn-secondary text-white p-2 m-3 w-50"><i class="fa-sharp fas fa-circle-left"></i>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

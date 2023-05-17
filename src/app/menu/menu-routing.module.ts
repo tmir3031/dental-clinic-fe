@@ -9,6 +9,8 @@ import { ProfileDoctorComponent } from './components/profile-doctor/profile-doct
 import { PatientsOfDoctorComponent } from './components/patients-of-doctor/patients-of-doctor.component';
 import { Role } from '../login/models/login.model';
 import { TreatmentsOfPatientComponent } from './components/treatments-of-patient/treatments-of-patient.component';
+import { RegisterDoctorComponent } from './components/register-doctor/register-doctor.component';
+import { UserComponent } from './components/user/user.component';
 
 const routes: Routes = [
   {
@@ -22,6 +24,8 @@ const routes: Routes = [
       { path: 'view', component: AppointmentDoctorComponent, data: { roles: [Role.DOCTOR] } },
       { path: 'patients-list', component: PatientsOfDoctorComponent, data: { roles: [Role.DOCTOR] } },
       { path: 'my-treatments', component: TreatmentsOfPatientComponent, data: { roles: [Role.USER] }, },
+      { path: 'register-doctor', component: RegisterDoctorComponent, data: { roles: [Role.ADMIN] }, },
+      { path: 'users', component: UserComponent, data: { roles: [Role.ADMIN] }, },
       { path: '', redirectTo: 'menu', pathMatch: 'full' },
     ],
   },

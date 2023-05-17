@@ -52,28 +52,21 @@
               *ngIf="authorizationRole === 'ROLE_ADMIN'">
             <a class="nav-link"
                routerLinkActive="active"
-               title="Vizualizare programari"
-               routerLink="/menu"><i class="fa-3x sub-menu fa-solid fa-sharp fa-clock-rotate-left"></i></a>
-          </li>
-          <li class="nav-item my-3 align-self-center"
-              *ngIf="authorizationRole === 'ROLE_ADMIN'">
-            <a class="nav-link"
-               routerLinkActive="active"
-               title="Vizualizare pacienti"
-               routerLink="/menu"><i class="fa-3x sub-menu fa-solid fa-hospital-user"></i></a>
+               title="Vizualizare utilizatori"
+               routerLink="/menu/users"><i class="fa-3x sub-menu fa-solid fa-hospital-user"></i></a>
           </li>
           <li class="nav-item my-3 align-self-center"
               *ngIf="authorizationRole === 'ROLE_ADMIN'">
             <a class="nav-link"
                routerLinkActive="active"
                title="Adaugare doctor"
-               routerLink="/menu"><i class="fa-3x sub-menu fa-solid fa-hospital-wide"></i></a>
+               routerLink="/menu/register-doctor"><i class="fa-3x sub-menu fa-solid fa-hospital-wide"></i></a>
           </li>
           <li class="nav-item my-3 align-self-center"
           *ngIf="authorizationRole === 'ROLE_USER'">
         <a class="nav-link"
            routerLinkActive="active"
-           title="Tratementele mele"
+           title="Tratamentele mele"
            routerLink="/menu/my-treatments"> <i class="fa-3x fa-sharp sub-menu fa-solid fa-stethoscope"></i></a>
       </li>
          

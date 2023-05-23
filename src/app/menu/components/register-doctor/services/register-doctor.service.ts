@@ -12,6 +12,8 @@ export class RegisterDoctorService {
     private http: HttpClient,
     private toasts: ToastService,
   ) {}
+
+  
  public registerDoctor(doctor: RegisterDoctor): Observable<RegisterDoctor> {
     return this.http
       .post<RegisterDoctor>(`${environment.apiUrl}/core/api/v1/doctors/create`, doctor)

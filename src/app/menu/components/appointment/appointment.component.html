@@ -1,6 +1,6 @@
-<div class="container">
+<div class="container my-3">
   <div class="row d-flex justify-content-center align-content-center align-items-center justify-center mt-3">Atentie! Nu se pot face programari in zilele de weekend!</div>
-  <div class="row d-flex justify-content-center align-content-center align-items-center justify-center">
+  <div class="row d-flex justify-content-center align-content-center justify-center mt-5">
 
     <form class="row card row-cols-sm-auto"
           [formGroup]="form">
@@ -99,14 +99,6 @@
       </div>
     </form>
 
-    <!-- <ngb-datepicker #dp
-                 [(ngModel)]="model"
-                 (select)="onDateChange()"
-                 [dayTemplate]="customDay"
-                 [minDate]="minDate"
-                 [markDisabled]="isWeekend">
-</ngb-datepicker> -->
-
     <ng-template #customDay
                  let-date
                  let-currentMonth="currentMonth"
@@ -125,7 +117,7 @@
 
     <div class="col ms-5 p-2">
       <img src="assets/images/doctor1.png"
-           class="d-inline-block my-10 d-none d-md-block"
+           class="d-inline-block d-none d-md-block"
            alt="Dental Clinic Logo"
            loading="lazy" />
     </div>

@@ -77,6 +77,7 @@ export class AppointmentService {
     );
   }
 
+  // @LoadingScope()
   loadAppointments(
     filters?: AppointmentFilter
   ): Observable<AppointmentPatientDTO[]> {

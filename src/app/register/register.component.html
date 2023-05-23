@@ -112,15 +112,17 @@
         </div>
 
 
-        <div class="form-floating text-center">
-          <button type="submit"
-                  class="btn btn-primary text-white p-2 mt-3 w-50"
-                  [disabled]="!(accountForm.controls.username.valid && accountForm.controls.password.valid && accountForm.controls.confirmPassword.valid)">
-            Continua
-          </button>
-          <div class="form-floating text-center">
+        <div class="row form-floating text-center">
+          <div class="col">
             <button (click)="backToStepOne()"
                     class="btn btn-secondary text-white p-2 m-3 w-50"><i class="fa-sharp fas fa-circle-left"></i>
+            </button>
+          </div>
+          <div class="col">
+            <button type="submit"
+                    class="btn btn-primary text-white p-2 mt-3 w-50"
+                    [disabled]="!(accountForm.controls.username.valid && accountForm.controls.password.valid && accountForm.controls.confirmPassword.valid)">
+                    <i class="fa-sharp fas fa-circle-right"> </i>
             </button>
           </div>
         </div>
@@ -174,7 +176,7 @@
         </div>
         <div class="form-floating text-center">
           <button (click)="backToStepTwo()"
-                  class="btn btn-secondary text-white p-2 m-3 w-50"><i class="fa-sharp fas fa-circle-left"></i>
+                  class="btn btn-secondary text-center text-white p-2 m-3 w-25"><i class="fa-sharp fas fa-circle-left"></i>
           </button>
         </div>
       </form>

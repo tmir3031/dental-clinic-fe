@@ -1,17 +1,28 @@
 <div class="row d-flex justify-content-center align-items-center align-content-center ps-4 ps-lg-0">
-    <table class="table table-striped">
-      <thead class="bg-primary">
-        <tr>
-          <th scope="col"
-              class="col-1 text-white p-2"><i class="fa-solid fa-user"></i> &nbsp;Pacient</th>
-          <th scope="col"
-              class="col-1 text-white p-2"><i class="fa-solid fa-calendar-alt"></i> &nbsp;Data</th>
-          <th scope="col"
-              class="col-1 text-white p-2"><i class="fa-solid fa-clock"></i> &nbsp;Ora</th>
-        </tr>
-      </thead>
+  <table class="table table-striped">
+    <thead class="bg-primary">
+      <tr>
+        <th scope="col"
+            class="col-1 text-white p-2"><i class="fa-solid fa-user"></i> &nbsp;Pacient</th>
+        <th scope="col"
+            class="col-1 text-white p-2"><i class="fa-solid fa-calendar-alt"></i> &nbsp;Data</th>
+        <th scope="col"
+            class="col-1 text-white p-2"><i class="fa-solid fa-clock"></i> &nbsp;Ora</th>
+      </tr>
+    </thead>
 
-      <tbody *ngIf="listIsEmpty">
+    <tbody>
+      <ng-container *ngIf="!listIsEmpty">
+        <tr *ngFor="let appointment of appointmentsList"
+            class="align-middle cursor-pointer"
+            (click)="viewRequest(appointment)">
+          <th scope="row">{{appointment.patientDetails.lastName}} {{appointment.patientDetails.firstName}}</th>
+          <td>{{appointment.date | date: dateFormat}}</td>
+          <td>{{appointment.hour}} <i *ngIf="today>=appointment.date && !appointment.treatment"
+               class="fa fa-exclamation-triangle text-primary"></i> </td>
+        </tr>
+      </ng-container>
+      <ng-container *ngIf="listIsEmpty">
         <td class="bg-light fw-bold text-center"
             colspan="3">
           <div class="row">
@@ -21,26 +32,19 @@
             <p>Nu exista programari.</p>
           </div>
         </td>
-      </tbody>
+      </ng-container>
 
-      <tbody>
-        <tr *ngFor="let appointment of appointmentsList"
-            class="align-middle cursor-pointer"
-            (click)="viewRequest(appointment)">
-          <th scope="row">{{appointment.patientDetails.lastName}} {{appointment.patientDetails.firstName}}</th>
-          <td>{{appointment.date | date: dateFormat}}</td>
-          <td>{{appointment.hour}}  <i *ngIf="today>=appointment.date && !appointment.treatment" class="fa fa-exclamation-triangle text-primary"></i> </td>
-        </tr>
-      </tbody>
-    </table>
-    <div class="row">
-      <div class="d-flex justify-content-between p-2">
-        <ngb-pagination [collectionSize]="collectionSize"
-                        *ngIf="collectionSize"
-                        [(page)]="page"
-                        [pageSize]="pageSize"
-                        (pageChange)="refreshAppointments()">
-        </ngb-pagination>
-      </div>
+    </tbody>
+
+  </table>
+  <div class="row">
+    <div class="d-flex justify-content-between p-2">
+      <ngb-pagination [collectionSize]="collectionSize"
+                      *ngIf="collectionSize"
+                      [(page)]="page"
+                      [pageSize]="pageSize"
+                      (pageChange)="refreshAppointments()">
+      </ngb-pagination>
     </div>
+  </div>
 </div>

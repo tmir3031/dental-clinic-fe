@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-10 text-white"
                  *ngIf="appointmentDetailedSelected">
-                Programare
+                 <i class="fa-solid fa-calendar-check"></i> Programare
             </div>
             <div class="col-2">
                 <button type="button"
@@ -16,39 +16,39 @@
     <div class="card-body p-4"
          *ngIf="appointmentDetailedSelected">
         <div class="d-flex">
-            <span class="p-2 fw-bold">Nume pacient:</span>
+            <span class="p-2 fw-bold"><i class="fas fa-user"></i> Nume pacient:</span>
             <span class="p-2 ms-auto">{{ appointmentDetailedSelected.patientDetails.lastName }}
                 {{
                 appointmentDetailedSelected.patientDetails.firstName
                 }}</span>
         </div>
         <div class="d-flex">
-            <span class="p-2 fw-bold">Nume doctor:</span>
+            <span class="p-2 fw-bold"><i class="fas fa-user-doctor"></i> Nume doctor:</span>
             <span class="p-2 ms-auto">{{ appointmentDetailedSelected.doctorDetails.lastName }}
                 {{
                 appointmentDetailedSelected.doctorDetails.firstName
                 }}</span>
         </div>
         <div class="d-flex flex-nowrap">
-            <span class="p-2 fw-bold">Tratament:</span>
+            <span class="p-2 fw-bold"><i class="fas fa-prescription-bottle-medical"></i> Tratament:</span>
             <span class="p-2 ms-auto"
                   *ngIf="appointmentDetailedSelected.treatment">{{
                 appointmentDetailedSelected.treatment
                 }}</span>
             <span class="p-2 ms-auto"
                   *ngIf="!appointmentDetailedSelected.treatment">
-                Momentan nu s-a efectuat nicicun tratament
+                Nu s-a efectuat niciun tratament
             </span>
         </div>
         <div class="d-flex">
-            <span class="p-2 fw-bold">Data:</span>
+            <span class="p-2 fw-bold"><i class="fas fa-calendar-day"></i> Data:</span>
             <span class="p-2 ms-auto">{{
                 appointmentDetailedSelected.date
                 }}
             </span>
         </div>
         <div class="d-flex">
-            <span class="p-2 fw-bold">Ora:</span>
+            <span class="p-2 fw-bold"><i class="fas fa-clock"></i> Ora:</span>
             <span class="p-2 ms-auto">{{
                 appointmentDetailedSelected.hour
                 }}</span>

@@ -32,11 +32,14 @@ $primary:   #D58525;
 $secondary: #6f738a;
 $tertiary:  #ced4da;
 $success:   #008A3F;
-$info:      $tertiary;
+$info:      #ADDCFF;
 $warning:   #FFD456;
 $danger:    #BE161D;
 $light:     #EFF0F6;
 $dark:      #000B6C;
+$danger-light:      #ce9fa2;
+$success-light:      #C5FFC7;
+$warning-light:      #FFEDB7;
 $menu: #89fbd3;
 
 $theme-colors: (
@@ -48,6 +51,9 @@ $theme-colors: (
   "danger":     $danger,
   "light":      $light,
   "dark":       $dark,
+  "danger-light": $danger-light,
+  "success-light": $success-light,
+  "warning-light": $warning-light,
   "menu": $menu
 );
 
@@ -83,7 +89,7 @@ $warning-darkmode:  #FFE187;
 $warning-dark:      #997408;
 
 $danger-bg:         #FDE8E9;
-$danger-light:      #FABBBD;
+
 $danger-darkmode:   #DE444A;
 $danger-dark:       #0D5853;
 

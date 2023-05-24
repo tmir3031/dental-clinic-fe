@@ -17,9 +17,9 @@ const routes: Routes = [
     path: '',
     component: MenuComponent,
     children: [
-      { path: 'appointment', component: AppointmentComponent },
-      { path: 'history', component: AppointmentPatientComponent },
-      { path: 'profile', component: ProfilePatientComponent },
+      { path: 'appointment', component: AppointmentComponent, data: { roles: [Role.USER] } },
+      { path: 'history', component: AppointmentPatientComponent, data: { roles: [Role.USER] } },
+      { path: 'profile', component: ProfilePatientComponent, data: { roles: [Role.USER] } },
       { path: 'my-profile', component: ProfileDoctorComponent, data: { roles: [Role.DOCTOR] } },
       { path: 'view', component: AppointmentDoctorComponent, data: { roles: [Role.DOCTOR] } },
       { path: 'patients-list', component: PatientsOfDoctorComponent, data: { roles: [Role.DOCTOR] } },

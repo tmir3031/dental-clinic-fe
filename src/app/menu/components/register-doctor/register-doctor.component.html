@@ -1,7 +1,8 @@
 <div class="container w-50">
-  <div class="col my-3 ">
-
+  <div class="col-md-12 col-xs-6 my-3 ">
     <div class="register register-form rounded px-4">
+      <span class="my-1 text-center text-dark fw-bold"> Creare cont pentru un nou medic</span>
+
       <form [formGroup]="accountForm"
             class="row">
         <div class="form-floating my-2 col-6">
@@ -55,7 +56,8 @@
 
         <div class="form-floating my-2 col-6">
           <select class="form-select"
-                  formControlName="gender">
+                  formControlName="gender"
+                  id="gender">
             <option value="">-- Selectează genul --</option>
             <option value="MASCULIN">Masculin</option>
             <option value="FEMININ">Feminin</option>
@@ -63,8 +65,7 @@
           <label for="gender">Gen</label>
         </div>
 
-
-        <div class="form-floating form-group my-2">
+        <div class="form-floating form-group my-2 col-6">
           <select class="form-select"
                   formControlName="specializationId1"
                   id="specializationId1">
@@ -72,11 +73,11 @@
                     [value]="specialization.id">{{ specialization.name }}
             </option>
           </select>
-          <label for="specialization"
+          <label for="specializationId1"
                  class="form-label">Specializarea1</label>
         </div>
 
-        <div class="form-floating form-group my-2">
+        <div class="form-floating form-group my-2 col-6">
           <select class="form-select"
                   formControlName="specializationId2"
                   id="specializationId2">
@@ -84,11 +85,11 @@
                     [value]="specialization.id">{{ specialization.name }}
             </option>
           </select>
-          <label for="specialization2"
+          <label for="specializationId2"
                  class="form-label">Specializarea2</label>
         </div>
 
-        <div class="form-floating form-group my-2">
+        <div class="form-floating form-group my-2 col-6">
           <select class="form-select"
                   formControlName="specializationId3"
                   id="specializationId3">
@@ -96,7 +97,7 @@
                     [value]="specialization.id">{{ specialization.name }}
             </option>
           </select>
-          <label for="specialization3"
+          <label for="specializationId3"
                  class="form-label">Specializarea3</label>
         </div>
 

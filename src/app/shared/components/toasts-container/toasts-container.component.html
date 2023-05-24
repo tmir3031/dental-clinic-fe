@@ -1,39 +1,19 @@
-<ngb-toast
-    *ngIf="toast$ | async as toast"
-    [class]="toast.className"
-    [autohide]="true"
-    [delay]="toast.delay || 5000"
-    (hidden)="toastService.remove()">
-    <button
-        type="button"
-        class="btn-close btn-close-position"
-        aria-label="Close"
-        (click)="onClose()"></button>
-    <div class="notification">
-        <i
-            class="fa-solid fa-2x"
-            [ngClass]="computeNotificationIcon(toast.type)"></i>
-        {{ toast.message }}
+<ngb-toast *ngIf="toast$ | async as toast"
+           [class]="toast.className"
+           [autohide]="true"
+           [delay]="toast.delay || 5000"
+           (hidden)="toastService.remove()">
+    <button type="button"
+            class="btn-close btn-close-position"
+            aria-label="Close"
+            (click)="onClose()"></button>
+    <div class="notification row">
+        <div class="d-flex align-items-center">
+            <i class="fa-solid fa-2x"
+               [ngClass]="computeNotificationIcon(toast.type)"></i> <b>{{toast.type}}! </b>
+        </div>
+        <div class="text-center">
+            {{ toast.message }}
+        </div>
     </div>
 </ngb-toast>
-
-<!-- <ngb-toast
-    *ngIf="toast$ | async as toast"
-    [class]="toast.className"
-    [autohide]="true"
-    [delay]="toast.delay || 5000"
-    (hidden)="toastService.remove()">
-    <div class="toast-header">
-        <i
-        class="fa-solid fa-2x"
-        [ngClass]="computeNotificationIcon(toast.type)"></i>
-        <button
-        type="button"
-        class="btn-close btn-close-position"
-        aria-label="Close"
-        (click)="onClose()"></button>
-    </div>
-    <div class="toast-body">
-        {{ toast.message }}
-    </div>
-</ngb-toast> -->

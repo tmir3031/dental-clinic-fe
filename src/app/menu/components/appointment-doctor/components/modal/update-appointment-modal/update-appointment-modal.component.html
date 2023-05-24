@@ -13,10 +13,10 @@
           [(activeId)]="active"
           class="nav-tabs">
         <li [ngbNavItem]="1">
-          <a ngbNavLink>Programare</a>
+          <a ngbNavLink><i class="fa-solid fa-calendar-check"></i> Programare</a>
           <ng-template ngbNavContent>
             <div class="d-flex">
-              <span class="p-2 fw-bold">Data si ora:</span>
+              <span class="p-2 fw-bold"><i class="fa-solid fa-calendar-day"></i> Data si ora:</span>
               <span class="p-2 ms-auto">
                 {{ appointmentSelected.date }},
                 {{ appointmentSelected.hour }}
@@ -24,7 +24,8 @@
             </div>
 
             <div class="text-danger text-center my-3"
-                 *ngIf="!appointmentSelected.treatment">Trebuie sa adaugati informatiile referitoare la tratamentul
+                 *ngIf="!appointmentSelected.treatment && appointmentSelected.date <= today">Trebuie sa adaugati
+              informatiile referitoare la tratamentul
               efectuat!</div>
             <div class="form-floating my-3">
               <textarea class="form-control"
@@ -38,22 +39,20 @@
             <div class="row justify-content-center">
               <div class="col-auto">
                 <button type="button"
-                        class="btn btn-secondary m-3"
-                        (click)="onClose()">Renunta</button>
-              </div>
-              <div class="col-auto">
-                <button type="button"
                         *ngIf="mode==='VIEW'"
                         class="btn btn-success m-3"
                         (click)="onEditMode()"
-                        [disabled]="appointmentSelected.date > today ">Editeaza</button>
+                        [disabled]="appointmentSelected.date > today "><i class="fa-solid fa-add"></i>
+                  Adauga
+                  tratament</button>
               </div>
               <div class="col-auto">
                 <button type="button"
                         *ngIf="mode==='EDIT'"
                         class="btn btn-success m-3"
                         (click)="updateAppointment()"
-                        [disabled]="!treatment || appointmentSelected.date > today ">Salveaza</button>
+                        [disabled]="!treatment || appointmentSelected.date > today "><i class="fa-solid fa-save"></i>
+                  Salveaza</button>
               </div>
               <div class="col-auto"
                    *ngIf="today < appointmentSelected.date">
@@ -70,7 +69,7 @@
           <a ngbNavLink>Detalii pacient</a>
           <ng-template ngbNavContent>
             <div class="d-flex">
-              <span class="p-2 fw-bold">Alergii:</span>
+              <span class="p-2 fw-bold"><i class="fa-solid fa-person-dots-from-line"></i> Alergii:</span>
               <span class="p-2 ms-auto"
                     *ngIf="patient.allergies">
                 {{ patient.allergies }}
@@ -81,7 +80,7 @@
               </span>
             </div>
             <div class="d-flex">
-              <span class="p-2 fw-bold">Boli cronice:</span>
+              <span class="p-2 fw-bold"><i class="fa-solid fa-square-virus"></i> Boli cronice:</span>
               <span class="p-2 ms-auto"
                     *ngIf="patient.chronicDiseases">
                 {{ patient.chronicDiseases }}
@@ -92,13 +91,13 @@
               </span>
             </div>
             <div class="d-flex">
-              <span class="p-2 fw-bold">Date nasterii:</span>
+              <span class="p-2 fw-bold"><i class="fa-solid fa-calendar-day"> </i>Date nasterii:</span>
               <span class="p-2 ms-auto">
                 {{ patient.dateOfBirth }}
               </span>
             </div>
             <div class="d-flex">
-              <span class="p-2 fw-bold">Telefon:</span>
+              <span class="p-2 fw-bold"><i class="fa-solid fa-phone"></i> Telefon:</span>
               <span class="p-2 ms-auto"
                     *ngIf="patient.phone">
                 {{ patient.phone }}
@@ -109,14 +108,20 @@
               </span>
             </div>
             <div class="d-flex">
-              <span class="p-2 fw-bold">Email:</span>
+              <span class="p-2 fw-bold"><i class="fa-solid fa-mail-bulk"></i> Email:</span>
               <span class="p-2 ms-auto">
                 {{ patient.email }}
               </span>
             </div>
 
             <div class="d-flex">
-              <span class="p-2 fw-bold">Gen:</span>
+              <span class="p-2 fw-bold">
+                <i *ngIf="patient?.gender ==='FEMININ'"
+                   class="fa-solid fa-female"></i>
+                <i *ngIf="patient?.gender ==='MASCULIN'"
+                   class="fa-solid fa-male"></i>
+                &nbsp;
+                Gen:</span>
               <span class="p-2 ms-auto">
                 {{ patient.gender }}
               </span>

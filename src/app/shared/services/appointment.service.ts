@@ -8,6 +8,7 @@ import { AppointmentRequest } from '../models/appointment.model';
 import { AppointmentPatientDTO } from 'src/app/menu/components/appointment-patient/models/appointement-patient.model';
 import { AppointmentFilter } from 'src/app/menu/components/appointment-patient/models/appointment-filter.model';
 import { ToastService } from '../components/toasts-container/toasts.service';
+import { LoadingScope } from '../loader/loader.decorator';
 
 @Injectable({
   providedIn: 'root',
@@ -77,7 +78,7 @@ export class AppointmentService {
     );
   }
 
-  // @LoadingScope()
+  @LoadingScope()
   loadAppointments(
     filters?: AppointmentFilter
   ): Observable<AppointmentPatientDTO[]> {

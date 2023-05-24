@@ -41,9 +41,7 @@ export class AppointmentDoctorComponent implements OnInit, OnDestroy {
               date,
               search,
             } as AppointmentFilter;
-          })
-        )
-        .pipe(
+          }),
           switchMap<AppointmentFilter, Observable<AppointmentPatientDTO[]>>(
             (filters) => {
               this.filters = { ...filters };

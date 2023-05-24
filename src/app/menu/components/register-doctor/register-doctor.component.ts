@@ -43,9 +43,6 @@ export class RegisterDoctorComponent implements OnInit, OnDestroy {
 
 
   createDoctorAccount(): void {
-    if (this.subscription) {
-      this.subscription.unsubscribe();
-    }
     this.subscription.add(this.registerDoctorService
       .registerDoctor({
         firstName: this.accountForm.get('firstName').value,
@@ -54,7 +51,7 @@ export class RegisterDoctorComponent implements OnInit, OnDestroy {
         email: this.accountForm.get('email').value,
         gender: this.accountForm.get('gender').value,
         role: 'DOCTOR',
-        specializationIds: [this.accountForm.get('specializationId1').value,2],
+        specializationIds: [this.accountForm.get('specializationId1').value],
         description: this.accountForm.get('description').value,
        
       })

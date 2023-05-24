@@ -1,4 +1,5 @@
 import {
+  ChangeDetectionStrategy,
   Component,
   Input,
   OnChanges,
@@ -15,6 +16,7 @@ import { UpdateAppointmentModalComponent } from '../modal/update-appointment-mod
   selector: 'ado-appointment-doctor-table',
   templateUrl: './appointment-table.component.html',
   styleUrls: ['./appointment-table.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppointmentDoctorTableComponent implements OnChanges, OnInit {
   @Input() appointmentsListDetailed: AppointmentPatientDTO[];

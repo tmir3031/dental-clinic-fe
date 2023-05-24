@@ -14,30 +14,43 @@
     <div class="row d-flex justify-content-center">
         <ngb-accordion [closeOthers]="true"
                        #acc="ngbAccordion"
-                       class="col-8"
-                       (click)="selectType(type)"
-                       *ngFor="let type of types, let i = index">
-            <ngb-panel [id]="'panel-' + type"
-                       [title]="type">
-                <ng-template ngbPanelContent
-                             *ngIf="selectedType === type">
-                    <table class="table table-sm table-hover">
-                        <thead>
-                            <tr>
-                                <th scope="col">Nume</th>
-                                <th scope="col">Pret (RON)</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr *ngFor="let price of prices"
-                                class="align-middle">
-                                <td scope="row">{{price.name}}</td>
-                                <td>{{price.price}}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </ng-template>
-            </ngb-panel>
+                       class="col-8">
+            <ng-container *ngFor="let type of types, let i = index">
+
+                <ngb-panel id="ngb-panel-{{i}}"
+                           title="{{type}}"
+                           (click)="selectType(type)">
+
+                    <ng-template ngbPanelHeader>
+                        <button ngbPanelToggle class="accordion-button" (click)="selectType(type)">{{type}}</button>
+                      </ng-template>
+
+                    <ng-template ngbPanelContent>
+
+                        <!-- <div class="spinner-border"
+                             role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div> -->
+
+                        <table *ngIf="true"
+                               class="table table-sm table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Nume</th>
+                                    <th scope="col">Pret (RON)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let price of prices"
+                                    class="align-middle">
+                                    <td scope="row">{{price.name}}</td>
+                                    <td>{{price.price}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </ng-template>
+                </ngb-panel>
+            </ng-container>
         </ngb-accordion>
     </div>
     <button *ngIf="isMenuScrolled"

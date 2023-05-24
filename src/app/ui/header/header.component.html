@@ -63,13 +63,20 @@
                <li><a class="dropdown-item"
                      (click)="onLogout()">Deconectare</a></li>
                <hr class="dropdown-divider">
-               <li> <a class="dropdown-item"
+               <li *ngIf="authorizationRole === 'ROLE_ADMIN'"> <a class="dropdown-item"
                      aria-current="page"
                      routerLinkActive="active"
-                     routerLink="/menu">Deschide meniul</a></li>
+                     routerLink="/menu/users">Deschide meniul</a></li>
+               <li *ngIf="authorizationRole === 'ROLE_DOCTOR'"> <a class="dropdown-item"
+                     aria-current="page"
+                     routerLinkActive="active"
+                     routerLink="/menu/view">Deschide meniul</a></li>
+               <li *ngIf="authorizationRole === 'ROLE_USER'"> <a class="dropdown-item"
+                     aria-current="page"
+                     routerLinkActive="active"
+                     routerLink="/menu/appointment">Deschide meniul</a></li>
             </ul>
          </div>
       </div>
    </div>
 </nav>
-

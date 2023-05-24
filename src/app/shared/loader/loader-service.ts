@@ -10,6 +10,7 @@ export class LoaderService {
     }
 
     public static showLoader() {
+        console.log("aiii")
         LoaderService._loaderEnabled.next(true);
     }
 

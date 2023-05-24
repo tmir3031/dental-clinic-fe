@@ -1,9 +1,9 @@
 export enum NotificationType {
-    ERROR = 'ERROR',
-    WARNING = 'WARNING',
-    INFO = 'INFO',
-    SUCCESS = 'SUCCESS',
-    STANDARD = 'STANDARD',
+    ERROR = 'Error',
+    WARNING = 'Warning',
+    INFO = 'Info',
+    SUCCESS = 'Success',
+    STANDARD = 'Standard',
 }
 
 export class NotificationToast {

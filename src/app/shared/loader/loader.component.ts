@@ -5,7 +5,7 @@ import { LoaderService } from './loader-service';
 @Component({
     selector: 'ado-core-loader',
     templateUrl: './loader.component.html',
-    styleUrls: ['./loader.component.css'],
+    styleUrls: ['./loader.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LoaderComponent {

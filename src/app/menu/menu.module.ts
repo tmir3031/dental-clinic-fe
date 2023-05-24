@@ -26,6 +26,7 @@ import { DeleteAppointmentModalComponent } from './components/appointment-patien
 import { TreatmentsOfPatientComponent } from './components/treatments-of-patient/treatments-of-patient.component';
 import { RegisterDoctorComponent } from './components/register-doctor/register-doctor.component';
 import { UserComponent } from './components/user/user.component';
+import { UsersListComponent } from './components/user/components/users-list/users-list.component';
 
 @NgModule({
   imports: [
@@ -55,7 +56,8 @@ import { UserComponent } from './components/user/user.component';
     DeleteAppointmentModalComponent,
     TreatmentsOfPatientComponent,
     RegisterDoctorComponent,
-    UserComponent
+    UserComponent,
+    UsersListComponent
   ],
 })
 export class MenuModule {}

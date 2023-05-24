@@ -2,6 +2,7 @@ import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { DoctorService } from '../shared/services/doctor.service';
 import { DoctorDto } from '../shared/models/doctor.model';
+import { ToastService } from '../shared/components/toasts-container/toasts.service';
 
 @Component({
   selector: 'ado-about-us',
@@ -11,7 +12,7 @@ import { DoctorDto } from '../shared/models/doctor.model';
 export class AboutUsComponent implements OnInit, OnDestroy {
   public doctors: DoctorDto[];
   private subscription: Subscription;
-  constructor(private service: DoctorService) { }
+  constructor(private service: DoctorService, private serviceT: ToastService) { }
 
   ngOnInit(): void {
     this.subscription = this.service.getDoctors().subscribe((data) => {

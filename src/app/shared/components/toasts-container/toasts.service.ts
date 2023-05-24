@@ -16,28 +16,28 @@ export class ToastService implements OnDestroy {
 
   showSuccess(message: string): void {
     this.show(message, NotificationType.SUCCESS, {
-      className: 'bg-success text-light',
+      className: 'text-success bg-success-light',
       delay: 5000,
     });
   }
 
   showError(message: string): void {
     this.show(message, NotificationType.ERROR, {
-      className: 'bg-danger text-light',
+      className: 'text-danger bg-danger-light',
       delay: 5000,
     });
   }
 
   showWarning(message: string): void {
     this.show(message, NotificationType.WARNING, {
-      className: 'bg-warning text-black',
+      className: 'text-primary bg-warning-light',
       delay: 5000,
     });
   }
 
   showInfo(message: string): void {
     this.show(message, NotificationType.INFO, {
-      className: 'bg-info text-black',
+      className: 'bg-info text-dark',
       delay: 5000,
     });
   }

@@ -20,13 +20,13 @@ export class ToastsContainerComponent {
   computeNotificationIcon(type: NotificationType): string | undefined {
       switch (type) {
           case NotificationType.ERROR:
-              return 'fa-xmark';
+              return 'fa-circle-xmark';
           case NotificationType.INFO:
               return 'fa-circle-info';
           case NotificationType.WARNING:
-              return 'fa-triangle-exclamation';
+              return 'fa-circle-exclamation';
           case NotificationType.SUCCESS:
-              return 'fa-check';
+              return 'fa-circle-check';
           default:
               return '';
       }

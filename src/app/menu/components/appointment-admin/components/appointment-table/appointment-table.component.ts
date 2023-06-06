@@ -1,4 +1,5 @@
 import {
+  ChangeDetectionStrategy,
   Component,
   Input,
   OnChanges,
@@ -13,6 +14,7 @@ import { FormatDate } from 'src/app/shared/utils/format-date';
   selector: 'ado-appointment-admin-table',
   templateUrl: './appointment-table.component.html',
   styleUrls: ['./appointment-table.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppointmentAdminTableComponent implements OnInit, OnChanges {
   @Input() appointmentsListDetailed: AppointmentAdminDTO[];
@@ -38,6 +40,11 @@ export class AppointmentAdminTableComponent implements OnInit, OnChanges {
     this.listIsEmpty =
       this.appointmentsList && this.appointmentsList.length === 0;
   }
+
+
+  trackByAppointment(index : number, appointment: AppointmentAdminDTO) {
+    return appointment ? appointment.id : undefined;
+};
 
   refreshAppointments(): void {
     this.appointmentsList = this.appointmentsListDetailed.slice(

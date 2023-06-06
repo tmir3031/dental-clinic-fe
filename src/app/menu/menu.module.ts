@@ -29,6 +29,7 @@ import { UserComponent } from './components/user/user.component';
 import { UsersListComponent } from './components/user/components/users-list/users-list.component';
 import { AppointmentAdminComponent } from './components/appointment-admin/appointment-admin.component';
 import { AppointmentAdminTableComponent } from './components/appointment-admin/components/appointment-table/appointment-table.component';
+import { AppointmentAdminResolver } from '../shared/resolvers/appointment-doctor-resolver';
 
 @NgModule({
   imports: [
@@ -61,7 +62,7 @@ import { AppointmentAdminTableComponent } from './components/appointment-admin/c
     UserComponent,
     UsersListComponent,
     AppointmentAdminComponent,
-    AppointmentAdminTableComponent
+    AppointmentAdminTableComponent,
   ],
 })
 export class MenuModule {}

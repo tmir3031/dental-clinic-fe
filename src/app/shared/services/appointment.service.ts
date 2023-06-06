@@ -101,7 +101,7 @@ export class AppointmentService {
         params = params.append('endDate', this.filtersAdmin.endDate);
       }
       if (this.filtersAdmin.startDate) {
-        params = params.append('endDate', this.filtersAdmin.startDate);
+        params = params.append('startDate', this.filtersAdmin.startDate);
       }
       if (this.filtersAdmin.search) {
         params = params.append('search', this.filtersAdmin.search);
@@ -115,7 +115,6 @@ export class AppointmentService {
       .pipe(
         map((response) => response.items),
         tap((value) => {
-          console.log(value);
           this.appointmentsAdminSubject.next(value);
         })
       )

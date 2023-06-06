@@ -50,7 +50,7 @@ export class AppointmentAdminComponent implements OnInit, OnDestroy {
             }
           )
         )
-        .subscribe((data) => {this.appointmentsListDetailed = data; console.log(data)})
+        .subscribe((data) => {this.appointmentsListDetailed = data})
     );
 
     this.setInitialFilters();

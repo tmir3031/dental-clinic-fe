@@ -27,6 +27,8 @@ import { TreatmentsOfPatientComponent } from './components/treatments-of-patient
 import { RegisterDoctorComponent } from './components/register-doctor/register-doctor.component';
 import { UserComponent } from './components/user/user.component';
 import { UsersListComponent } from './components/user/components/users-list/users-list.component';
+import { AppointmentAdminComponent } from './components/appointment-admin/appointment-admin.component';
+import { AppointmentAdminTableComponent } from './components/appointment-admin/components/appointment-table/appointment-table.component';
 
 @NgModule({
   imports: [
@@ -57,7 +59,9 @@ import { UsersListComponent } from './components/user/components/users-list/user
     TreatmentsOfPatientComponent,
     RegisterDoctorComponent,
     UserComponent,
-    UsersListComponent
+    UsersListComponent,
+    AppointmentAdminComponent,
+    AppointmentAdminTableComponent
   ],
 })
 export class MenuModule {}

@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { CustomValidators } from './utils/validators';
+import { CustomValidators } from '../shared/utils/validators';
 import { Subscription } from 'rxjs';
 import { RegisterService } from './services/register.service';
 import { FormatDate } from '../shared/utils/format-date';

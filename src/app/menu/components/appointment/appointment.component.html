@@ -2,19 +2,19 @@
   <div class="row d-flex justify-content-center align-content-center align-items-center justify-center mt-3">Atentie! Nu se pot face programari in zilele de weekend!</div>
   <div class="row d-flex justify-content-center align-content-center justify-center mt-5">
 
-    <form class="row card row-cols-sm-auto"
+    <form class="card p-2"
           [formGroup]="form">
 
       <div class="w-100 form-floating form-group my-2">
         <select class="form-select"
                 formControlName="specializationId"
-                id="specialization"
+                id="specializationId"
                 (change)="onSpecializationChange()">
           <option *ngFor="let specialization of specializations"
                   [value]="specialization.id">{{ specialization.name }}
           </option>
         </select>
-        <label for="specialization"
+        <label for="specializationId"
                class="form-label">Specializarea</label>
       </div>
 

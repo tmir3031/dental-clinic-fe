@@ -19,15 +19,3 @@
 tr:hover{
     background-color: #adb5bd;
 }
-
-.scrollable-table {
-    overflow-y: auto;
-    max-height: 400px; 
-    display: block;
-  }
-  
-  .table thead th {
-    position: sticky;
-    top: 0;
-  }
-  

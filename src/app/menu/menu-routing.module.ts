@@ -11,6 +11,7 @@ import { Role } from '../login/models/login.model';
 import { TreatmentsOfPatientComponent } from './components/treatments-of-patient/treatments-of-patient.component';
 import { RegisterDoctorComponent } from './components/register-doctor/register-doctor.component';
 import { UserComponent } from './components/user/user.component';
+import { AppointmentAdminComponent } from './components/appointment-admin/appointment-admin.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,7 @@ const routes: Routes = [
       { path: 'my-treatments', component: TreatmentsOfPatientComponent, data: { roles: [Role.USER] }, },
       { path: 'register-doctor', component: RegisterDoctorComponent, data: { roles: [Role.ADMIN] }, },
       { path: 'users', component: UserComponent, data: { roles: [Role.ADMIN] }, },
+      { path: 'all-appointments', component: AppointmentAdminComponent, data: { roles: [Role.ADMIN] }, },
       { path: '', redirectTo: 'menu', pathMatch: 'full' },
     ],
   },

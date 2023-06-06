@@ -74,7 +74,7 @@
               </span>
             </div>
             <div class="d-flex">
-              <span class="p-2 fw-bold"><i class="fa-solid fa-calendar-day"></i> &nbsp; Date nasterii:</span>
+              <span class="p-2 fw-bold"><i class="fa-solid fa-calendar-day"></i> &nbsp; Data nasterii:</span>
               <span class="p-2 ms-auto">
                 {{ patient.dateOfBirth }}
               </span>
@@ -99,8 +99,8 @@
 
             <div class="d-flex">
               <span class="p-2 fw-bold">
-                <i *ngIf="patient?.gender ==='FEMININ'" class="fa-solid fa-female"></i> 
-                <i *ngIf="patient?.gender ==='MASCULIN'" class="fa-solid fa-male"></i> 
+                <i *ngIf="patient?.gender ==='feminin'" class="fa-solid fa-female"></i> 
+                <i *ngIf="patient?.gender ==='masculin'" class="fa-solid fa-male"></i> 
                 &nbsp;
                 Gen:</span>
               <span class="p-2 ms-auto">
@@ -115,7 +115,7 @@
         <li [ngbNavItem]="3">
           <a ngbNavLink>Tratamente anterioare</a>
           <ng-template ngbNavContent>
-            <div class="row d-flex justify-content-center mt-3">
+            <div class="row d-flex justify-content-center m-3">
 
               <table class="table table-striped">
                 <thead class="bg-primary">
@@ -129,19 +129,19 @@
                   </tr>
                 </thead>
 
-                <tbody *ngIf="listIsEmpty">
+                <tbody *ngIf="treatmentsList.length === 0">
                   <td class="bg-light fw-bold text-center"
                       colspan="3">
                     <div class="row">
                       <i class="fa-solid fa-file-circle-xmark fa-3x"></i>
                     </div>
                     <div class="row">
-                      <p>Nu exista programari.</p>
+                      <p>Nu exista tratamente efectuate.</p>
                     </div>
                   </td>
                 </tbody>
 
-                <tbody>
+                <tbody *ngIf="treatmentsList">
                   <tr *ngFor="let treatment of treatmentsList"
                       class="align-middle">
                     <th scope="row">{{treatment.doctorDetails.lastName}} {{treatment.doctorDetails.firstName}}</th>

@@ -1,113 +1,125 @@
-<div class="container w-50">
-  <div class="col-md-12 col-xs-6 my-3 ">
+<div class="container d-flex justify-content-center ">
+  <div class="col-md-6 col-xs-11 my-3 ">
     <div class="register register-form rounded px-4">
       <span class="my-1 text-center text-dark fw-bold"> Creare cont pentru un nou medic</span>
 
       <form [formGroup]="accountForm"
             class="row">
-        <div class="form-floating my-2 col-6">
-          <input type="text"
-                 class="form-control"
-                 formControlName="lastName"
-                 adoNgError="lastName"
-                 id="lastName">
-          <label for="lastName"
-                 class="form-label">Nume</label>
+        <div class="my-2 col-6">
+          <div class="form-floating">
+            <input type="text"
+                   class="form-control"
+                   formControlName="lastName"
+                   adoNgError="lastName"
+                   id="lastName">
+            <label for="lastName"
+                   class="form-label">Nume</label>
+          </div>
         </div>
-        <div class="form-floating my-2 col-6">
-          <input type="text"
-                 class="form-control"
-                 formControlName="firstName"
-                 adoNgError="firstName"
-                 id="firstName">
-          <label for="firstName"
-                 class="form-label">Prenume</label>
-        </div>
-
-        <div class="form-floating my-2 col-6">
-          <input type="text"
-                 class="form-control"
-                 formControlName="email"
-                 adoNgError="email"
-                 id="email">
-          <label for="email"
-                 class="form-label">Email</label>
+        <div class="my-2 col-6">
+          <div class="form-floating">
+            <input type="text"
+                   class="form-control"
+                   formControlName="firstName"
+                   adoNgError="firstName"
+                   id="firstName">
+            <label for="firstName"
+                   class="form-label">Prenume</label>
+          </div>
         </div>
 
-        <div class="form-floating my-2 col-6">
-          <input type="text"
-                 class="form-control"
-                 formControlName="username"
-                 adoNgError="username"
-                 id="username">
-          <label for="username"
-                 class="form-label">Nume de utilizator</label>
+        <div class="my-2 col-6">
+          <div class="form-floating">
+            <input type="text"
+                   class="form-control"
+                   formControlName="email"
+                   adoNgError="email"
+                   id="email">
+            <label for="email"
+                   class="form-label">Email</label>
+          </div>
+        </div>
+        <div class="my-2 col-6">
+          <div class="form-floating">
+            <input type="text"
+                   class="form-control"
+                   formControlName="username"
+                   adoNgError="username"
+                   id="username">
+            <label for="username"
+                   class="form-label">Nume de utilizator</label>
+          </div>
+        </div>
+        <div class="my-2 col-6">
+          <div class="form-floating">
+            <input type="text"
+                   class="form-control"
+                   formControlName="description"
+                   adoNgError="description"
+                   id="description">
+            <label for="description"
+                   class="form-label">Descriere</label>
+          </div>
         </div>
 
-        <div class="form-floating my-2 col-6">
-          <input type="text"
-                 class="form-control"
-                 formControlName="description"
-                 adoNgError="description"
-                 id="description">
-          <label for="description"
-                 class="form-label">Descriere</label>
+        <div class="my-2 col-6">
+          <div class="form-floating">
+            <select class="form-select"
+                    formControlName="gender"
+                    id="gender">
+              <option value="">Selectează genul</option>
+              <option value="MASCULIN">Masculin</option>
+              <option value="FEMININ">Feminin</option>
+            </select>
+            <label for="gender">Gen</label>
+          </div>
         </div>
-
-        <div class="form-floating my-2 col-6">
-          <select class="form-select"
-                  formControlName="gender"
-                  id="gender">
-            <option value="">-- Selectează genul --</option>
-            <option value="MASCULIN">Masculin</option>
-            <option value="FEMININ">Feminin</option>
-          </select>
-          <label for="gender">Gen</label>
+        <div class="my-2 col-6">
+          <div class="form-floating form-group">
+            <select class="form-select"
+                    formControlName="specializationId1"
+                    id="specializationId1">
+              <option *ngFor="let specialization of specializations"
+                      [value]="specialization.id">{{ specialization.name }}
+              </option>
+            </select>
+            <label for="specializationId1"
+                   class="form-label">Specializarea1</label>
+          </div>
         </div>
-
-        <div class="form-floating form-group my-2 col-6">
-          <select class="form-select"
-                  formControlName="specializationId1"
-                  id="specializationId1">
-            <option *ngFor="let specialization of specializations"
-                    [value]="specialization.id">{{ specialization.name }}
-            </option>
-          </select>
-          <label for="specializationId1"
-                 class="form-label">Specializarea1</label>
+        <div class="my-2 col-6">
+          <div class="form-floating form-group">
+            <select class="form-select"
+                    formControlName="specializationId2"
+                    id="specializationId2">
+              <option *ngFor="let specialization of specializations"
+                      [value]="specialization.id">{{ specialization.name }}
+              </option>
+            </select>
+            <label for="specializationId2"
+                   class="form-label">Specializarea2</label>
+          </div>
         </div>
-
-        <div class="form-floating form-group my-2 col-6">
-          <select class="form-select"
-                  formControlName="specializationId2"
-                  id="specializationId2">
-            <option *ngFor="let specialization of specializations"
-                    [value]="specialization.id">{{ specialization.name }}
-            </option>
-          </select>
-          <label for="specializationId2"
-                 class="form-label">Specializarea2</label>
+        <div class="my-2 col-6">
+          <div class="form-floating form-group">
+            <select class="form-select"
+                    formControlName="specializationId3"
+                    id="specializationId3">
+              <option *ngFor="let specialization of specializations"
+                      [value]="specialization.id">{{ specialization.name }}
+              </option>
+            </select>
+            <label for="specializationId3"
+                   class="form-label">Specializarea3</label>
+          </div>
         </div>
-
-        <div class="form-floating form-group my-2 col-6">
-          <select class="form-select"
-                  formControlName="specializationId3"
-                  id="specializationId3">
-            <option *ngFor="let specialization of specializations"
-                    [value]="specialization.id">{{ specialization.name }}
-            </option>
-          </select>
-          <label for="specializationId3"
-                 class="form-label">Specializarea3</label>
-        </div>
-
 
         <div class="form-floating text-center">
           <button type="submit"
                   class="btn btn-primary text-white p-2 m-3 w-50"
                   (click)="createDoctorAccount()"
                   [disabled]="!accountForm.valid">
-            Creareza cont
+            Creeaza cont
           </button>
         </div>
 

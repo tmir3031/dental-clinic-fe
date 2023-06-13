@@ -16,7 +16,7 @@
       <div class="my-2">
         <div class="row">
           <div class="col-10">
-            <h1>Informatiile mele</h1>
+            <h1>Informațiile mele</h1>
           </div>
         </div>
       </div>
@@ -27,7 +27,7 @@
                  formControlName="username"
                  id="username" />
           <label for="username"
-                 class="form-label">Username</label>
+                 class="form-label">Username*</label>
         </div>
       </div>
 
@@ -38,7 +38,7 @@
                  formControlName="email"
                  id="email" />
           <label for="email"
-                 class="form-label">Email</label>
+                 class="form-label">Email*</label>
         </div>
       </div>
 
@@ -49,7 +49,7 @@
                  formControlName="lastName"
                  id="lastName" />
           <label for="lastName"
-                 class="form-label">Nume</label>
+                 class="form-label">Nume*</label>
         </div>
       </div>
 
@@ -60,7 +60,7 @@
                  formControlName="firstName"
                  id="firstName" />
           <label for="firstName"
-                 class="form-label">Prenume</label>
+                 class="form-label">Prenume*</label>
         </div>
       </div>
 
@@ -72,7 +72,7 @@
                  formControlName="dateOfBirth"
                  id="dateOfBirth">
           <label for="dateOfBirth"
-                 class="form-label">Data nasterii</label>
+                 class="form-label">Data nașterii*</label>
           <button class="btn btn-outline border-gray calendar"
                   (click)="d1.toggle()"
                   [disabled]="mode === 'VIEW'"
@@ -88,7 +88,7 @@
                  formControlName="phone"
                  id="phone" />
           <label for="phone"
-                 class="form-label">Telefon</label>
+                 class="form-label">Telefon*</label>
         </div>
       </div>
 
@@ -99,7 +99,7 @@
                  formControlName="allergies"
                  id="allergies" />
           <label for="allergies"
-                 class="form-label">Alergii</label>
+                 class="form-label">Alergii (opțional)</label>
         </div>
       </div>
 
@@ -107,10 +107,10 @@
         <div class="form-floating form-group">
           <input type="text"
                  class="form-control"
-                 formControlName="diseases"
-                 id="diseases" />
-          <label for="diseases"
-                 class="form-label">Boli cronice</label>
+                 formControlName="chronicDiseases"
+                 id="chronicDiseases" />
+          <label for="chronicDiseases"
+                 class="form-label">Boli cronice (opțional)</label>
         </div>
       </div>
       <div class="col-6 my-2">
@@ -122,24 +122,21 @@
             <option value="masculin">Masculin</option>
             <option value="feminin">Feminin</option>
           </select>
-          <label for="gender">Genul</label>
+          <label for="gender">Genul*</label>
         </div>
       </div>
     </form>
-    <div class="row d-flex justify-content-center cursor-pointer"
-         (click)="viewRadiography()"> <i class="d-flex justify-content-center fa fa-eye cursor-pointer"></i>
-      Vizualizeaza radiografii</div>
     <div class="row"
          *ngIf="mode==='EDIT'">
       <div class="d-flex justify-content-end">
         <button class="btn btn-secondary"
                 (click)="onClear()">
-          Anuleaza
+          Anulează
         </button>
         <button class="btn btn-success text-white ms-2"
                 [disabled]="form?.disabled || form?.invalid"
                 (click)="onEdit()">
-          Editeaza
+          <i class="fa-solid fa-pen-to-square"> </i> Editează
         </button>
       </div>
     </div>

@@ -79,9 +79,10 @@ export class FotoService {
           .pipe(
             map((images) => {
               return images.map((radiography) => {
-                radiography.image = this.sanitizer.bypassSecurityTrustResourceUrl(
-                  'data:image/png;base64, ' + radiography.image
-                );
+                radiography.image =
+                  this.sanitizer.bypassSecurityTrustResourceUrl(
+                    'data:image/png;base64, ' + radiography.image
+                  );
                 return radiography;
               });
             })

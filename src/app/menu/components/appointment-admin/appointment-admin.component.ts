@@ -36,21 +36,27 @@ export class AppointmentAdminComponent implements OnInit, OnDestroy {
     this.subscriptions.add(
       combineLatest(this.getControlsValueChanges())
         .pipe(
-          map<[string, string, string], AppointmentAdminFilter>(([search, startDate, endDate]) => {
-            return {
-              startDate,
-              endDate,
-              search,
-            } as AppointmentAdminFilter;
-          }),
+          map<[string, string, string], AppointmentAdminFilter>(
+            ([search, startDate, endDate]) => {
+              return {
+                startDate,
+                endDate,
+                search,
+              } as AppointmentAdminFilter;
+            }
+          ),
           switchMap<AppointmentAdminFilter, Observable<AppointmentAdminDTO[]>>(
             (filters) => {
               this.filters = { ...filters };
-              return this.appointmentService.loadAppointmentsForAdmin(this.filters);
+              return this.appointmentService.loadAppointmentsForAdmin(
+                this.filters
+              );
             }
           )
         )
-        .subscribe((data) => {this.appointmentsListDetailed = data})
+        .subscribe((data) => {
+          this.appointmentsListDetailed = data;
+        })
     );
 
     this.setInitialFilters();

@@ -1,5 +1,6 @@
 <div class="container my-3">
-  <div class="row d-flex justify-content-center align-content-center align-items-center justify-center mt-3">Atentie! Nu se pot face programari in zilele de weekend!</div>
+  <div class="row d-flex justify-content-center align-content-center align-items-center justify-center mt-3">Atenție! Nu
+    se pot face programări în zilele de weekend!</div>
   <div class="row d-flex justify-content-center align-content-center justify-center mt-5">
 
     <form class="card p-2"
@@ -32,7 +33,7 @@
                 formControlName="doctorId"
                 id="doctor"
                 *ngIf="!doctors?.length">
-          <option disabled>Nu exista niciun doctor cu aceasta specializare
+          <option disabled>Nu există niciun doctor cu această specializare
           </option>
         </select>
         <label for="doctor"
@@ -74,7 +75,7 @@
                 formControlName="hour"
                 id="hour"
                 *ngIf="!intervals?.length">
-          <option disabled>Nu exista niciun interval orar disponibil
+          <option disabled>Nu există niciun interval orar disponibil!
           </option>
         </select>
         <label for="hour"
@@ -86,13 +87,13 @@
       <div class="form-floating text-center">
         <div class="my-2 text-danger row text-center"
              *ngIf="invalidAppointment">
-          <span>Ne pare rau, dar intervalul orar {{newAppointment?.hour}}, din data {{newAppointment?.date}} nu mai este
-            disponibil! Va rugam sa alegeti un alt
+          <span>Ne pare rău, dar intervalul orar {{newAppointment?.hour}}, din data {{newAppointment?.date}} nu mai este
+            disponibil! Vă rugăm să alegeți un alt
             interval</span>
         </div>
         <button (click)="createAppointment() "
                 [disabled]="!form.valid"
-                class="btn btn-secondary text-white p-2 m-3 w-50">Programeaza-te <i
+                class="btn btn-secondary text-white p-2 m-3 w-50">Programează-te <i
              class="fa-sharp fa-solid fa-paper-plane"></i>
 
         </button>

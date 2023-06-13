@@ -12,5 +12,3 @@ export interface RegisterDoctor {
   status?: string;
   v?: string;
 }
-
-

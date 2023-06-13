@@ -3,12 +3,10 @@ import {
   Component,
   Input,
   OnChanges,
-  OnInit,
   SimpleChanges,
 } from '@angular/core';
 import { AppointmentAdminDTO } from '../../models/appointment-admin.model';
 import { Constants } from 'src/app/shared/utils/constants';
-import { FormatDate } from 'src/app/shared/utils/format-date';
 
 @Component({
   selector: 'ado-appointment-admin-table',
@@ -16,7 +14,7 @@ import { FormatDate } from 'src/app/shared/utils/format-date';
   styleUrls: ['./appointment-table.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AppointmentAdminTableComponent implements OnInit, OnChanges {
+export class AppointmentAdminTableComponent implements OnChanges {
   @Input() appointmentsListDetailed: AppointmentAdminDTO[];
   appointmentsList: AppointmentAdminDTO[];
   dateFormat = Constants.DATE_FORMAT_DISPLAY;
@@ -27,11 +25,6 @@ export class AppointmentAdminTableComponent implements OnInit, OnChanges {
 
   constructor() {}
 
-  ngOnInit(): void {
-    console.log(this.appointmentsListDetailed)
-   
-  }
-
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.appointmentsListDetailed && this.appointmentsListDetailed) {
       this.refreshAppointments();
@@ -41,10 +34,9 @@ export class AppointmentAdminTableComponent implements OnInit, OnChanges {
       this.appointmentsList && this.appointmentsList.length === 0;
   }
 
-
-  trackByAppointment(index : number, appointment: AppointmentAdminDTO) {
+  trackByAppointment(index: number, appointment: AppointmentAdminDTO) {
     return appointment ? appointment.id : undefined;
-};
+  }
 
   refreshAppointments(): void {
     this.appointmentsList = this.appointmentsListDetailed.slice(

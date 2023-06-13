@@ -6,10 +6,9 @@ import { LoginService } from '../shared/services/login.service';
 @Component({
   selector: 'ado-menu',
   templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.scss']
+  styleUrls: ['./menu.component.scss'],
 })
 export class MenuComponent implements OnInit, OnDestroy {
-
   authorizationRole: Role;
   username: string;
 
@@ -32,5 +31,4 @@ export class MenuComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.loginSubscription.unsubscribe();
   }
-
 }

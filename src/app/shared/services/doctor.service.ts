@@ -10,13 +10,14 @@ import { LoginService } from './login.service';
 export class DoctorService {
   constructor(private http: HttpClient, private loginService: LoginService) {}
 
-  getDoctorDetails():  Observable<DoctorDto> {
-    return this.loginService.userLogged
-      .pipe(
-        switchMap((user) => {
-            return this.http.get<DoctorDto>(`${environment.apiUrl}/core/api/v1/doctors/${user.userDetails.userId}`)
-        })
-      )
+  getDoctorDetails(): Observable<DoctorDto> {
+    return this.loginService.userLogged.pipe(
+      switchMap((user) => {
+        return this.http.get<DoctorDto>(
+          `${environment.apiUrl}/core/api/v1/doctors/${user.userDetails.userId}`
+        );
+      })
+    );
   }
 
   public getDoctors(specializationId?: number): Observable<DoctorDto[]> {
@@ -24,10 +25,15 @@ export class DoctorService {
     if (specializationId) {
       params = params.append('specializationId', specializationId);
     }
-    return this.http.get<{ items: DoctorDto[] }>(`${environment.apiUrl}/core/api/v1/doctors`, { params }).pipe(
-      map((responseData) => {
-        return responseData.items;
-      })
-    );
+    return this.http
+      .get<{ items: DoctorDto[] }>(
+        `${environment.apiUrl}/core/api/v1/doctors`,
+        { params }
+      )
+      .pipe(
+        map((responseData) => {
+          return responseData.items;
+        })
+      );
   }
 }

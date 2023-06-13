@@ -19,7 +19,6 @@ export class AppointmentDetailsComponent implements OnInit {
   constructor(private modalService: NgbModal) {}
 
   ngOnInit(): void {
-    console.log(this.appointmentDetailedSelected)
     this.today = FormatDate.convertDateToStringDate(new Date());
   }
 

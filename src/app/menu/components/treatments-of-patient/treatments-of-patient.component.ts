@@ -1,8 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Subscription } from 'rxjs';
 import { TreatmentDetailsDTO } from 'src/app/shared/models/treatment.model';
 import { PatientService } from 'src/app/shared/services/patient.service';
 import { Constants } from 'src/app/shared/utils/constants';
+import { PatientRadiographyComponent } from '../profile-patient/components/patient-radiography/patient-radiography.component';
 
 @Component({
   selector: 'ado-treatments-of-patient',
@@ -16,14 +18,14 @@ export class TreatmentsOfPatientComponent implements OnInit, OnDestroy {
   private readonly subscriptionTreatmentsView: Subscription =
     new Subscription();
 
-  constructor(private patientService: PatientService) {}
-
+  constructor(
+    private patientService: PatientService,
+    private modalService: NgbModal
+  ) {}
   ngOnInit() {
     this.subscriptionTreatmentsView.add(
       this.patientService.getTreatmentsForPatientView().subscribe((vl) => {
         if (vl.length !== 0) this.listIsEmpty = false;
-        console.log(this.listIsEmpty)
-        console.log(this.treatmentsList?.length)
         this.treatmentsList = vl;
       })
     );
@@ -32,5 +34,12 @@ export class TreatmentsOfPatientComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     if (this.subscriptionTreatmentsView)
       this.subscriptionTreatmentsView.unsubscribe();
+  }
+
+  viewRadiography() {
+    const modal = this.modalService.open(PatientRadiographyComponent, {
+      size: 'lg',
+    });
+    modal.componentInstance as PatientRadiographyComponent;
   }
 }

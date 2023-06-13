@@ -1,4 +1,10 @@
-import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
+import {
+  HttpErrorResponse,
+  HttpEvent,
+  HttpHandler,
+  HttpInterceptor,
+  HttpRequest,
+} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { catchError, filter, switchMap, take } from 'rxjs/operators';
@@ -7,15 +13,25 @@ import { LoginService } from 'src/app/shared/services/login.service';
 @Injectable()
 export class LoginInterceptorService implements HttpInterceptor {
   private isRefreshing = false;
-  private refreshTokenSubject: BehaviorSubject<any> = new BehaviorSubject<any>(null);
+  private refreshTokenSubject: BehaviorSubject<any> = new BehaviorSubject<any>(
+    null
+  );
 
   constructor(private authService: LoginService) {}
 
-  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<Object>> {
+  intercept(
+    req: HttpRequest<any>,
+    next: HttpHandler
+  ): Observable<HttpEvent<Object>> {
     let authReq = req;
-    const token = this.authService.userLogged.value ? this.authService.userLogged.value.accessToken : null;
+    const token = this.authService.userLogged.value
+      ? this.authService.userLogged.value.accessToken
+      : null;
 
-    if (token != null && !['login', 'refresh'].some((url) => req.url.includes(url))) {
+    if (
+      token != null &&
+      !['login', 'refresh'].some((url) => req.url.includes(url))
+    ) {
       authReq = this.addTokenHeader(req, token);
     }
 
@@ -28,7 +44,10 @@ export class LoginInterceptorService implements HttpInterceptor {
       })
     );
   }
-  private handle401Error(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<Object>> {
+  private handle401Error(
+    request: HttpRequest<any>,
+    next: HttpHandler
+  ): Observable<HttpEvent<Object>> {
     if (!this.isRefreshing) {
       this.isRefreshing = true;
       this.refreshTokenSubject.next(null);
@@ -40,7 +59,9 @@ export class LoginInterceptorService implements HttpInterceptor {
             this.isRefreshing = false;
             this.refreshTokenSubject.next(response.accessToken);
 
-            return next.handle(this.addTokenHeader(request, response.accessToken));
+            return next.handle(
+              this.addTokenHeader(request, response.accessToken)
+            );
           }),
           catchError((err) => {
             this.isRefreshing = false;
@@ -57,7 +78,12 @@ export class LoginInterceptorService implements HttpInterceptor {
       switchMap((token) => next.handle(this.addTokenHeader(request, token)))
     );
   }
-  private addTokenHeader(request: HttpRequest<any>, token: string): HttpRequest<Object> {
-    return request.clone({ headers: request.headers.set('Authorization', `Bearer ${token}`) });
+  private addTokenHeader(
+    request: HttpRequest<any>,
+    token: string
+  ): HttpRequest<Object> {
+    return request.clone({
+      headers: request.headers.set('Authorization', `Bearer ${token}`),
+    });
   }
 }

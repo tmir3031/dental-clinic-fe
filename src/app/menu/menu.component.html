@@ -63,12 +63,13 @@
              routerLink="/menu/register-doctor"><i class="fa-3x sub-menu fa-solid fa-hospital-wide"></i></a>
         </li>
         <li class="nav-item my-3 align-self-center"
-        *ngIf="authorizationRole === 'ROLE_ADMIN'">
-      <a class="nav-link"
-         routerLinkActive="active"
-         title="Vizualizare programari"
-         routerLink="/menu/all-appointments"><i class="fa-3x fa-sharp fa-solid fa-clock-rotate-left sub-menu"></i></a>
-    </li>
+            *ngIf="authorizationRole === 'ROLE_ADMIN'">
+          <a class="nav-link"
+             routerLinkActive="active"
+             title="Vizualizare programari"
+             routerLink="/menu/all-appointments"><i
+               class="fa-3x fa-sharp fa-solid fa-clock-rotate-left sub-menu"></i></a>
+        </li>
         <li class="nav-item my-3 align-self-center"
             *ngIf="authorizationRole === 'ROLE_USER'">
           <a class="nav-link"

@@ -1,5 +1,11 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivateChild, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
+import {
+  ActivatedRouteSnapshot,
+  CanActivateChild,
+  Router,
+  RouterStateSnapshot,
+  UrlTree,
+} from '@angular/router';
 import { Observable } from 'rxjs';
 import { map, take } from 'rxjs/operators';
 import { LoginService } from '../../shared/services/login.service';
@@ -11,7 +17,11 @@ export class LoginGuard implements CanActivateChild {
   canActivateChild(
     childRoute: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
-  ): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
+  ):
+    | boolean
+    | UrlTree
+    | Observable<boolean | UrlTree>
+    | Promise<boolean | UrlTree> {
     return this.loginService.userLogged.pipe(
       take(1),
       map((user) => {
@@ -20,7 +30,10 @@ export class LoginGuard implements CanActivateChild {
           return false;
         }
 
-        if (childRoute.data.roles && childRoute.data.roles.indexOf(user.userDetails.role) === -1) {
+        if (
+          childRoute.data.roles &&
+          childRoute.data.roles.indexOf(user.userDetails.role) === -1
+        ) {
           this.router.navigate(['/home']);
           return false;
         }

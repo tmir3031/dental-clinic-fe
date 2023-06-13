@@ -1,17 +1,15 @@
 .register {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    color: #000b6c;
-    padding: 25px 0 25px 0;
-    box-shadow: 0 1px 2px rgb(0 0 0 / 10%), 0 4px 8px rgb(0 0 0 / 30%);
-    &-form {
-      background-color: #f0f2f5;
-    }
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  color: #000b6c;
+  padding: 25px 0 25px 0;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 10%), 0 4px 8px rgb(0 0 0 / 30%);
+  &-form {
+    background-color: #f0f2f5;
   }
-  
-  input.ng-invalid.ng-touched {
-    border: 1px solid red;
-  }
-  
-  
+}
+
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}

@@ -64,7 +64,7 @@
         <div class="rounded px-4 d-flex align-content-end justify-content-center mt-10">
           <a class="text-dark align-content-end justify-content-start"
              routerLinkActive="active"
-             routerLink="/login"><i class="fa-sharp fa-solid fa-arrow-left"></i> Intoarce-te la login! </a>
+             routerLink="/login"><i class="fa-sharp fa-solid fa-arrow-left"></i> Întoarce-te la login! </a>
         </div>
       </form>
 
@@ -99,7 +99,7 @@
                  adoNgError="confirmPassword"
                  id="confirmPassword" />
           <label for="confirmPassword"
-                 class="form-label">Confirma Parola*</label>
+                 class="form-label">Confirmă Parola*</label>
         </div>
 
         <ado-password-strength-meter [password]="accountForm.controls.password.value">
@@ -122,7 +122,7 @@
             <button type="submit"
                     class="btn btn-primary text-white p-2 mt-3 w-50"
                     [disabled]="!(accountForm.controls.username.valid && accountForm.controls.password.valid && accountForm.controls.confirmPassword.valid)">
-                    <i class="fa-sharp fas fa-circle-right"> </i>
+              <i class="fa-sharp fas fa-circle-right"> </i>
             </button>
           </div>
         </div>
@@ -156,7 +156,7 @@
                  adoNgError="allergies"
                  id="allergies">
           <label for="allergies"
-                 class="form-label">Alergii (optional)</label>
+                 class="form-label">Alergii (opțional)</label>
         </div>
         <div class="form-floating my-2 w-100">
           <input type="text"
@@ -165,18 +165,19 @@
                  adoNgError="diseases"
                  id="diseases">
           <label for="diseases"
-                 class="form-label">Boli cronice (optional)</label>
+                 class="form-label">Boli cronice (opțional)</label>
         </div>
         <div class="form-floating text-center">
           <button type="submit"
                   class="btn btn-primary text-white p-2 m-3 w-50"
                   [disabled]="!accountForm.valid">
-            Creeaza cont
+            Creează cont
           </button>
         </div>
         <div class="form-floating text-center">
           <button (click)="backToStepTwo()"
-                  class="btn btn-secondary text-center text-white p-2 m-3 w-25"><i class="fa-sharp fas fa-circle-left"></i>
+                  class="btn btn-secondary text-center text-white p-2 m-3 w-25"><i
+               class="fa-sharp fas fa-circle-left"></i>
           </button>
         </div>
       </form>

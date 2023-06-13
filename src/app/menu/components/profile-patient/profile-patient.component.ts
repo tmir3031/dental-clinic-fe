@@ -2,12 +2,14 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { PatientService } from '../../../shared/services/patient.service';
-import { PatientDTO, UpdatePatientDTO } from 'src/app/register/models/register.model';
+import {
+  PatientDTO,
+  UpdatePatientDTO,
+} from 'src/app/register/models/register.model';
 import { FormatDate } from 'src/app/shared/utils/format-date';
 import { catchError, tap } from 'rxjs/operators';
 import { ToastService } from 'src/app/shared/components/toasts-container/toasts.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { PatientRadiographyComponent } from './components/patient-radiography/patient-radiography.component';
 
 @Component({
   selector: 'ado-profile-patient',
@@ -24,8 +26,7 @@ export class ProfilePatientComponent implements OnInit, OnDestroy {
   constructor(
     private patientService: PatientService,
     private toastService: ToastService,
-    private formBuilder: FormBuilder,
-    private modalService: NgbModal
+    private formBuilder: FormBuilder
   ) {}
 
   ngOnInit(): void {
@@ -63,37 +64,28 @@ export class ProfilePatientComponent implements OnInit, OnDestroy {
       this.updateSubscription.unsubscribe();
     }
     this.updateSubscription = this.patientService
-    .updatePatient(this.extractPatientFromForm())
-    .pipe(
-      catchError((error) => {
-        this.toastService.showError(
-          'Ne pare rau! Nu s-a putut efectua actualizarea datelor. Va rugam reveniti!'
-        );
-        throw error;
-      }),
-      tap(() =>
-        this.toastService.showSuccess(
-          'Datele au fost actualizate cu succes!'
+      .updatePatient(this.extractPatientFromForm())
+      .pipe(
+        catchError((error) => {
+          this.toastService.showError(
+            'Ne pare rău! Nu s-a putut efectua actualizarea datelor. Vă rugăm reveniți!'
+          );
+          throw error;
+        }),
+        tap(() =>
+          this.toastService.showSuccess('Datele au fost actualizate cu succes!')
         )
       )
-    )
-    .subscribe(() => {
-      this.mode = 'VIEW';
-      this.userSubscription = this.patientService
-      .getPatient()
-      .subscribe((data) => {
-        this.patient = data;
-        this.setInitialValue();
+      .subscribe(() => {
+        this.mode = 'VIEW';
+        this.userSubscription = this.patientService
+          .getPatient()
+          .subscribe((data) => {
+            this.patient = data;
+            this.setInitialValue();
+          });
       });
-    })
     this.form?.disable();
-  }
-
-  viewRadiography(){
-    const modal = this.modalService.open(PatientRadiographyComponent,  { size: 'lg' });
-    (
-      modal.componentInstance as PatientRadiographyComponent
-    )
   }
 
   private extractPatientFromForm(): UpdatePatientDTO {
@@ -103,9 +95,9 @@ export class ProfilePatientComponent implements OnInit, OnDestroy {
       firstName: controls.firstName.value,
       allergies: controls.allergies.value,
       phone: controls.phone.value,
-      diseases: controls.diseases.value,
+      chronicDiseases: controls.chronicDiseases.value,
       gender: controls.gender.value,
-      v: 2
+      v: 2,
     };
     return newPatient;
   }
@@ -117,10 +109,10 @@ export class ProfilePatientComponent implements OnInit, OnDestroy {
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       allergies: [''],
-      phone: [''],
-      diseases: [''],
+      phone: ['', Validators.required],
+      chronicDiseases: [''],
       dateOfBirth: ['', Validators.required],
-      gender: [''],
+      gender: ['', Validators.required],
     });
   }
 
@@ -132,7 +124,7 @@ export class ProfilePatientComponent implements OnInit, OnDestroy {
       lastName: this.patient?.lastName,
       allergies: this.patient?.allergies,
       phone: this.patient?.phone,
-      diseases: this.patient?.chronicDiseases,
+      chronicDiseases: this.patient?.chronicDiseases,
       dateOfBirth: FormatDate.convertStringDateToNgbDate(
         this.patient?.dateOfBirth
       ),

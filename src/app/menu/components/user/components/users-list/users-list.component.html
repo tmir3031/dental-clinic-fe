@@ -1,15 +1,17 @@
 <div class="card">
   <div class="card-header bg-dark text-white fw-bold"><i class="fa-solid fa-users"></i> &nbsp; Utilizatori</div>
   <ul class="list-group list-group-flush">
-      <div class="list-group-item"
-           *ngFor="let user of users"
-           >
-          <div class="row">
-              <div class="col"> <i *ngIf="user.role==='ADMIN'" class="fa-solid fa-screwdriver-wrench"> </i> <i *ngIf="user.role==='USER'" class="fa-solid fa-user"> </i> <i *ngIf="user.role==='DOCTOR'" class="fa-solid fa-user-doctor"> </i>  &nbsp; {{ user.firstName + ' ' + user.lastName }}</div>
-              <div class="col"
-                   *ngIf="user.email"><i class="fa-solid fa-mail-bulk"> </i> &nbsp; {{user.email}}</div>
-          </div>
-
+    <div class="list-group-item"
+         *ngFor="let user of users">
+      <div class="row">
+        <div class="col"> <i *ngIf="user.role==='ADMIN'"
+             class="fa-solid fa-screwdriver-wrench"> </i> <i *ngIf="user.role==='USER'"
+             class="fa-solid fa-user"> </i> <i *ngIf="user.role==='DOCTOR'"
+             class="fa-solid fa-user-doctor"> </i> &nbsp; {{ user.firstName + ' ' + user.lastName }}</div>
+        <div class="col"
+             *ngIf="user.email"><i class="fa-solid fa-mail-bulk"> </i> &nbsp; {{user.email}}</div>
       </div>
+
+    </div>
   </ul>
 </div>

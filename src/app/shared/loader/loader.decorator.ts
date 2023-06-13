@@ -12,7 +12,6 @@ export function LoadingScope(): MethodDecorator {
         propertyKey: string | symbol,
         descriptor: PropertyDescriptor
     ) => {
-        console.log("aicii in return")
         const original = descriptor.value;
           descriptor.value = function (...args: unknown[]) {
 

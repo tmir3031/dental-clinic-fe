@@ -7,15 +7,18 @@ import { LoginService } from 'src/app/shared/services/login.service';
 @Component({
   selector: 'ado-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit, OnDestroy  {
+export class HeaderComponent implements OnInit, OnDestroy {
   authorizationRole: Role;
   username: string;
 
   private loginSubscription: Subscription;
 
-  constructor(private loginService: LoginService, private offcanvasService: NgbOffcanvas) {}
+  constructor(
+    private loginService: LoginService,
+    private offcanvasService: NgbOffcanvas
+  ) {}
 
   ngOnInit(): void {
     this.loginSubscription = this.loginService.userLogged.subscribe((user) => {
@@ -34,8 +37,8 @@ export class HeaderComponent implements OnInit, OnDestroy  {
   }
 
   openScroll(content: TemplateRef<any>) {
-		this.offcanvasService.open(content, { scroll: true });
-	}
+    this.offcanvasService.open(content, { scroll: true });
+  }
 
   onLogout(): void {
     this.loginService.logout();

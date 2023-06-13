@@ -3,11 +3,12 @@
         Listă de prețuri:
     </div>
     <div class="row card my-3 rounded-3">
-        <div class="text-center text-dark p-3 rounded-3">Lista noastră de prețuri este strict informativă. Prețul unui
-            tratament diferă în funcție de complexitatea cazului medical sau materialele dentare alese. Îți recomandăm
-            să vizitezi clinica noastră pentru a primi un plan de tratament și un preț exact aferent nevoilor tale
+        <div class="text-center text-dark p-3 rounded-3">Informațiile din lista noastră de prețuri sunt furnizate doar
+            ca ghid. Costul unui tratament poate varia în funcție de complexitatea situației medicale individuale sau de
+            materialele dentare selectate. Pentru un plan de tratament personalizat și o estimare de preț precisă, te
+            încurajăm să ne vizitezi la clinica noastră. Astfel, vom putea să ne adaptăm cel mai bine la nevoile tale
             stomatologice. <br>
-            <b>Preturile sunt informative si se pot modifica in functie de complexitatea fiecarui caz in parte.</b>
+            <b>Preturile sunt informative și se pot modifica în funcție de complexitatea fiecărui caz în parte.</b>
         </div>
     </div>
 
@@ -22,22 +23,18 @@
                            (click)="selectType(type)">
 
                     <ng-template ngbPanelHeader>
-                        <button ngbPanelToggle class="accordion-button" (click)="selectType(type)">{{type}}</button>
-                      </ng-template>
+                        <button ngbPanelToggle
+                                class="accordion-button"
+                                (click)="selectType(type)">{{type}}</button>
+                    </ng-template>
 
                     <ng-template ngbPanelContent>
-
-                        <!-- <div class="spinner-border"
-                             role="status">
-                            <span class="sr-only">Loading...</span>
-                        </div> -->
-
                         <table *ngIf="true"
                                class="table table-sm table-hover">
                             <thead>
                                 <tr>
                                     <th scope="col">Nume</th>
-                                    <th scope="col">Pret (RON)</th>
+                                    <th scope="col">Preț (RON)</th>
                                 </tr>
                             </thead>
                             <tbody>

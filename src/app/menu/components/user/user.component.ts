@@ -9,10 +9,9 @@ import { UserService } from './services/user-service';
 @Component({
   selector: 'ado-user',
   templateUrl: './user.component.html',
-  styleUrls: ['./user.component.scss']
+  styleUrls: ['./user.component.scss'],
 })
 export class UserComponent implements OnInit, OnDestroy {
-
   users?: UserAccountDto[];
   filterUsersForm?: FormGroup;
   userObservable?: Observable<UserAccountDto[]>;
@@ -38,7 +37,7 @@ export class UserComponent implements OnInit, OnDestroy {
           map<(string | UserFilter)[], UserFilter>(([search, role]) => {
             return {
               search,
-              role
+              role,
             } as UserFilter;
           })
         )
@@ -99,14 +98,12 @@ export class UserComponent implements OnInit, OnDestroy {
           return false;
         }
       }
-      if(filterFormValue.role){
+      if (filterFormValue.role) {
         if (
           !item.role
             .toLowerCase()
             .includes(filterFormValue.role.toLowerCase()) &&
-          !item.role
-            .toLowerCase()
-            .includes(filterFormValue.role.toLowerCase())
+          !item.role.toLowerCase().includes(filterFormValue.role.toLowerCase())
         ) {
           return false;
         }
@@ -117,5 +114,4 @@ export class UserComponent implements OnInit, OnDestroy {
 
     return filteredData;
   }
-
 }

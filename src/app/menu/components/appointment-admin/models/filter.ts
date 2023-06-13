@@ -1,5 +1,5 @@
-export interface AppointmentAdminFilter{
-    startDate?: string;
-    endDate?: string;
-    search?: string;
+export interface AppointmentAdminFilter {
+  startDate?: string;
+  endDate?: string;
+  search?: string;
 }

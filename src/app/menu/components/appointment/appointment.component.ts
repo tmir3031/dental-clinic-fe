@@ -124,7 +124,7 @@ export class AppointmentComponent implements OnInit, OnDestroy {
         .pipe(
           catchError((error) => {
             this.toastService.showError(
-              'Ne pare rau! Nu s-a putut efectua aceasta cerere, deoarece acest interval orar nu mai e disponibil!'
+              'Ne pare rău! Nu s-a putut efectua această cerere, deoarece acest interval orar nu mai e disponibil!'
             );
             this.form.reset();
             this.invalidAppointment = true;
@@ -132,7 +132,7 @@ export class AppointmentComponent implements OnInit, OnDestroy {
           }),
           tap(() =>
             this.toastService.showSuccess(
-              'Cererea s-a efectuat cu succes! Va multumim!'
+              'Cererea s-a efectuat cu succes! Vă mulțumim!'
             )
           )
         )

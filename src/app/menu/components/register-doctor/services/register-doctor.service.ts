@@ -8,33 +8,30 @@ import { Injectable } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })
 export class RegisterDoctorService {
-  constructor(
-    private http: HttpClient,
-    private toasts: ToastService,
-  ) {}
+  constructor(private http: HttpClient, private toasts: ToastService) {}
 
-  
- public registerDoctor(doctor: RegisterDoctor): Observable<RegisterDoctor> {
+  public registerDoctor(doctor: RegisterDoctor): Observable<RegisterDoctor> {
     return this.http
-      .post<RegisterDoctor>(`${environment.apiUrl}/core/api/v1/doctors/create`, doctor)
+      .post<RegisterDoctor>(
+        `${environment.apiUrl}/core/api/v1/doctors/create`,
+        doctor
+      )
       .pipe(
         catchError((errorResponse) => {
           const error = errorResponse.error.errors[0];
           if (error.errorCode === 'EMPLOYEE_USERNAME_CONFLICT') {
             this.toasts.showError(
-              'Ne pare rau, dar numele de utilizator nu mai este disponibil!'
+              'Ne pare rău, dar numele de utilizator nu mai este disponibil!'
             );
           } else {
             this.toasts.showError(
-              'Aplicatia a intampinat o eroare. Va rugam reveniti'
+              'Aplicația a întâmpinat o eroare. Vă rugăm reveniți'
             );
           }
           return EMPTY;
         }),
         tap(() => {
-            this.toasts.showSuccess(
-                'Doctorul a fost adaugat cu succes'
-              );
+          this.toasts.showSuccess('Doctorul a fost adăugat cu succes');
         })
       );
   }

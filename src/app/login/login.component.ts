@@ -16,7 +16,11 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   private loginSubscription: Subscription;
 
-  constructor(private loginService: LoginService, private router: Router, private formBuilder: FormBuilder) {}
+  constructor(
+    private loginService: LoginService,
+    private router: Router,
+    private formBuilder: FormBuilder
+  ) {}
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
@@ -33,7 +37,10 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   onLogin(): void {
     this.loginSubscription = this.loginService
-      .login(this.loginForm.controls.username.value, this.loginForm.controls.password.value)
+      .login(
+        this.loginForm.controls.username.value,
+        this.loginForm.controls.password.value
+      )
       .pipe(
         catchError((errorResponse) => {
           const error = errorResponse.error.errors[0];
@@ -48,4 +55,3 @@ export class LoginComponent implements OnInit, OnDestroy {
       });
   }
 }
-

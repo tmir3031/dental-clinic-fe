@@ -1,7 +1,7 @@
 <div class="modal-dialog-centered">
   <div class="modal-content">
     <div class="modal-header">
-      <h4>Informatii programare {{ appointmentSelected.patientDetails.lastName }}
+      <h4>Informații programare {{ appointmentSelected.patientDetails.lastName }}
         {{ appointmentSelected.patientDetails.firstName }}</h4>
       <button type="button"
               class="btn-close"
@@ -25,7 +25,7 @@
 
             <div class="text-danger text-center my-3"
                  *ngIf="!appointmentSelected.treatment && appointmentSelected.date <= today">Trebuie sa adaugati
-              informatiile referitoare la tratamentul
+              informațiile referitoare la tratamentul
               efectuat!</div>
             <div class="form-floating my-3">
               <textarea class="form-control"
@@ -43,7 +43,7 @@
                         class="btn btn-success m-3"
                         (click)="onEditMode()"
                         [disabled]="appointmentSelected.date > today "><i class="fa-solid fa-add"></i>
-                  Adauga
+                  Adaugă
                   tratament</button>
               </div>
               <div class="col-auto">
@@ -52,7 +52,7 @@
                         class="btn btn-success m-3"
                         (click)="updateAppointment()"
                         [disabled]="!treatment || appointmentSelected.date > today "><i class="fa-solid fa-save"></i>
-                  Salveaza</button>
+                  Salvează</button>
               </div>
               <div class="col-auto"
                    *ngIf="today < appointmentSelected.date">
@@ -76,7 +76,7 @@
               </span>
               <span class="p-2 ms-auto"
                     *ngIf="!patient.allergies">
-                Nu sunt mentionate
+                Nu sunt menționate
               </span>
             </div>
             <div class="d-flex">
@@ -87,7 +87,7 @@
               </span>
               <span class="p-2 ms-auto"
                     *ngIf="!patient.chronicDiseases">
-                Nu sunt mentionate
+                Nu sunt menționate
               </span>
             </div>
             <div class="d-flex">

@@ -5,11 +5,7 @@ import { SharedModule } from '../shared/shared.module';
 import { PricesRoutingModule } from './prices-routing.module';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    SharedModule,
-    PricesRoutingModule
-  ],
-  declarations: [PricesComponent]
+  imports: [CommonModule, SharedModule, PricesRoutingModule],
+  declarations: [PricesComponent],
 })
-export class PricesModule { }
+export class PricesModule {}

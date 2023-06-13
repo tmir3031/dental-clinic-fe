@@ -49,7 +49,7 @@ export class PatientService {
     );
   }
 
-  getTreatmentsForPatientView(): Observable<TreatmentDetailsDTO[]>  {
+  getTreatmentsForPatientView(): Observable<TreatmentDetailsDTO[]> {
     return this.loginService.userLogged.pipe(
       switchMap((user) => {
         return this.http

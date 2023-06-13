@@ -9,19 +9,15 @@ import { UiModule } from './ui/ui.module';
 import { SharedModule } from './shared/shared.module';
 import { LoaderModule } from './shared/loader/loader.module';
 
-
-
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     UiModule,
     HttpClientModule,
     SharedModule,
-    LoaderModule
+    LoaderModule,
   ],
   providers: [
     {
@@ -30,6 +26,6 @@ import { LoaderModule } from './shared/loader/loader.module';
       multi: true,
     },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

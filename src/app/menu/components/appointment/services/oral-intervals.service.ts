@@ -4,13 +4,11 @@ import { EMPTY, Observable } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { FormatDate } from 'src/app/shared/utils/format-date';
 import { NgbDate } from '@ng-bootstrap/ng-bootstrap';
-import { LoginService } from 'src/app/shared/services/login.service';
-
 @Injectable({
   providedIn: 'root',
 })
 export class OralIntervalsService {
-  constructor(private http: HttpClient, private loginService: LoginService) {}
+  constructor(private http: HttpClient) {}
 
   getAvailableIntervals(
     date?: NgbDate,

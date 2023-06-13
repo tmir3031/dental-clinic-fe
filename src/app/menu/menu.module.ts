@@ -39,7 +39,7 @@ import { AppointmentAdminResolver } from '../shared/resolvers/appointment-doctor
     NgbDatepickerModule,
     NgbAlertModule,
     FormsModule,
-    NgbNavModule
+    NgbNavModule,
   ],
   declarations: [
     MenuComponent,

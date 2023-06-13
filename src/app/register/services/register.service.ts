@@ -21,11 +21,11 @@ export class RegisterService {
           const error = errorResponse.error.errors[0];
           if (error.errorCode === 'EMPLOYEE_USERNAME_CONFLICT') {
             this.toasts.showError(
-              'Ne pare rau, dar numele de utilizator nu mai este disponibil!'
+              'Ne pare rău, dar numele de utilizator nu mai este disponibil!'
             );
           } else {
             this.toasts.showError(
-              'Aplicatia a intampinat o eraore. Va rugam reveniti'
+              'Aplicația a întâmpinat o eraore. Vă rugăm reveniți'
             );
           }
           return EMPTY;
@@ -35,5 +35,4 @@ export class RegisterService {
         })
       );
   }
-  
 }

@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row justify-content-center m-1">
 
-    <div class="text-danger text-center">ATENTIE! Programarile online nu se pot efectua fara cont!</div>
+    <div class="text-danger text-center">ATENȚIE! Programările online nu se pot efectua fără cont!</div>
 
     <div class="col-md-4 col-lg-3 login login-form rounded px-4">
 
@@ -9,25 +9,35 @@
         <h1>Bine ai venit!</h1>
       </div>
 
-      <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+      <form [formGroup]="loginForm"
+            (ngSubmit)="onLogin()">
         <div class="form-floating m-2">
-          <input type="text" class="form-control" formControlName="username" adoNgError="username" id="username">
-          <label for="username" class="form-label">Nume de utilizator</label>
+          <input type="text"
+                 class="form-control"
+                 formControlName="username"
+                 adoNgError="username"
+                 id="username">
+          <label for="username"
+                 class="form-label">Nume de utilizator</label>
         </div>
 
         <div class="form-floating m-2">
-          <input type="password" class="form-control" formControlName="password" adoNgError="password" id="password">
-          <label for="password" class="form-label">Parola</label>
+          <input type="password"
+                 class="form-control"
+                 formControlName="password"
+                 adoNgError="password"
+                 id="password">
+          <label for="password"
+                 class="form-label">Parola</label>
         </div>
         <div>
-          <span *ngIf="credentialsInvalid" class="text-danger">Numele de utilizator sau parola incorecte!</span>
+          <span *ngIf="credentialsInvalid"
+                class="text-danger">Numele de utilizator sau parola incorecte!</span>
         </div>
         <div class="form-floating text-center">
-          <button
-            type="submit"
-            class="btn btn-primary text-white p-2 m-3"
-            [disabled]="!loginForm.valid"
-          >
+          <button type="submit"
+                  class="btn btn-primary text-white p-2 m-3"
+                  [disabled]="!loginForm.valid">
             Autentificare &nbsp;<i class="fas fa-right-to-bracket rounded"></i>
           </button>
         </div>
@@ -39,8 +49,10 @@
 
   <div class="row justify-content-center my-3 m-1">
     <div class="col-md-4 col-lg-3 rounded px-2 register justify-content-center">
-      <p class="text-center">Nu aveti cont? </p>
-      <a class="text-primary d-block text-center" routerLinkActive="active" routerLink="/register"> &nbsp; Inregistrati-va!</a>
+      <p class="text-center">Nu aveți cont? </p>
+      <a class="text-primary d-block text-center"
+         routerLinkActive="active"
+         routerLink="/register"> &nbsp; Înregistrați-vă!</a>
     </div>
   </div>
 

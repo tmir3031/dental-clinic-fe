@@ -32,7 +32,6 @@ export class PricesComponent implements OnDestroy, OnInit {
 
   selectType(type: string): void {
     this.selectedType = type;
-    console.log("AICIIIII");
     this.prices = this.allPrices.filter((vl) => vl.type === type);
   }
 

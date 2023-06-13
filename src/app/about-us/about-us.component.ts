@@ -7,18 +7,17 @@ import { ToastService } from '../shared/components/toasts-container/toasts.servi
 @Component({
   selector: 'ado-about-us',
   templateUrl: './about-us.component.html',
-  styleUrls: ['./about-us.component.scss']
+  styleUrls: ['./about-us.component.scss'],
 })
 export class AboutUsComponent implements OnInit, OnDestroy {
   public doctors: DoctorDto[];
   private subscription: Subscription;
-  constructor(private service: DoctorService, private serviceT: ToastService) { }
+  constructor(private service: DoctorService, private serviceT: ToastService) {}
 
   ngOnInit(): void {
     this.subscription = this.service.getDoctors().subscribe((data) => {
-          this.doctors = data;
-          console.log(data);
-        });
+      this.doctors = data;
+    });
   }
 
   ngOnDestroy(): void {
@@ -33,5 +32,4 @@ export class AboutUsComponent implements OnInit, OnDestroy {
   scrollToTop() {
     document.body.scrollIntoView({ behavior: 'smooth' });
   }
-
 }

@@ -33,7 +33,7 @@ export class AppointmentService {
   addTreatment(appointmentId: number, treatment: string): Observable<void> {
     return this.loginService.getUserDetails().pipe(
       catchError(() => {
-        this.serviceToast.showError('Aplicatia a intampinat o eroare');
+        this.serviceToast.showError('Aplicația a întâmpinat o eroare');
         return EMPTY;
       }),
       take(1),
@@ -53,7 +53,7 @@ export class AppointmentService {
       )
       .pipe(
         catchError(() => {
-          this.serviceToast.showError('Aplicatia a intampinat o eroare');
+          this.serviceToast.showError('Aplicația a întâmpinat o eroare');
           return EMPTY;
         })
       );
@@ -66,7 +66,7 @@ export class AppointmentService {
       )
       .pipe(
         catchError(() => {
-          this.serviceToast.showError('Aplicatia a intampinat o eroare');
+          this.serviceToast.showError('Aplicația a întâmpinat o eroare');
           return EMPTY;
         })
       );

@@ -1,10 +1,11 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { CustomValidators } from './utils/validators';
+import { CustomValidators } from '../shared/utils/validators';
 import { Subscription } from 'rxjs';
 import { RegisterService } from './services/register.service';
 import { FormatDate } from '../shared/utils/format-date';
 import { ToastService } from '../shared/components/toasts-container/toasts.service';
+import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'ado-register',
@@ -16,12 +17,13 @@ export class RegisterComponent implements OnInit, OnDestroy {
   stepOneSubmitted = false;
   stepTwoSubmitted = false;
   passwordMissMatch = false;
+  minDate: NgbDateStruct = { year: 1900, month: 1, day: 1 };
+  maxDate: NgbDateStruct = { year: 2016, month: 12, day: 31 };
   private registerSubscription: Subscription;
 
   constructor(
     private fb: FormBuilder,
-    private registerService: RegisterService,
-    private toasts: ToastService
+    private registerService: RegisterService
   ) {}
 
   ngOnInit(): void {
@@ -53,7 +55,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
         firstName: ['', Validators.required],
         lastName: ['', Validators.required],
         gender: ['', Validators.required],
-        phone: [''],
+        phone: ['', Validators.required],
         allergies: [''],
         diseases: [''],
         dateOfBirth: [''],

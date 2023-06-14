@@ -1,7 +1,12 @@
 <div class="contact-info bg-light">
    <ul>
-      <li class="telephone-font"><i class="fa-solid fa-phone"></i> 0753 871 595</li>
-      <li class="email-font"><i class="fa-sharp fa-solid fa-envelope"></i> dental.clinic@yahoo.com</li>
+      <li class="telephone-font"><a class="phone"
+            href="https://web.whatsapp.com/"
+            target="_blank"><i class="fa-solid fa-phone"></i> 0753 871 595 </a> </li>
+      <li class="email-font"><a class="mail"
+            href="https://mail.yahoo.com/"
+            target="_blank"> <i class="fa-sharp fa-solid fa-envelope"> </i> dental.clinic@yahoo.com</a>
+      </li>
    </ul>
 </div>
 <hr class="line-style">
@@ -10,7 +15,6 @@
    <div class="container">
 
       <div class="navbar-nav d-flex flex-grow-1 justify-content-between align-items-center">
-         <!-- This main navigation links are defined here -->
          <a class="navbar-brand"
             routerLinkActive="active"
             routerLink="/">
@@ -20,15 +24,13 @@
                  alt="Dental Clinic Logo"
                  loading="lazy" />
          </a>
-
-         <!-- Each link has the routerLink property set to a different route -->
          <div class="d-flex rounded-pill py-2 px-3 nav-pills nav-item">
             <a class="nav-link"
                routerLinkActive="active"
-               routerLink="/home">Acasa</a>
+               routerLink="/home">Acasă</a>
             <a class="nav-link"
                routerLinkActive="active"
-               routerLink="/about-us">Echipa noastra</a>
+               routerLink="/about-us">Despre noi</a>
             <a class="nav-link"
                routerLinkActive="active"
                routerLink="/services">Servicii stomatologice</a>
@@ -60,62 +62,23 @@
             </a>
             <ul class="dropdown-menu"
                 aria-labelledby="navbarDropdownMenuLink">
-               <li><a class="dropdown-item"
+               <li><a class="dropdown-item cursor-pointer"
                      (click)="onLogout()">Deconectare</a></li>
                <hr class="dropdown-divider">
-               <li> <a class="dropdown-item"
+               <li *ngIf="authorizationRole === 'ROLE_ADMIN'"> <a class="dropdown-item"
                      aria-current="page"
                      routerLinkActive="active"
-                     routerLink="/menu">Deschide meniul</a></li>
+                     routerLink="/menu/users">Deschide meniul</a></li>
+               <li *ngIf="authorizationRole === 'ROLE_DOCTOR'"> <a class="dropdown-item"
+                     aria-current="page"
+                     routerLinkActive="active"
+                     routerLink="/menu/view">Deschide meniul</a></li>
+               <li *ngIf="authorizationRole === 'ROLE_USER'"> <a class="dropdown-item"
+                     aria-current="page"
+                     routerLinkActive="active"
+                     routerLink="/menu/appointment">Deschide meniul</a></li>
             </ul>
          </div>
       </div>
    </div>
 </nav>
-
-
-<div class="offcanvas offcanvas-start off bg-primary text-white"
-     tabindex="-1"
-     id="sidebar"
-     aria-labelledby="sidebarLabel">
-   <div class="offcanvas-header">
-      <h5 class="offcanvas-title m-3 p-1"
-          data-bs-dismiss="offcanvas"
-          id="sidebarLabel"><i class="fa-3x text-white fa-solid fa-bars sub-menu cursor-pointer"></i></h5>
-   </div>
-   <div class="offcanvas-body">
-      <ul class="navbar-nav flex-column">
-         <li class="nav-item m-3 p-1">
-            <a class="nav-link active"
-               aria-current="page"
-               data-toggle="tooltip"
-               title="Programeaza-te"
-               routerLinkActive="active"
-               routerLink="/menu/appointment"><i class="fa-3x fa-solid fa-calendar-check sub-menu"></i></a>
-         </li>
-         <li class="nav-item m-3 p-1"
-             *ngIf="authorizationRole === 'ROLE_USER'">
-            <a class="nav-link active"
-               routerLink="/history"
-               data-toggle="tooltip"
-               title="Vizualizeaza programări"
-               routerLinkActive="active"><i class="fa-3x fa-sharp fa-solid fa-clock-rotate-left sub-menu"></i></a>
-         </li>
-         <li class="nav-item m-3 p-1"
-             *ngIf="authorizationRole === 'ROLE_DOCTOR'">
-            <a class="nav-link active"
-               routerLink="/view"
-               data-toggle="tooltip"
-               title="Vizualizeaza programări"
-               routerLinkActive="active"><i class="fa-3x fa-sharp fa-solid fa-clock-rotate-left sub-menu"></i></a>
-         </li>
-         <li class="nav-item m-3 p-1">
-            <a class="nav-link active"
-               routerLinkActive="active"
-               data-toggle="tooltip"
-               title="Profilul meu"
-               routerLink="/profile"><i class="fa-3x sub-menu fa-solid fa-user"></i></a>
-         </li>
-      </ul>
-   </div>
-</div>

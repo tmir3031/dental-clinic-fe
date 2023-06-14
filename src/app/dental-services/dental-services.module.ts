@@ -5,11 +5,7 @@ import { SharedModule } from '../shared/shared.module';
 import { DentalServicesRoutingModule } from './dental-services-routing.module';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    SharedModule,
-    DentalServicesRoutingModule
-  ],
-  declarations: [DentalServicesComponent]
+  imports: [CommonModule, SharedModule, DentalServicesRoutingModule],
+  declarations: [DentalServicesComponent],
 })
-export class DentalServicesModule { }
+export class DentalServicesModule {}

@@ -14,10 +14,15 @@ export class SpecializationService {
     if (doctorId) {
       params = params.append('doctorId', doctorId);
     }
-    return this.http.get<{ items: SpecializationDto[] }>(`${environment.apiUrl}/core/api/v1/specializations`, { params }).pipe(
-      map((responseData) => {
-        return responseData.items;
-      })
-    );    
+    return this.http
+      .get<{ items: SpecializationDto[] }>(
+        `${environment.apiUrl}/core/api/v1/specializations`,
+        { params }
+      )
+      .pipe(
+        map((responseData) => {
+          return responseData.items;
+        })
+      );
   }
 }

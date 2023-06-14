@@ -29,6 +29,7 @@ export class AppointmentPatientTableComponent implements OnChanges, OnInit {
   ngOnInit(): void {
     this.today = FormatDate.convertDateToStringDate(new Date());
   }
+  
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.appointmentsListDetailed && this.appointmentsListDetailed) {
       this.refreshAppointments();

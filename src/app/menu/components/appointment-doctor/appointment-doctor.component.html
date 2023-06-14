@@ -10,7 +10,7 @@
                  id="search"
                  placeholder="Caută" />
           <label for="search"
-                 class="form-label">Cautare</label>
+                 class="form-label"><i class="fa-solid fa-search"> </i> Căutare</label>
         </div>
         <div class="input-group m-3 w-25">
           <input class="form-control py-3"
@@ -26,8 +26,15 @@
 
       </form>
     </div>
+
+
     <div class="row w-75 d-flex flex-wrap justify-content-center ms-10">
-      <ado-appointment-doctor-table
+      <div *ngIf="!appointmentsListDetailed"
+           class="spinner-border"
+           role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <ado-appointment-doctor-table *ngIf="appointmentsListDetailed"
                                     [appointmentsListDetailed]="appointmentsListDetailed"></ado-appointment-doctor-table>
     </div>
   </div>

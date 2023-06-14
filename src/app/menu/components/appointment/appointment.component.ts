@@ -26,6 +26,8 @@ export class AppointmentComponent implements OnInit, OnDestroy {
   form: FormGroup;
   specializations: SpecializationDto[];
   doctors: DoctorDto[];
+  invalidAppointment = false;
+  newAppointment: AppointmentRequest;
   selectedSpecialization: SpecializationDto;
   private readonly subscription: Subscription = new Subscription();
 
@@ -55,6 +57,7 @@ export class AppointmentComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
+    this.invalidAppointment = false;
     this.initFormGroup();
     this.subscription.add(
       this.specializationService
@@ -114,25 +117,30 @@ export class AppointmentComponent implements OnInit, OnDestroy {
   }
 
   createAppointment() {
+    this.newAppointment = this.extractAppointmentRequestFromForm();
     this.subscription.add(
       this.appointmentService
         .createAppointment(this.extractAppointmentRequestFromForm())
         .pipe(
           catchError((error) => {
             this.toastService.showError(
-              'Ne pare rau! Nu s-a putut efectua aceasta cerere. Va rugam reveniti!'
+              'Ne pare rău! Nu s-a putut efectua această cerere, deoarece acest interval orar nu mai e disponibil!'
             );
+            this.form.reset();
+            this.invalidAppointment = true;
             throw error;
           }),
           tap(() =>
             this.toastService.showSuccess(
-              'Cererea s-a efectuat cu succes! Va multumim!'
+              'Cererea s-a efectuat cu succes! Vă mulțumim!'
             )
           )
         )
         .subscribe(() => {
+          this.invalidAppointment = false;
           this.intervals = [];
           this.form.reset();
+          this.onSpecializationChange();
         })
     );
   }

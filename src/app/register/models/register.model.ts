@@ -20,13 +20,12 @@ export interface PatientDTO {
   v: string;
 }
 
-
 export interface UpdatePatientDTO {
   firstName: string;
   lastName: string;
   allergies?: string;
   phone?: string;
-  diseases?: string;
+  chronicDiseases?: string;
   gender?: string;
-  v?: number
+  v?: number;
 }

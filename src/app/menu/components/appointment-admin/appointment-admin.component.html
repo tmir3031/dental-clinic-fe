@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="row d-flex justify-content-center">
+    <div class="row">
+      <form [formGroup]="form"
+            class="row-cols-sm-auto d-flex flex-wrap justify-content-center">
+        <div class="form-floating m-3">
+          <input class="form-control py-1"
+                 name="search"
+                 formControlName="search"
+                 id="search"
+                 placeholder="Caută" />
+          <label for="search"
+                 class="form-label"><i class="fa-solid fa-search"> </i> Căutare</label>
+        </div>
+
+        <div class="mb-3 row"
+             formGroupName="dates">
+          <div class="input-group col m-3">
+            <input class="form-control py-3"
+                   placeholder="Selectează o dată"
+                   ngbDatepicker
+                   #d1="ngbDatepicker"
+                   formControlName="startDate"
+                   [ngClass]="{ 'invalid-class': form.get('dates').invalid}">
+            <button class="btn btn-outline border-gray calendar"
+                    (click)="d1.toggle()"
+                    type="button">
+            </button>
+          </div>
+
+          <div class="input-group col m-3">
+            <input class="form-control py-3"
+                   placeholder="Selectează o dată"
+                   ngbDatepicker
+                   #d2="ngbDatepicker"
+                   formControlName="endDate"
+                   [ngClass]="{ 'invalid-class': form.get('dates').invalid}">
+            <button class="btn btn-outline border-gray calendar"
+                    (click)="d2.toggle()"
+                    type="button">
+            </button>
+          </div>
+
+        </div>
+      </form>
+    </div>
+
+
+    <div class="row w-75 d-flex justify-content-center">
+      <div *ngIf="!appointmentsListDetailed"
+           class="spinner-border"
+           role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <ado-appointment-admin-table *ngIf="appointmentsListDetailed"
+                                   [appointmentsListDetailed]="appointmentsListDetailed"></ado-appointment-admin-table>
+    </div>
+  </div>
+</div>

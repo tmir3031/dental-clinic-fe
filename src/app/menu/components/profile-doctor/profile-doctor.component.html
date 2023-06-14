@@ -1,39 +1,78 @@
-<div class="row card bg-white">
-  <form [formGroup]="form"
-        *ngIf="form">
-    <div class="my-2">
-      <div class="row">
-        <div class="col-10"
-             >
-          <h1>Informatiile mele</h1>
-        </div>
-
-        <div class="col-1 d-sm-block d-md-none">
-          <a class="nav-link"
-             routerLinkActive="active"
-             routerLink="/profile"><i class="fa-solid fa-x mb-2"></i></a>
+<div class="container">
+  <div class="row col-md-12 col-xs-11 card info bg-white d-flex justify-content-center my-3">
+    <form [formGroup]="form"
+          *ngIf="form">
+      <div class="my-2 row text-center">
+        <h1>Informațiile mele</h1>
+      </div>
+      <div class="row my-2 form-group">
+        <label for="username"
+               class="col-sm-5 col-form-label fw-bold"><i class="fa-solid fa-file-invoice"></i> Nume de
+          utilizator:</label>
+        <div class="col-sm-7">
+          <input type="text"
+                 class="form-control-plaintext"
+                 formControlName="username"
+                 id="username" />
         </div>
       </div>
-    </div>
-    <div class="my-2 form-floating form-group">
-      <input type="text"
-             class="form-control"
-             formControlName="username"
-             id="username" />
-      <label 
-             for="username"
-             class="form-label">Username</label>
-    </div>
 
-    <div class="my-2 form-floating form-group">
-      <input type="text"
-             class="form-control"
-             formControlName="role"
-             id="role" />
-      <label 
-             for="role"
-             class="form-label">Rol</label>
-    </div>
+      <div class="row my-2 form-group">
+        <label for="email"
+               class="col-sm-5 col-form-label fw-bold"><i class="fa-solid fa-mail-bulk"></i> Email:</label>
+        <div class="col-sm-7">
+          <input type="text"
+                 class="form-control-plaintext"
+                 formControlName="email"
+                 id="email" />
+        </div>
+      </div>
 
-  </form>
+      <div class="row my-2 form-group">
+        <label for="name"
+               class="col-sm-5 col-form-label fw-bold"> <i class="fa-solid fa-signature"></i> Nume:</label>
+        <div class="col-sm-7">
+          <input type="text"
+                 class="form-control-plaintext"
+                 formControlName="name"
+                 id="name" />
+        </div>
+      </div>
+
+      <div class="row my-2 form-group">
+        <label for="description"
+               class="col-sm-5 col-form-label fw-bold"> <i class="fa-solid fa-file-medical"></i> Descriere:</label>
+        <div class="col-sm-7">
+          <textarea type="text"
+                    class="form-control-plaintext"
+                    formControlName="description"
+                    id="description"></textarea>
+        </div>
+      </div>
+
+      <div class="row my-2 form-group">
+        <label for="specializations"
+               class="col-sm-5 col-form-label fw-bold"> <i class="fa-solid fa-kit-medical"></i> Specializări:</label>
+        <div class="col-sm-7">
+          <input type="text"
+                 class="form-control-plaintext"
+                 formControlName="specializations"
+                 id="specializations" />
+        </div>
+      </div>
+
+      <div class="row my-2 form-group">
+        <label for="gender"
+               class="col-sm-5 col-form-label fw-bold"><i *ngIf="form.controls.gender.value==='masculin'"
+             class="fa-solid fa-male"></i> <i *ngIf="form.controls.gender.value==='feminin'"
+             class="fa-solid fa-female"></i> Gen:</label>
+        <div class="col-sm-7">
+          <input type="text"
+                 class="form-control-plaintext"
+                 formControlName="gender"
+                 id="gender" />
+        </div>
+      </div>
+    </form>
+  </div>
 </div>

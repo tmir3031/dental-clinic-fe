@@ -1,0 +1,38 @@
+<div class="container my-3">
+  <div class="row">
+    <div class="col-md-12 col-xs-6">
+
+      <form [formGroup]="filterUsersForm"
+            *ngIf="filterUsersForm">
+        <div class="row d-flex justify-content-center">
+          <div class="form-floating mb-3 col">
+            <input class="form-control py-1"
+                   name="search"
+                   formControlName="search"
+                   id="search" />
+            <label for="search"
+                   class="form-label px-4 left-auto justify-content-center"><i class="fa-solid fa-search"> </i>
+              Căutare</label>
+          </div>
+          <div class="form-floating mb-3 col">
+            <select class="form-select"
+                    formControlName="role"
+                    name="role"
+                    id="role">
+              <option value="">-- Selectează rolul --</option>
+              <option value="ADMIN">Admin</option>
+              <option value="DOCTOR">Doctor</option>
+              <option value="USER">Pacient</option>
+            </select>
+            <label for="role">Rol</label>
+          </div>
+        </div>
+
+      </form>
+
+      <ado-users-list *ngIf="userObservable"
+                      [users]="userObservable | async"></ado-users-list>
+
+    </div>
+  </div>
+</div>

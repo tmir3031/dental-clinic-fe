@@ -23,7 +23,7 @@ import { ToastsContainerComponent } from './components/toasts-container/toasts-c
     ReactiveFormsModule,
     FormsModule,
     InitialsImageComponent,
-    ToastsContainerComponent
+    ToastsContainerComponent,
   ],
   providers: [],
 })

@@ -2,21 +2,22 @@ import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { DoctorService } from '../shared/services/doctor.service';
 import { DoctorDto } from '../shared/models/doctor.model';
+import { ToastService } from '../shared/components/toasts-container/toasts.service';
 
 @Component({
   selector: 'ado-about-us',
   templateUrl: './about-us.component.html',
-  styleUrls: ['./about-us.component.scss']
+  styleUrls: ['./about-us.component.scss'],
 })
 export class AboutUsComponent implements OnInit, OnDestroy {
   public doctors: DoctorDto[];
   private subscription: Subscription;
-  constructor(private service: DoctorService) { }
+  constructor(private service: DoctorService, private serviceT: ToastService) {}
 
   ngOnInit(): void {
     this.subscription = this.service.getDoctors().subscribe((data) => {
-          this.doctors = data;
-        });
+      this.doctors = data;
+    });
   }
 
   ngOnDestroy(): void {
@@ -31,5 +32,4 @@ export class AboutUsComponent implements OnInit, OnDestroy {
   scrollToTop() {
     document.body.scrollIntoView({ behavior: 'smooth' });
   }
-
 }

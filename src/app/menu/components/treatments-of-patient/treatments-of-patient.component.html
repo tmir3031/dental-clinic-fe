@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="row d-flex justify-content-center mt-3">
+
+    <div class="">
+      <button class="btn btn-dark"
+              title="Vizualizeaza radiografii"
+              (click)="viewRadiography()">
+        <i class="d-flex justify-content-center fa fa-eye cursor-pointer"></i>
+        Vizualizeaza radiografii
+      </button>
+    </div>
+
+    <table class="table table-striped">
+      <thead class="bg-primary">
+        <tr>
+          <th scope="col"
+              class="col-4 text-white p-2"><i class="fa-solid fa-user-doctor m-2"> </i> Doctor</th>
+          <th scope="col"
+              class="col-2 text-white p-2"><i class="fa-solid fa-calendar-day m-2"> </i>Data</th>
+          <th scope="col"
+              class="col-6 text-white p-2"><i class="fa-solid fa-prescription-bottle-medical m-2"></i>Tratament</th>
+        </tr>
+      </thead>
+
+      <tbody *ngIf="listIsEmpty">
+        <td class="bg-light fw-bold text-center"
+            colspan="3">
+          <div class="row">
+            <i class="fa-solid fa-file-circle-xmark fa-3x"></i>
+          </div>
+          <div class="row">
+            <p>Nu există detalii despre tratamente.</p>
+          </div>
+        </td>
+      </tbody>
+
+      <tbody>
+        <tr *ngFor="let treatment of treatmentsList"
+            class="align-middle">
+          <th scope="row">{{treatment.doctorDetails.lastName}} {{treatment.doctorDetails.firstName}}</th>
+          <td>{{treatment.date | date: dateFormat}}</td>
+          <td *ngIf="treatment.treatment">{{treatment.treatment}} </td>
+          <td *ngIf="!treatment.treatment"> Înca nu s-au adăugat detalii despre taratamentul efectuat </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

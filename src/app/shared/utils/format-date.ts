@@ -4,7 +4,10 @@ import { Constants } from './constants';
 
 export class FormatDate {
   static convertDateToStringDate(date: Date): string {
-    return new DatePipe(Constants.DATE_PIPE_LOCALE).transform(date, Constants.FORMAT_STRING_DATE);
+    return new DatePipe(Constants.DATE_PIPE_LOCALE).transform(
+      date,
+      Constants.FORMAT_STRING_DATE
+    );
   }
 
   static convertNgbDateToStringDate(ngbDate: NgbDate): string {
@@ -21,7 +24,7 @@ export class FormatDate {
     return new NgbDate(date.getFullYear(), date.getMonth() + 1, date.getDate());
   }
 
-  static convertNgbDateToDate(date: NgbDate): Date{
+  static convertNgbDateToDate(date: NgbDate): Date {
     return new Date(date.year, date.month - 1, date.day);
   }
 
@@ -38,14 +41,18 @@ export class FormatDate {
   }
 
   static getFirstDayOfMonth(date: Date): string {
-    return this.convertDateToStringDate(new Date(date.getFullYear(), date.getMonth(), 1));
+    return this.convertDateToStringDate(
+      new Date(date.getFullYear(), date.getMonth(), 1)
+    );
   }
 
   static getLastDayOfMonth(date: Date): string {
-    return this.convertDateToStringDate(new Date(date.getFullYear(), date.getMonth() + 1, 0));
+    return this.convertDateToStringDate(
+      new Date(date.getFullYear(), date.getMonth() + 1, 0)
+    );
   }
 
-  static getLastDayOfMonthAsNumber(date: Date): number{
+  static getLastDayOfMonthAsNumber(date: Date): number {
     return new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
   }
 }

@@ -1,118 +1,124 @@
-<div class="container">
-  <div class="row d-flex justify-content-center align-content-center align-items-center justify-center">
-      <form class="row card row-cols-sm-auto"
-            [formGroup]="form">
+<div class="container my-3">
+  <div class="row d-flex justify-content-center align-content-center align-items-center justify-center mt-3">Atenție! Nu
+    se pot face programări în zilele de weekend!</div>
+  <div class="row d-flex justify-content-center align-content-center justify-center mt-5">
 
-        <div class="w-100 form-floating form-group my-2">
-          <select class="form-select"
-                  formControlName="specializationId"
-                  id="specialization"
-                  (change)="onSpecializationChange()">
-            <option *ngFor="let specialization of specializations"
-                    [value]="specialization.id">{{ specialization.name }}
-            </option>
-          </select>
-          <label for="specialization"
-                 class="form-label">Specializarea</label>
-        </div>
+    <form class="card p-2"
+          [formGroup]="form">
 
-        <div class="w-100 form-floating form-group my-2">
-          <select class="form-select"
-                  formControlName="doctorId"
-                  id="doctor"
-                  (change)="onDoctorChange()"
-                  *ngIf="doctors?.length">
-            <option *ngFor="let doctor of doctors"
-                    [value]="doctor.id">{{ doctor.firstName }} {{ doctor.lastName }}
-            </option>
-          </select>
-          <select class="form-select"
-                  formControlName="doctorId"
-                  id="doctor"
-                  *ngIf="!doctors?.length">
-            <option disabled>Nu exista niciun doctor cu aceasta specializare
-            </option>
-          </select>
-          <label for="doctor"
-                 class="form-label">Doctor</label>
-        </div>
+      <div class="w-100 form-floating form-group my-2">
+        <select class="form-select"
+                formControlName="specializationId"
+                id="specializationId"
+                (change)="onSpecializationChange()">
+          <option *ngFor="let specialization of specializations"
+                  [value]="specialization.id">{{ specialization.name }}
+          </option>
+        </select>
+        <label for="specializationId"
+               class="form-label">Specializarea</label>
+      </div>
 
-        <div class="w-100 form-floating form-group">
-          <div class="input-group form-floating form-group my-2">
-            <input type="text"
-                   class="form-control"
-                   name="dp"
-                   formControlName="date"
-                   id="date"
-                   (ngModelChange)="onDateChange()"
-                   (change)="onDateChange()"
-                   ngbDatepicker
-                   [dayTemplate]="customDay"
-                   [minDate]="minDate"
-                   [markDisabled]="isWeekend"
-                   #d="ngbDatepicker" />
-            <label for="date"
-                   class="form-label">Data</label>
-            <button class="btn btn-outline-secondary bi bi-calendar3 calendar"
-                    (click)="d.toggle()"
-                    type="button"></button>
-          </div>
-        </div>
+      <div class="w-100 form-floating form-group my-2">
+        <select class="form-select"
+                formControlName="doctorId"
+                id="doctor"
+                (change)="onDoctorChange()"
+                *ngIf="doctors?.length">
+          <option *ngFor="let doctor of doctors"
+                  [value]="doctor.id">{{ doctor.firstName }} {{ doctor.lastName }}
+          </option>
+        </select>
+        <select class="form-select"
+                formControlName="doctorId"
+                id="doctor"
+                *ngIf="!doctors?.length">
+          <option disabled>Nu există niciun doctor cu această specializare
+          </option>
+        </select>
+        <label for="doctor"
+               class="form-label">Doctor</label>
+      </div>
 
-        <div class="w-100 form-floating form-group my-2 ">
-          <select class="form-select"
-                  formControlName="hour"
-                  id="hour"
-                  *ngIf="intervals?.length">
-            <option *ngFor="let interval of intervals">{{ interval }}
-            </option>
-          </select>
-          <select class="form-select"
-                  formControlName="hour"
-                  id="hour"
-                  *ngIf="!intervals?.length">
-            <option disabled>Nu exista niciun interval orar disponibil
-            </option>
-          </select>
-          <label for="hour"
-                 class="form-label">Ora</label>
-        </div>
-        <div class="form-floating text-center">
-          <button (click)="createAppointment() "
-                  [disabled]="!form.valid"
-                  class="btn btn-secondary text-white p-2 m-3 w-50">Programeaza-te
-          </button>
-        </div>
-
-      </form>
-
-      <!-- <ngb-datepicker #dp
-                 [(ngModel)]="model"
-                 (select)="onDateChange()"
+      <div class="w-100 form-floating form-group">
+        <div class="input-group form-floating form-group my-2">
+          <input autocomplete="off"
+                 placeholder="aaaa-ll-zz"
+                 class="form-control"
+                 name="dp"
+                 formControlName="date"
+                 id="date"
+                 (ngModelChange)="onDateChange()"
+                 (change)="onDateChange()"
+                 ngbDatepicker
                  [dayTemplate]="customDay"
                  [minDate]="minDate"
-                 [markDisabled]="isWeekend">
-</ngb-datepicker> -->
+                 [markDisabled]="isWeekend"
+                 #d="ngbDatepicker" />
+          <label for="date"
+                 class="form-label">Data</label>
+          <button class="btn btn-outline-secondary bi bi-calendar3 calendar"
+                  (click)="d.toggle()"
+                  type="button"></button>
+        </div>
+      </div>
 
-      <ng-template #customDay
-                   let-date
-                   let-currentMonth="currentMonth"
-                   let-selected="selected"
-                   let-disabled="disabled"
-                   let-focused="focused">
-        <span class="custom-day"
-              [class.weekend]="isWeekend(date)"
-              [class.focused]="focused"
-              [class.bg-primary]="selected"
-              [class.unfocused]="date.month !== currentMonth"
-              [class.text-muted]="disabled">
-          {{ date.day }}
-        </span>
-      </ng-template>
+      <div class="w-100 form-floating form-group my-2 ">
+        <select class="form-select"
+                formControlName="hour"
+                id="hour"
+                *ngIf="intervals?.length">
+          <option *ngFor="let interval of intervals">{{ interval }}
+          </option>
+        </select>
+        <select class="form-select"
+                formControlName="hour"
+                id="hour"
+                *ngIf="!intervals?.length">
+          <option disabled>Nu există niciun interval orar disponibil!
+          </option>
+        </select>
+        <label for="hour"
+               class="form-label">Ora</label>
+      </div>
+
+
+
+      <div class="form-floating text-center">
+        <div class="my-2 text-danger row text-center"
+             *ngIf="invalidAppointment">
+          <span>Ne pare rău, dar intervalul orar {{newAppointment?.hour}}, din data {{newAppointment?.date}} nu mai este
+            disponibil! Vă rugăm să alegeți un alt
+            interval</span>
+        </div>
+        <button (click)="createAppointment() "
+                [disabled]="!form.valid"
+                class="btn btn-secondary text-white p-2 m-3 w-50">Programează-te <i
+             class="fa-sharp fa-solid fa-paper-plane"></i>
+
+        </button>
+      </div>
+    </form>
+
+    <ng-template #customDay
+                 let-date
+                 let-currentMonth="currentMonth"
+                 let-selected="selected"
+                 let-disabled="disabled"
+                 let-focused="focused">
+      <span class="custom-day"
+            [class.weekend]="isWeekend(date)"
+            [class.focused]="focused"
+            [class.bg-primary]="selected"
+            [class.unfocused]="date.month !== currentMonth"
+            [class.text-muted]="disabled">
+        {{ date.day }}
+      </span>
+    </ng-template>
 
     <div class="col ms-5 p-2">
       <img src="assets/images/doctor1.png"
-           class="d-inline-block my-10 d-none d-md-block"
+           class="d-inline-block d-none d-md-block"
            alt="Dental Clinic Logo"
            loading="lazy" />
     </div>

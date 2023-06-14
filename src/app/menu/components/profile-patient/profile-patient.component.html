@@ -3,119 +3,140 @@
     <div class="col">
       <div class="d-flex justify-content-end">
         <button class="btn btn-primary"
-                title="Editare"
+                title="Editeaza profil"
+                *ngIf="mode!=='EDIT'"
                 (click)="onEditModeOn()">
           <i class="fa-solid fa-pen-to-square"> </i>
         </button>
       </div>
     </div>
     <form [formGroup]="form"
-          class="row"
-          *ngIf="form">
+          *ngIf="form"
+          class="row">
       <div class="my-2">
         <div class="row">
           <div class="col-10">
-            <h1>Informatiile mele</h1>
+            <h1>Informațiile mele</h1>
           </div>
         </div>
       </div>
-      <div class="col-6 my-2 form-floating form-group">
-        <input type="text"
-               class="form-control"
-               formControlName="username"
-               id="username" />
-        <label for="username"
-               class="form-label">Username</label>
+      <div class="col-6 my-2 ">
+        <div class="form-floating form-group">
+          <input type="text"
+                 class="form-control"
+                 formControlName="username"
+                 id="username" />
+          <label for="username"
+                 class="form-label">Username*</label>
+        </div>
       </div>
 
-      <div class="col-6 my-2 form-floating form-group">
-        <input type="text"
-               class="form-control"
-               formControlName="email"
-               id="email" />
-        <label for="email"
-               class="form-label">Email</label>
-      </div>
-      <div class="col-6 my-2 form-floating form-group">
-        <input type="text"
-               class="form-control"
-               formControlName="lastName"
-               id="lastName" />
-        <label for="lastName"
-               class="form-label">Nume</label>
-      </div>
-      <div class="col-6 my-2 form-floating form-group">
-        <input type="text"
-               class="form-control"
-               formControlName="firstName"
-               id="firstName" />
-        <label for="firstName"
-               class="form-label">Prenume</label>
+      <div class="col-6 my-2">
+        <div class="form-floating form-group">
+          <input type="text"
+                 class="form-control"
+                 formControlName="email"
+                 id="email" />
+          <label for="email"
+                 class="form-label">Email*</label>
+        </div>
       </div>
 
-      <div class="col-6 my-2 input-group form-floating w-50">
-        <input class="form-control"
-               ngbDatepicker
-               #d1="ngbDatepicker"
-               formControlName="dateOfBirth"
-               id="dateOfBirth">
-        <label for="dateOfBirth"
-               class="form-label">Data nasterii</label>
-        <button class="btn btn-outline border-gray calendar"
-                (click)="d1.toggle()"
-                [disabled]="mode === 'VIEW'"
-                type="button">
-        </button>
-      </div>
-      <div class="col-6 my-2 form-floating form-group">
-        <input type="text"
-               class="form-control"
-               formControlName="phone"
-               id="phone" />
-        <label for="phone"
-               class="form-label">Telefon</label>
-      </div>
-      <div class="col-6 my-2 form-floating form-group">
-        <input type="text"
-               class="form-control"
-               formControlName="allergies"
-               id="allergies" />
-        <label for="allergies"
-               class="form-label">Alergii</label>
-      </div>
-      <div class="col-6 my-2 form-floating form-group">
-        <input type="text"
-               class="form-control"
-               formControlName="diseases"
-               id="diseases" />
-        <label for="diseases"
-               class="form-label">Boli cronice</label>
+      <div class="col-6 my-2">
+        <div class="form-floating form-group">
+          <input type="text"
+                 class="form-control"
+                 formControlName="lastName"
+                 id="lastName" />
+          <label for="lastName"
+                 class="form-label">Nume*</label>
+        </div>
       </div>
 
-      <div class="col-6 my-2 form-floating">
-        <select class="form-select"
-                formControlName="gender"
-                id="gender">
-          <option value="">-- Selectează genul --</option>
-          <option value="masculin">Masculin</option>
-          <option value="feminin">Feminin</option>
-        </select>
-        <label for="gender">Genul</label>
+      <div class="col-6 my-2">
+        <div class="form-floating form-group">
+          <input type="text"
+                 class="form-control"
+                 formControlName="firstName"
+                 id="firstName" />
+          <label for="firstName"
+                 class="form-label">Prenume*</label>
+        </div>
       </div>
 
+      <div class="col-6 my-2">
+        <div class="input-group form-floating">
+          <input class="form-control"
+                 ngbDatepicker
+                 #d1="ngbDatepicker"
+                 formControlName="dateOfBirth"
+                 id="dateOfBirth">
+          <label for="dateOfBirth"
+                 class="form-label">Data nașterii*</label>
+          <button class="btn btn-outline border-gray calendar"
+                  (click)="d1.toggle()"
+                  [disabled]="mode === 'VIEW'"
+                  type="button">
+          </button>
+        </div>
+      </div>
+
+      <div class="col-6 my-2">
+        <div class="form-floating form-group">
+          <input type="text"
+                 class="form-control"
+                 formControlName="phone"
+                 id="phone" />
+          <label for="phone"
+                 class="form-label">Telefon*</label>
+        </div>
+      </div>
+
+      <div class="col-6 my-2">
+        <div class="form-floating form-group">
+          <input type="text"
+                 class="form-control"
+                 formControlName="allergies"
+                 id="allergies" />
+          <label for="allergies"
+                 class="form-label">Alergii (opțional)</label>
+        </div>
+      </div>
+
+      <div class="col-6 my-2">
+        <div class="form-floating form-group">
+          <input type="text"
+                 class="form-control"
+                 formControlName="chronicDiseases"
+                 id="chronicDiseases" />
+          <label for="chronicDiseases"
+                 class="form-label">Boli cronice (opțional)</label>
+        </div>
+      </div>
+      <div class="col-6 my-2">
+        <div class="form-floating">
+          <select class="form-select"
+                  formControlName="gender"
+                  id="gender">
+            <option value="">Selectează genul</option>
+            <option value="masculin">Masculin</option>
+            <option value="feminin">Feminin</option>
+          </select>
+          <label for="gender">Genul*</label>
+        </div>
+      </div>
     </form>
-
     <div class="row"
          *ngIf="mode==='EDIT'">
       <div class="d-flex justify-content-end">
         <button class="btn btn-secondary"
                 (click)="onClear()">
-          Anuleaza
+          Anulează
         </button>
         <button class="btn btn-success text-white ms-2"
                 [disabled]="form?.disabled || form?.invalid"
                 (click)="onEdit()">
-          Editeaza
+          <i class="fa-solid fa-pen-to-square"> </i> Editează
         </button>
       </div>
     </div>

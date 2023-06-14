@@ -71,11 +71,6 @@
   max-height: 300px;
 }
 
-.book-online:hover {
-  background-color: #000b6c;
-  color: white;
-}
-
 a:hover {
   font-weight: bold;
   text-decoration: underline;
@@ -87,8 +82,25 @@ a:hover {
   font-size: 20px;
 }
 
-.start-title:hover {
-  background-color: #000b6c;
-  color: white;
-  font-size: 20px;
+.mapouter {
+  position: relative;
+  text-align: right;
+  width: 600px;
+  height: 400px;
+}
+
+.gmap_canvas {
+  overflow: hidden;
+  background: none !important;
+  width: 600px;
+  height: 400px;
+}
+
+.gmap_iframe {
+  width: 600px !important;
+  height: 400px !important;
+}
+
+img {
+  width: 180px;
 }

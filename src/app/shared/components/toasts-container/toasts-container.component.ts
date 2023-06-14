@@ -10,31 +10,28 @@ import { ToastService } from './toasts.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ToastsContainerComponent {
-
   toast$: Observable<NotificationToast | null>;
 
   constructor(public toastService: ToastService) {
-      this.toast$ = toastService.toastSubject;
+    this.toast$ = toastService.toastSubject;
   }
 
   computeNotificationIcon(type: NotificationType): string | undefined {
-      switch (type) {
-          case NotificationType.ERROR:
-              return 'fa-xmark';
-          case NotificationType.INFO:
-              return 'fa-circle-info';
-          case NotificationType.WARNING:
-              return 'fa-triangle-exclamation';
-          case NotificationType.SUCCESS:
-              return 'fa-check';
-          default:
-              return '';
-      }
+    switch (type) {
+      case NotificationType.ERROR:
+        return 'fa-circle-xmark';
+      case NotificationType.INFO:
+        return 'fa-circle-info';
+      case NotificationType.WARNING:
+        return 'fa-circle-exclamation';
+      case NotificationType.SUCCESS:
+        return 'fa-circle-check';
+      default:
+        return '';
+    }
   }
 
   onClose(): void {
-      this.toastService.remove();
+    this.toastService.remove();
   }
-
-
 }

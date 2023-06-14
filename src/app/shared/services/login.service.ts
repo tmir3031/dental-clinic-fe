@@ -94,7 +94,7 @@ export class LoginService {
   private redirectUserByRole(role: Role): void {
     switch (role) {
       case Role.ADMIN:
-        this.router.navigate(['/menu']);
+        this.router.navigate(['/menu/users']);
         break;
       case Role.DOCTOR:
         this.router.navigate(['/menu/view']);

@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row justify-content-center my-3">
 
-    <div class="w-25 register register-form rounded px-4">
+    <div class="col-md-6 col-lg-4 register register-form rounded px-4">
 
       <div class="text-center">
         <h1>Bine ai venit!</h1>
@@ -45,7 +45,9 @@
                  placeholder="Data nasterii*"
                  ngbDatepicker
                  formControlName="dateOfBirth"
-                 #d1="ngbDatepicker">
+                 #d1="ngbDatepicker"
+                 [minDate]="minDate"
+                 [maxDate]="maxDate">
           <button class="btn btn-outline border-gray calendar"
                   (click)="d1.toggle()"
                   type="button">
@@ -56,13 +58,13 @@
           <button type="submit"
                   class="btn btn-primary text-white p-2 m-3 w-50"
                   [disabled]="!(accountForm.controls.dateOfBirth.valid && accountForm.controls.lastName.valid && accountForm.controls.firstName.valid && accountForm.controls.email.valid)">
-            Continua
+            Continuă
           </button>
         </div>
         <div class="rounded px-4 d-flex align-content-end justify-content-center mt-10">
           <a class="text-dark align-content-end justify-content-start"
              routerLinkActive="active"
-             routerLink="/login"><i class="fa-sharp fa-solid fa-arrow-left"></i> Intoarce-te la login! </a>
+             routerLink="/login"><i class="fa-sharp fa-solid fa-arrow-left"></i> Întoarce-te la login! </a>
         </div>
       </form>
 
@@ -97,7 +99,7 @@
                  adoNgError="confirmPassword"
                  id="confirmPassword" />
           <label for="confirmPassword"
-                 class="form-label">Confirma Parola*</label>
+                 class="form-label">Confirmă Parola*</label>
         </div>
 
         <ado-password-strength-meter [password]="accountForm.controls.password.value">
@@ -110,15 +112,17 @@
         </div>
 
 
-        <div class="form-floating text-center">
-          <button type="submit"
-                  class="btn btn-primary text-white p-2 mt-3 w-50"
-                  [disabled]="!(accountForm.controls.username.valid && accountForm.controls.password.valid && accountForm.controls.confirmPassword.valid)">
-            Continua
-          </button>
-          <div class="form-floating text-center">
+        <div class="row form-floating text-center">
+          <div class="col">
             <button (click)="backToStepOne()"
                     class="btn btn-secondary text-white p-2 m-3 w-50"><i class="fa-sharp fas fa-circle-left"></i>
+            </button>
+          </div>
+          <div class="col">
+            <button type="submit"
+                    class="btn btn-primary text-white p-2 mt-3 w-50"
+                    [disabled]="!(accountForm.controls.username.valid && accountForm.controls.password.valid && accountForm.controls.confirmPassword.valid)">
+              <i class="fa-sharp fas fa-circle-right"> </i>
             </button>
           </div>
         </div>
@@ -134,7 +138,7 @@
                  adoNgError="phone"
                  id="phone">
           <label for="phone"
-                 class="form-label">Telefon</label>
+                 class="form-label">Telefon*</label>
         </div>
         <div class="form-floating my-2 w-100">
           <select class="form-select"
@@ -143,7 +147,7 @@
             <option value="masculin">Masculin</option>
             <option value="feminin">Feminin</option>
           </select>
-          <label for="gender">Gen</label>
+          <label for="gender">Gen*</label>
         </div>
         <div class="form-floating my-2 w-100">
           <input type="text"
@@ -152,7 +156,7 @@
                  adoNgError="allergies"
                  id="allergies">
           <label for="allergies"
-                 class="form-label">Alergii</label>
+                 class="form-label">Alergii (opțional)</label>
         </div>
         <div class="form-floating my-2 w-100">
           <input type="text"
@@ -161,18 +165,19 @@
                  adoNgError="diseases"
                  id="diseases">
           <label for="diseases"
-                 class="form-label">Boli cronice</label>
+                 class="form-label">Boli cronice (opțional)</label>
         </div>
         <div class="form-floating text-center">
           <button type="submit"
                   class="btn btn-primary text-white p-2 m-3 w-50"
                   [disabled]="!accountForm.valid">
-            Creareza cont
+            Creează cont
           </button>
         </div>
         <div class="form-floating text-center">
           <button (click)="backToStepTwo()"
-                  class="btn btn-secondary text-white p-2 m-3 w-50"><i class="fa-sharp fas fa-circle-left"></i>
+                  class="btn btn-secondary text-center text-white p-2 m-3 w-25"><i
+               class="fa-sharp fas fa-circle-left"></i>
           </button>
         </div>
       </form>

@@ -7,19 +7,17 @@ import { AppComponent } from './app.component';
 import { LoginInterceptorService } from './login/services/login-interceptor.service';
 import { UiModule } from './ui/ui.module';
 import { SharedModule } from './shared/shared.module';
-
-
+import { LoaderModule } from './shared/loader/loader.module';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     UiModule,
     HttpClientModule,
-    SharedModule
+    SharedModule,
+    LoaderModule,
   ],
   providers: [
     {
@@ -28,6 +26,6 @@ import { SharedModule } from './shared/shared.module';
       multi: true,
     },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

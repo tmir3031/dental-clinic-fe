@@ -1,0 +1,25 @@
+@import 'css/bootstrap-variables';
+@import 'bootstrap/scss/mixins';
+
+.list-group.list-group-flush {
+    height: 400px;
+    overflow-y: scroll;
+}
+
+
+.list-group-item {
+    cursor: pointer;
+    height: 50px;
+}
+
+.list-group-item:hover{
+    background-color: $gray-500;
+    color: white;
+}
+
+
+.card{
+    width: 500px;
+}
+
+

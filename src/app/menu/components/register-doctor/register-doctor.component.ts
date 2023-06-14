@@ -49,7 +49,7 @@ export class RegisterDoctorComponent implements OnInit, OnDestroy {
           email: this.accountForm.get('email').value,
           gender: this.accountForm.get('gender').value,
           role: 'DOCTOR',
-          specializationIds: [this.accountForm.get('specializationId1').value],
+          specializationIds: [this.accountForm.get('specializationId1').value,this.accountForm.get('specializationId2').value,this.accountForm.get('specializationId3').value],
           description: this.accountForm.get('description').value,
         })
         .subscribe(() => {

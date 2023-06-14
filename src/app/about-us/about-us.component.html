@@ -47,7 +47,7 @@
         <div class="card-body text-center">
           <h5 class="card-title ">Dr. {{doctor.lastName}} {{doctor.firstName}} </h5>
           <div class="card-text">{{doctor.description}}</div>
-          <div class="card-text">Specializari:</div>
+          <div class="card-text">Specializări:</div>
           <div *ngFor="let specialization of doctor.specializationDetailsListItem
           "
                class="card-text">{{specialization.name}}</div>
